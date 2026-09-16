@@ -2,37 +2,115 @@ import os
 import json
 import time
 import re
+from urllib.parse import urljoin
+
 from playwright.sync_api import sync_playwright
+
+
+# =========================================================
+# CONFIG
+# =========================================================
 
 EMAIL = os.environ.get("BOUGHAL_EMAIL")
 PASSWORD = os.environ.get("BOUGHAL_PASSWORD")
 
-BASE_PRODUCTS_URL = "https://boughalaffiliate.com/affiliate/products"
+BASE_URL = "https://boughalaffiliate.com"
+BASE_PRODUCTS_URL = f"{BASE_URL}/affiliate/products"
+
 PROFIT_MARGIN = 100
 
+MAX_EMPTY_PAGES = 2
+MAX_PAGES = 1000
+
+
+# =========================================================
+# HELPERS
+# =========================================================
 
 def clean_text(value):
     if not value:
         return ""
-    return " ".join(value.split()).strip()
+
+    return " ".join(str(value).split()).strip()
 
 
-def extract_price(text):
+def absolute_url(url):
+    if not url:
+        return ""
+
+    url = str(url).strip()
+
+    if not url:
+        return ""
+
+    if url.startswith("//"):
+        return "https:" + url
+
+    return urljoin(BASE_URL, url)
+
+
+def normalize_url(url):
+    if not url:
+        return ""
+
+    return absolute_url(url).strip()
+
+
+def extract_number(text):
     if not text:
         return None
 
+    text = str(text).replace(",", ".")
+
+    match = re.search(
+        r"(\d+(?:\.\d+)?)",
+        text
+    )
+
+    if not match:
+        return None
+
+    try:
+        return float(match.group(1))
+    except Exception:
+        return None
+
+
+# =========================================================
+# PRICE
+# =========================================================
+
+def extract_price(text):
+
+    if not text:
+        return None
+
+    text = clean_text(text)
+
     patterns = [
+
         r'(\d+(?:[.,]\d{1,2})?)\s*(?:DH|dh|MAD|mad)',
+
         r'(?:DH|dh|MAD|mad)\s*(\d+(?:[.,]\d{1,2})?)',
+
         r'(\d+(?:[.,]\d{1,2})?)\s*د\.?\s*م',
+
         r'(\d+(?:[.,]\d{1,2})?)\s*(?:درهم|درهما|درهمًا)'
     ]
 
     for pattern in patterns:
-        match = re.search(pattern, text)
+
+        match = re.search(
+            pattern,
+            text
+        )
 
         if match:
-            value = match.group(1).replace(",", ".")
+
+            value = (
+                match.group(1)
+                .replace(",", ".")
+            )
 
             try:
                 return float(value)
@@ -42,9 +120,132 @@ def extract_price(text):
     return None
 
 
-def extract_image(img):
-    if not img:
+def format_price(value):
+
+    if value is None:
+        return ""
+
+    try:
+
+        value = float(value)
+
+        if value.is_integer():
+            return f"{int(value)} DH"
+
+        return f"{value:.2f} DH"
+
+    except Exception:
+
+        return ""
+
+
+def extract_revendeur_price(text):
+
+    if not text:
         return None
+
+    text = clean_text(text)
+
+    patterns = [
+
+        r"prix\s+revendeur\s*[:\-]?\s*"
+        r"(\d+(?:[.,]\d{1,2})?)",
+
+        r"revendeur\s*[:\-]?\s*"
+        r"(\d+(?:[.,]\d{1,2})?)"
+    ]
+
+    for pattern in patterns:
+
+        match = re.search(
+            pattern,
+            text,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            try:
+
+                return float(
+                    match.group(1)
+                    .replace(",", ".")
+                )
+
+            except Exception:
+                pass
+
+    # -----------------------------------------------------
+    # البحث سطر بسطر
+    # -----------------------------------------------------
+
+    lines = [
+        clean_text(line)
+        for line in text.split("\n")
+        if clean_text(line)
+    ]
+
+    for i, line in enumerate(lines):
+
+        low = line.lower()
+
+        if (
+            "prix revendeur" in low
+            or "revendeur" in low
+        ):
+
+            price = extract_price(line)
+
+            if price is not None:
+                return price
+
+            if i + 1 < len(lines):
+
+                price = extract_price(
+                    lines[i + 1]
+                )
+
+                if price is not None:
+                    return price
+
+    return None
+
+
+# =========================================================
+# IMAGE HELPERS
+# =========================================================
+
+BLOCKED_IMAGE_WORDS = [
+    "placeholder",
+    "placehold",
+    "unsplash.com",
+    "default-image",
+    "default_image",
+    "no-image",
+    "no_image",
+    "noimage"
+]
+
+
+def is_valid_image(url):
+
+    if not url:
+        return False
+
+    low = url.lower()
+
+    if any(
+        word in low
+        for word in BLOCKED_IMAGE_WORDS
+    ):
+        return False
+
+    return True
+
+
+def get_image_candidates(img):
+
+    candidates = []
 
     attributes = [
         "src",
@@ -54,27 +255,44 @@ def extract_image(img):
         "data-lazy-src",
         "data-lazy",
         "data-url",
-        "data-original-src"
+        "data-original-src",
+        "data-full",
+        "data-large",
+        "data-zoom-image"
     ]
 
-    candidates = []
-
     for attr in attributes:
+
         try:
+
             value = img.get_attribute(attr)
 
             if value:
                 candidates.append(value)
+
         except Exception:
             pass
 
-    # استخراج الصور من srcset
+    # -----------------------------------------------------
+    # srcset
+    # -----------------------------------------------------
+
     try:
-        srcset = img.get_attribute("srcset")
+
+        srcset = img.get_attribute(
+            "srcset"
+        )
 
         if srcset:
+
             for part in srcset.split(","):
-                url = part.strip().split(" ")[0].strip()
+
+                part = part.strip()
+
+                if not part:
+                    continue
+
+                url = part.split()[0].strip()
 
                 if url:
                     candidates.append(url)
@@ -82,232 +300,329 @@ def extract_image(img):
     except Exception:
         pass
 
-    blocked = [
-        "placeholder",
-        "placehold",
-        "unsplash.com",
-        "default-image",
-        "default_image",
-        "no-image",
-        "no_image",
-        "noimage"
-    ]
+    return candidates
+
+
+def extract_image(img):
+
+    if not img:
+        return None
+
+    candidates = get_image_candidates(
+        img
+    )
 
     for url in candidates:
 
-        if not url:
-            continue
+        url = absolute_url(url)
 
-        low = url.lower()
+        if is_valid_image(url):
 
-        if any(word in low for word in blocked):
-            continue
-
-        if url.startswith("//"):
-            url = "https:" + url
-
-        elif url.startswith("/"):
-            url = "https://boughalaffiliate.com" + url
-
-        return url
+            return url
 
     return None
 
 
-def extract_revendeur_price(text):
-    if not text:
-        return None
-    text = clean_text(text)
-    patterns = [
-        r"prix\s+revendeur\s*[:\-]?\s*(\d+(?:[.,]\d{1,2})?)",
-        r"revendeur\s*[:\-]?\s*(\d+(?:[.,]\d{1,2})?)",
+# =========================================================
+# ALL IMAGES
+# =========================================================
+
+def extract_all_images(page):
+
+    results = []
+    seen = set()
+
+    # -----------------------------------------------------
+    # نحاول Gallery الرئيسية أولاً
+    # -----------------------------------------------------
+
+    gallery_selectors = [
+
+        ".product-main-slider img",
+
+        ".product-gallery img",
+
+        ".product-images img",
+
+        ".swiper-slide img",
+
+        "[class*='gallery'] img",
+
+        "[class*='Gallery'] img"
     ]
-    for pattern in patterns:
-        m = re.search(pattern, text, re.IGNORECASE)
-        if m:
-            try:
-                return float(m.group(1).replace(',', '.'))
-            except Exception:
-                pass
-    lines = [clean_text(x) for x in text.split("\n") if clean_text(x)]
-    for i, line in enumerate(lines):
-        if 'prix revendeur' in line.lower() or 'revendeur' in line.lower():
-            v = extract_price(line)
-            if v is not None:
-                return v
-            if i + 1 < len(lines):
-                v = extract_price(lines[i+1])
-                if v is not None:
-                    return v
-    return None
 
-def extract_all_images(container):
-    results=[]; seen=set()
+    for selector in gallery_selectors:
+
+        try:
+
+            imgs = page.locator(
+                selector
+            ).all()
+
+            if not imgs:
+                continue
+
+            local_results = []
+
+            for img in imgs:
+
+                url = extract_image(img)
+
+                if not url:
+                    continue
+
+                if url not in local_results:
+
+                    local_results.append(url)
+
+            if local_results:
+
+                for url in local_results:
+
+                    if url not in seen:
+
+                        seen.add(url)
+                        results.append(url)
+
+                # وجدنا Gallery حقيقية
+                if len(results) > 0:
+                    return results
+
+        except Exception:
+            pass
+
+    # -----------------------------------------------------
+    # fallback: كل الصور
+    # -----------------------------------------------------
+
     try:
-        imgs=container.locator('img').all()
+
+        imgs = page.locator(
+            "img"
+        ).all()
+
         for img in imgs:
-            candidates=[]
-            for attr in ['src','data-src','data-image','data-original','data-lazy-src','data-lazy','data-url','data-original-src']:
-                try:
-                    v=img.get_attribute(attr)
-                    if v: candidates.append(v)
-                except Exception: pass
-            try:
-                srcset=img.get_attribute('srcset')
-                if srcset:
-                    candidates += [x.strip().split(' ')[0] for x in srcset.split(',') if x.strip()]
-            except Exception: pass
-            for v in candidates:
-                if v.startswith('//'): v='https:'+v
-                elif v.startswith('/'): v='https://boughalaffiliate.com'+v
-                low=v.lower()
-                if not v or any(x in low for x in ['placeholder','placehold','unsplash.com','default-image','default_image','no-image','no_image','noimage']): continue
-                if v not in seen:
-                    seen.add(v); results.append(v)
-    except Exception: pass
+
+            url = extract_image(img)
+
+            if not url:
+                continue
+
+            if url not in seen:
+
+                seen.add(url)
+                results.append(url)
+
+    except Exception:
+        pass
+
     return results
 
-def extract_description(page):
-    selectors=["[class*='description']","[class*='Description']","#description",".description","[data-description]"]
-    candidates=[]
-    for sel in selectors:
-        try:
-            for el in page.locator(sel).all():
-                try:
-                    t=clean_text(el.inner_text())
-                    if len(t)>=10: candidates.append(t)
-                except Exception: pass
-        except Exception: pass
-    if candidates: return max(candidates,key=len)
-    return ''
 
-def extract_sizes(page):
-    sizes=[]; seen=set()
-    rx=re.compile(r'^(?:XXS|XS|S|M|L|XL|XXL|XXXL|2XL|3XL|4XL|5XL|\d{2})$',re.I)
-    for sel in ["select option","input[type='radio']","label","button","[class*='size']","[class*='Size']","[data-size]"]:
-        try:
-            for el in page.locator(sel).all():
-                vals=[]
-                for attr in ['data-size','value']:
-                    try:
-                        v=el.get_attribute(attr)
-                        if v: vals.append(v)
-                    except Exception: pass
-                try: vals.append(el.inner_text())
-                except Exception: pass
-                for v in vals:
-                    for part in re.split(r'[:|/\-,]+',clean_text(v)):
-                        part=clean_text(part)
-                        if rx.match(part) and part.upper() not in seen:
-                            seen.add(part.upper()); sizes.append(part.upper())
-        except Exception: pass
-    return sizes
+# =========================================================
+# VIDEOS
+# =========================================================
 
-def scrape_product_details(context, product):
-    url=product.get('original_link')
-    if not url: return product
-    detail=context.new_page()
+def extract_all_videos(page):
+
+    videos = []
+    seen = set()
+
+    # -----------------------------------------------------
+    # video elements
+    # -----------------------------------------------------
+
     try:
-        detail.goto(url,wait_until='domcontentloaded',timeout=30000)
-        try: detail.wait_for_load_state('networkidle',timeout=12000)
-        except Exception: pass
-        detail.wait_for_timeout(2000)
-        body=clean_text(detail.locator('body').inner_text())
-        # name
-        for sel in ['h1','h2','[class*="product-title"]','[class*="title"]']:
+
+        video_elements = page.locator(
+            "video"
+        ).all()
+
+        for video in video_elements:
+
+            # video src
             try:
-                for el in detail.locator(sel).all():
-                    t=clean_text(el.inner_text())
-                    if 3<=len(t)<=250 and extract_price(t) is None:
-                        product['title']=t; raise StopIteration
-            except StopIteration: break
-            except Exception: pass
-        # all gallery images
-        imgs=extract_all_images(detail.locator('body'))
-        if imgs:
-            product['images']=imgs; product['image']=imgs[0]
-        # description and sizes
-        product['description']=extract_description(detail)
-        product['sizes']=extract_sizes(detail)
-        # exact reseller price from detail page
-        rp=extract_revendeur_price(body)
-        if rp is not None:
-            product['original_price']=f'{int(rp)} DH'
-            product['price']=f'{int(rp + PROFIT_MARGIN)} DH'
-    except Exception as e:
-        print(f'      ⚠️ تفاصيل المنتج: {e}')
-    finally:
-        try: detail.close()
-        except Exception: pass
-    return product
+
+                src = video.get_attribute(
+                    "src"
+                )
+
+                if src:
+
+                    url = absolute_url(src)
+
+                    if url and url not in seen:
+
+                        seen.add(url)
+                        videos.append(url)
+
+            except Exception:
+                pass
+
+            # source داخل video
+            try:
+
+                sources = video.locator(
+                    "source"
+                ).all()
+
+                for source in sources:
+
+                    src = source.get_attribute(
+                        "src"
+                    )
+
+                    if not src:
+                        continue
+
+                    url = absolute_url(src)
+
+                    if url and url not in seen:
+
+                        seen.add(url)
+                        videos.append(url)
+
+            except Exception:
+                pass
+
+    except Exception:
+        pass
+
+    # -----------------------------------------------------
+    # fallback:
+    # عناصر قد تحتوي data-video
+    # -----------------------------------------------------
+
+    if not videos:
+
+        selectors = [
+            "[data-video]",
+            "[data-video-url]",
+            "[data-src*='.mp4']",
+            "[href*='.mp4']"
+        ]
+
+        for selector in selectors:
+
+            try:
+
+                elements = page.locator(
+                    selector
+                ).all()
+
+                for element in elements:
+
+                    for attr in [
+                        "data-video",
+                        "data-video-url",
+                        "data-src",
+                        "href"
+                    ]:
+
+                        try:
+
+                            value = element.get_attribute(
+                                attr
+                            )
+
+                            if not value:
+                                continue
+
+                            url = absolute_url(value)
+
+                            if url and url not in seen:
+
+                                seen.add(url)
+                                videos.append(url)
+
+                        except Exception:
+                            pass
+
+            except Exception:
+                pass
+
+    return videos
 
 
-def looks_like_product_link(href):
-    if not href:
-        return False
+# =========================================================
+# TITLE
+# =========================================================
 
-    h = href.lower()
-
-    patterns = [
-        "/product/",
-        "/products/",
-        "/affiliate/product/",
-        "/affiliate/products/",
-        "/p/"
-    ]
-
-    return any(pattern in h for pattern in patterns)
-
-
-def find_title(container, fallback_text=""):
+def find_title(
+    container,
+    fallback_text=""
+):
 
     selectors = [
+
         "h1",
         "h2",
         "h3",
-        "h4",
-        "h5",
+
+        ".product-title",
+        "[class*='product-title']",
+        "[class*='Product-title']",
+
         "[class*='title']",
         "[class*='Title']",
+
         "[class*='name']",
         "[class*='Name']",
+
         "[data-title]"
     ]
 
     for selector in selectors:
 
         try:
-            candidate = container.locator(selector).first
 
-            if candidate.count() == 0:
-                continue
+            elements = container.locator(
+                selector
+            ).all()
 
-            # data-title
-            try:
-                data_title = candidate.get_attribute("data-title")
+            for element in elements:
 
-                if data_title:
-                    data_title = clean_text(data_title)
+                try:
 
-                    if len(data_title) >= 3:
-                        return data_title
+                    # data-title
+                    data_title = element.get_attribute(
+                        "data-title"
+                    )
 
-            except Exception:
-                pass
+                    if data_title:
 
-            candidate_text = clean_text(
-                candidate.inner_text()
-            )
+                        value = clean_text(
+                            data_title
+                        )
 
-            if len(candidate_text) >= 3:
+                        if (
+                            len(value) >= 3
+                            and extract_price(value) is None
+                        ):
+                            return value
 
-                if extract_price(candidate_text) is None:
-                    return candidate_text
+                    text = clean_text(
+                        element.inner_text()
+                    )
+
+                    if (
+                        len(text) >= 3
+                        and len(text) <= 250
+                        and extract_price(text) is None
+                    ):
+
+                        return text
+
+                except Exception:
+                    pass
 
         except Exception:
             pass
 
-    # fallback
+    # -----------------------------------------------------
+    # fallback text
+    # -----------------------------------------------------
+
     lines = [
         clean_text(line)
         for line in fallback_text.split("\n")
@@ -315,16 +630,24 @@ def find_title(container, fallback_text=""):
     ]
 
     ignored_words = [
+
         "acheter",
         "ajouter",
         "commander",
         "voir",
+
         "stock",
         "rupture",
         "out of stock",
         "in stock",
+
         "disponible",
-        "disponibilité"
+        "disponibilité",
+
+        "prix",
+        "revendeur",
+        "dh",
+        "mad"
     ]
 
     for line in lines:
@@ -332,12 +655,18 @@ def find_title(container, fallback_text=""):
         if len(line) < 3:
             continue
 
+        if len(line) > 250:
+            continue
+
         if extract_price(line) is not None:
             continue
 
         low = line.lower()
 
-        if any(word in low for word in ignored_words):
+        if any(
+            word in low
+            for word in ignored_words
+        ):
             continue
 
         return line
@@ -346,33 +675,854 @@ def find_title(container, fallback_text=""):
 
 
 # =========================================================
-# استخراج منتجات الصفحة الحالية
+# DESCRIPTION
 # =========================================================
 
-def scrape_current_page(page, all_products):
+def extract_description(page):
 
-    page_products_before = len(all_products)
+    candidates = []
+
+    selectors = [
+
+        "#description",
+
+        ".description",
+
+        "[data-description]",
+
+        ".product-description",
+
+        "[class*='product-description']",
+
+        "[class*='description']",
+
+        "[class*='Description']"
+    ]
+
+    for selector in selectors:
+
+        try:
+
+            elements = page.locator(
+                selector
+            ).all()
+
+            for element in elements:
+
+                try:
+
+                    text = clean_text(
+                        element.inner_text()
+                    )
+
+                    if len(text) < 10:
+                        continue
+
+                    candidates.append(
+                        text
+                    )
+
+                except Exception:
+                    pass
+
+        except Exception:
+            pass
+
+    # -----------------------------------------------------
+    # البحث عن عنوان Description
+    # -----------------------------------------------------
+
+    try:
+
+        headings = page.locator(
+            "h2, h3, h4, strong"
+        ).all()
+
+        for heading in headings:
+
+            try:
+
+                heading_text = clean_text(
+                    heading.inner_text()
+                )
+
+                if heading_text.lower() not in [
+                    "description",
+                    "description:",
+                    "détails",
+                    "details"
+                ]:
+                    continue
+
+                for level in range(1, 5):
+
+                    try:
+
+                        parent = heading.locator(
+                            "xpath=" + "/.." * level
+                        ).first
+
+                        if parent.count() == 0:
+                            continue
+
+                        text = clean_text(
+                            parent.inner_text()
+                        )
+
+                        # إزالة كلمة Description
+                        text = re.sub(
+                            r"^\s*description\s*:?\s*",
+                            "",
+                            text,
+                            flags=re.IGNORECASE
+                        )
+
+                        text = clean_text(text)
+
+                        if len(text) >= 10:
+
+                            candidates.append(
+                                text
+                            )
+
+                    except Exception:
+                        pass
+
+            except Exception:
+                pass
+
+    except Exception:
+        pass
+
+    if not candidates:
+        return ""
+
+    # إزالة duplicates
+    unique = []
+
+    for item in candidates:
+
+        if item not in unique:
+            unique.append(item)
+
+    # نأخذ المرشح الأفضل
+    # مع تجنب body كامل الصفحة
+    unique.sort(
+        key=len,
+        reverse=True
+    )
+
+    for text in unique:
+
+        low = text.lower()
+
+        # لا نريد wrapper ضخم يحتوي الكتالوج كله
+        if len(text) > 5000:
+            continue
+
+        if (
+            "prix revendeur" in low
+            and "description" not in low
+        ):
+            continue
+
+        return text
+
+    return unique[0]
+
+
+# =========================================================
+# SIZES
+# =========================================================
+
+SIZE_REGEX = re.compile(
+    r"^(?:"
+    r"XXXS|XXS|XS|S|M|L|XL|XXL|XXXL|"
+    r"2XL|3XL|4XL|5XL|"
+    r"\d{2}"
+    r")$",
+    re.IGNORECASE
+)
+
+
+def extract_sizes(page):
+
+    sizes = []
+    seen = set()
+
+    selectors = [
+
+        "select option",
+
+        "input[type='radio']",
+
+        "input[name='size']",
+
+        "[data-size]",
+
+        "[class*='size']",
+
+        "[class*='Size']"
+    ]
+
+    for selector in selectors:
+
+        try:
+
+            elements = page.locator(
+                selector
+            ).all()
+
+            for element in elements:
+
+                values = []
+
+                for attr in [
+                    "data-size",
+                    "value",
+                    "title"
+                ]:
+
+                    try:
+
+                        value = element.get_attribute(
+                            attr
+                        )
+
+                        if value:
+                            values.append(value)
+
+                    except Exception:
+                        pass
+
+                try:
+
+                    values.append(
+                        element.inner_text()
+                    )
+
+                except Exception:
+                    pass
+
+                for value in values:
+
+                    value = clean_text(value)
+
+                    if not value:
+                        continue
+
+                    # -------------------------------------------------
+                    # إذا كان value مثلاً "Size: XL"
+                    # -------------------------------------------------
+
+                    parts = re.split(
+                        r"[:|/,]+",
+                        value
+                    )
+
+                    for part in parts:
+
+                        part = clean_text(
+                            part
+                        )
+
+                        # معالجة "-"
+                        if "-" in part and len(part) < 10:
+                            subparts = [
+                                clean_text(x)
+                                for x in part.split("-")
+                            ]
+                        else:
+                            subparts = [part]
+
+                        for item in subparts:
+
+                            if not item:
+                                continue
+
+                            if SIZE_REGEX.match(item):
+
+                                normalized = item.upper()
+
+                                if normalized not in seen:
+
+                                    seen.add(
+                                        normalized
+                                    )
+
+                                    sizes.append(
+                                        normalized
+                                    )
+
+        except Exception:
+            pass
+
+    return sizes
+
+
+# =========================================================
+# COLORS
+# =========================================================
+
+def extract_colors(page):
+
+    colors = []
+    seen = set()
+
+    selectors = [
+
+        ".color-button",
+
+        "[data-color]",
+
+        "button[data-color]",
+
+        "input[data-color]",
+
+        "[class*='color-button']",
+
+        "[class*='Color-button']",
+
+        "[class*='color-option']",
+
+        "[class*='Color-option']",
+
+        "[class*='color']"
+    ]
+
+    for selector in selectors:
+
+        try:
+
+            elements = page.locator(
+                selector
+            ).all()
+
+            for element in elements:
+
+                candidates = []
+
+                # -------------------------------------------------
+                # data-color
+                # -------------------------------------------------
+
+                for attr in [
+                    "data-color",
+                    "data-colour",
+                    "title",
+                    "aria-label",
+                    "value"
+                ]:
+
+                    try:
+
+                        value = element.get_attribute(
+                            attr
+                        )
+
+                        if value:
+                            candidates.append(
+                                value
+                            )
+
+                    except Exception:
+                        pass
+
+                # -------------------------------------------------
+                # parent title / data-color
+                # -------------------------------------------------
+
+                try:
+
+                    parent = element.locator(
+                        ".."
+                    ).first
+
+                    if parent.count() > 0:
+
+                        for attr in [
+                            "data-color",
+                            "data-colour",
+                            "title",
+                            "aria-label"
+                        ]:
+
+                            try:
+
+                                value = parent.get_attribute(
+                                    attr
+                                )
+
+                                if value:
+                                    candidates.append(
+                                        value
+                                    )
+
+                            except Exception:
+                                pass
+
+                except Exception:
+                    pass
+
+                # -------------------------------------------------
+                # النص
+                # -------------------------------------------------
+
+                try:
+
+                    text = clean_text(
+                        element.inner_text()
+                    )
+
+                    if text:
+                        candidates.append(
+                            text
+                        )
+
+                except Exception:
+                    pass
+
+                # -------------------------------------------------
+                # اختيار color
+                # -------------------------------------------------
+
+                for value in candidates:
+
+                    value = clean_text(
+                        value
+                    )
+
+                    if not value:
+                        continue
+
+                    if len(value) > 80:
+                        continue
+
+                    # استبعاد أشياء ليست ألواناً
+                    low = value.lower()
+
+                    ignored = [
+
+                        "color",
+                        "colour",
+                        "couleur",
+
+                        "select",
+                        "choisir",
+
+                        "size",
+                        "taille",
+
+                        "add to cart",
+                        "acheter",
+                        "commander"
+                    ]
+
+                    if low in ignored:
+                        continue
+
+                    # لا نعتبر RGB/hex ألواناً نصية
+                    # إذا كان الموقع يستعملها كـstyle
+                    if re.match(
+                        r"^#[0-9a-f]{3,8}$",
+                        low
+                    ):
+                        # نخليها لأنها قد تكون
+                        # المصدر الوحيد للون
+                        pass
+
+                    # تنظيف label
+                    value = re.sub(
+                        r"^(?:color|colour|couleur)\s*[:\-]\s*",
+                        "",
+                        value,
+                        flags=re.IGNORECASE
+                    )
+
+                    value = clean_text(value)
+
+                    if not value:
+                        continue
+
+                    key = value.lower()
+
+                    if key not in seen:
+
+                        seen.add(key)
+                        colors.append(value)
+
+    return colors
+
+
+# =========================================================
+# STATUS
+# =========================================================
+
+def extract_status(page):
+
+    selectors = [
+
+        ".stock-status",
+
+        ".product-stock",
+
+        "[class*='stock-status']",
+
+        "[class*='product-stock']",
+
+        "[class*='stock']"
+    ]
+
+    for selector in selectors:
+
+        try:
+
+            elements = page.locator(
+                selector
+            ).all()
+
+            for element in elements:
+
+                text = clean_text(
+                    element.inner_text()
+                )
+
+                if text:
+                    return text
+
+        except Exception:
+            pass
+
+    body = ""
+
+    try:
+
+        body = clean_text(
+            page.locator("body").inner_text()
+        )
+
+    except Exception:
+        pass
+
+    low = body.lower()
+
+    if (
+        "rupture" in low
+        or "out of stock" in low
+        or "غير متوفر" in low
+    ):
+        return "Out of Stock"
+
+    return "In Stock"
+
+
+# =========================================================
+# PRODUCT LINK
+# =========================================================
+
+def looks_like_product_link(href):
+
+    if not href:
+        return False
+
+    h = href.lower()
+
+    patterns = [
+
+        "/product/",
+        "/products/",
+
+        "/affiliate/product/",
+        "/affiliate/products/",
+
+        "/p/"
+    ]
+
+    return any(
+        pattern in h
+        for pattern in patterns
+    )
+
+
+# =========================================================
+# DETAIL PAGE
+# =========================================================
+
+def scrape_product_details(
+    context,
+    product
+):
+
+    url = product.get(
+        "original_link"
+    )
+
+    if not url:
+        return product
+
+    detail = context.new_page()
+
+    try:
+
+        print(
+            f"      🔎 فتح: {url}"
+        )
+
+        detail.goto(
+            url,
+            wait_until="domcontentloaded",
+            timeout=30000
+        )
+
+        try:
+
+            detail.wait_for_load_state(
+                "networkidle",
+                timeout=12000
+            )
+
+        except Exception:
+            pass
+
+        detail.wait_for_timeout(
+            2000
+        )
+
+        # =================================================
+        # BODY
+        # =================================================
+
+        try:
+
+            body = clean_text(
+                detail.locator(
+                    "body"
+                ).inner_text()
+            )
+
+        except Exception:
+
+            body = ""
+
+        # =================================================
+        # TITLE
+        # =================================================
+
+        title = find_title(
+            detail,
+            body
+        )
+
+        if title:
+
+            product["title"] = title
+
+        # =================================================
+        # ALL IMAGES
+        # =================================================
+
+        images = extract_all_images(
+            detail
+        )
+
+        if images:
+
+            product["images"] = images
+            product["image"] = images[0]
+
+        else:
+
+            product.setdefault(
+                "images",
+                []
+            )
+
+        # =================================================
+        # ALL VIDEOS
+        # =================================================
+
+        videos = extract_all_videos(
+            detail
+        )
+
+        product["videos"] = videos
+
+        # =================================================
+        # DESCRIPTION
+        # =================================================
+
+        description = extract_description(
+            detail
+        )
+
+        product["description"] = (
+            description
+        )
+
+        # =================================================
+        # SIZES
+        # =================================================
+
+        sizes = extract_sizes(
+            detail
+        )
+
+        product["sizes"] = sizes
+
+        # =================================================
+        # COLORS
+        # =================================================
+
+        colors = extract_colors(
+            detail
+        )
+
+        product["colors"] = colors
+
+        # =================================================
+        # STATUS
+        # =================================================
+
+        product["status"] = extract_status(
+            detail
+        )
+
+        # =================================================
+        # EXACT PRIX REVENDEUR
+        # =================================================
+
+        reseller_price = (
+            extract_revendeur_price(
+                body
+            )
+        )
+
+        if reseller_price is not None:
+
+            product["original_price"] = (
+                format_price(
+                    reseller_price
+                )
+            )
+
+            selling_price = (
+                reseller_price
+                + PROFIT_MARGIN
+            )
+
+            product["price"] = (
+                format_price(
+                    selling_price
+                )
+            )
+
+        # =================================================
+        # LOG
+        # =================================================
+
+        print(
+            f"      🖼️ الصور: "
+            f"{len(product.get('images', []))}"
+        )
+
+        print(
+            f"      🎥 الفيديوهات: "
+            f"{len(product.get('videos', []))}"
+        )
+
+        print(
+            f"      📏 المقاسات: "
+            f"{product.get('sizes', [])}"
+        )
+
+        print(
+            f"      🎨 الألوان: "
+            f"{product.get('colors', [])}"
+        )
+
+        print(
+            f"      📝 الوصف: "
+            f"{'نعم' if description else 'لا'}"
+        )
+
+        print(
+            f"      💰 Prix revendeur: "
+            f"{product.get('original_price', '')}"
+        )
+
+        print(
+            f"      🏷️ Prix SHADHW: "
+            f"{product.get('price', '')}"
+        )
+
+    except Exception as e:
+
+        print(
+            f"      ⚠️ خطأ تفاصيل المنتج: "
+            f"{e}"
+        )
+
+    finally:
+
+        try:
+            detail.close()
+        except Exception:
+            pass
+
+    return product
+
+
+# =========================================================
+# FIND PRODUCT TITLE FROM CARD
+# =========================================================
+
+def find_card_title(
+    container,
+    text
+):
+
+    return find_title(
+        container,
+        text
+    )
+
+
+# =========================================================
+# SCRAPE CURRENT LISTING PAGE
+# =========================================================
+
+def scrape_current_page(
+    page,
+    all_products
+):
+
+    before_count = len(
+        all_products
+    )
 
     try:
 
         try:
+
             page.wait_for_load_state(
                 "networkidle",
                 timeout=15000
             )
+
         except Exception:
             pass
 
-        page.wait_for_timeout(4000)
+        page.wait_for_timeout(
+            4000
+        )
 
-        # =====================================================
-        # الطريقة الأولى: البحث عن روابط المنتجات
-        # =====================================================
-
-        links = page.locator("a").all()
+        links = page.locator(
+            "a"
+        ).all()
 
         print(
-            f"🔎 روابط الصفحة: {len(links)}"
+            f"🔎 روابط الصفحة: "
+            f"{len(links)}"
         )
 
         seen_links = set()
@@ -381,30 +1531,31 @@ def scrape_current_page(page, all_products):
 
             try:
 
-                href = link.get_attribute("href")
+                href = link.get_attribute(
+                    "href"
+                )
 
-                if not looks_like_product_link(href):
+                if not looks_like_product_link(
+                    href
+                ):
                     continue
 
-                if href.startswith("/"):
-                    absolute_href = (
-                        "https://boughalaffiliate.com"
-                        + href
-                    )
+                absolute_href = absolute_url(
+                    href
+                )
 
-                elif href.startswith("//"):
-                    absolute_href = "https:" + href
-
-                else:
-                    absolute_href = href
+                if not absolute_href:
+                    continue
 
                 if absolute_href in seen_links:
                     continue
 
-                seen_links.add(absolute_href)
+                seen_links.add(
+                    absolute_href
+                )
 
                 # =================================================
-                # العثور على container المنتج
+                # CONTAINER
                 # =================================================
 
                 container = link
@@ -413,7 +1564,9 @@ def scrape_current_page(page, all_products):
 
                     try:
 
-                        parent = container.locator("..")
+                        parent = container.locator(
+                            ".."
+                        )
 
                         if parent.count() == 0:
                             break
@@ -445,12 +1598,18 @@ def scrape_current_page(page, all_products):
                 if not text:
                     continue
 
+                # =================================================
+                # OUT OF STOCK
+                # =================================================
+
                 low_text = text.lower()
 
                 unavailable_words = [
+
                     "rupture",
                     "out of stock",
                     "out-of-stock",
+
                     "غير متوفر",
                     "نفذت الكمية"
                 ]
@@ -462,29 +1621,31 @@ def scrape_current_page(page, all_products):
                     continue
 
                 # =================================================
-                # السعر
+                # PRIX REVENDEUR
                 # =================================================
 
-                base_price = extract_revendeur_price(text)
+                base_price = (
+                    extract_revendeur_price(
+                        text
+                    )
+                )
 
+                # fallback فقط إذا لم نجد
+                # Prix revendeur
                 if base_price is None:
-                    base_price = extract_revendeur_price(text)
 
-                    if base_price is None:
-                        base_price = extract_price(text)
+                    base_price = extract_price(
+                        text
+                    )
 
                 if base_price is None:
                     continue
 
-                your_price = int(
-                    base_price + PROFIT_MARGIN
-                )
-
                 # =================================================
-                # الاسم
+                # TITLE
                 # =================================================
 
-                title = find_title(
+                title = find_card_title(
                     container,
                     text
                 )
@@ -493,62 +1654,138 @@ def scrape_current_page(page, all_products):
                     continue
 
                 # =================================================
-                # الصورة
+                # IMAGE
                 # =================================================
 
                 image_url = ""
 
-                images = container.locator(
-                    "img"
-                ).all()
+                try:
 
-                for img in images:
+                    images = container.locator(
+                        "img"
+                    ).all()
 
-                    image_url = (
-                        extract_image(img)
-                        or ""
+                    for img in images:
+
+                        image_url = (
+                            extract_image(img)
+                            or ""
+                        )
+
+                        if image_url:
+                            break
+
+                except Exception:
+                    pass
+
+                # =================================================
+                # DUPLICATE
+                # =================================================
+
+                duplicate = False
+
+                for existing in all_products:
+
+                    existing_link = (
+                        existing.get(
+                            "original_link",
+                            ""
+                        )
                     )
 
-                    if image_url:
+                    existing_title = (
+                        existing.get(
+                            "title",
+                            ""
+                        )
+                    )
+
+                    if (
+                        existing_link
+                        == absolute_href
+                    ):
+
+                        duplicate = True
                         break
 
-                # =================================================
-                # منع التكرار
-                # =================================================
+                    if (
+                        existing_title
+                        and existing_title.lower()
+                        == title.lower()
+                    ):
 
-                duplicate = any(
-                    p["original_link"]
-                    == absolute_href
-                    or p["title"].lower()
-                    == title.lower()
-                    for p in all_products
-                )
+                        duplicate = True
+                        break
 
                 if duplicate:
                     continue
 
+                # =================================================
+                # PRICE
+                # =================================================
+
+                selling_price = (
+                    base_price
+                    + PROFIT_MARGIN
+                )
+
+                # =================================================
+                # PRODUCT
+                # =================================================
+
                 product = {
-                    "id": f"shadhw_{len(all_products) + 1}",
+
+                    "id": (
+                        f"shadhw_"
+                        f"{len(all_products) + 1}"
+                    ),
+
                     "title": title,
+
                     "image": image_url,
-                    "images": [image_url] if image_url else [],
+
+                    "images": (
+                        [image_url]
+                        if image_url
+                        else []
+                    ),
+
+                    "videos": [],
+
                     "description": "",
+
                     "sizes": [],
-                    "price": f"{your_price} DH",
-                    "original_price": f"{int(base_price)} DH",
-                    "original_link": absolute_href,
+
+                    "colors": [],
+
+                    "price": format_price(
+                        selling_price
+                    ),
+
+                    "original_price": format_price(
+                        base_price
+                    ),
+
+                    "original_link": (
+                        absolute_href
+                    ),
+
                     "status": "In Stock"
                 }
 
-                all_products.append(product)
+                all_products.append(
+                    product
+                )
 
                 print(
                     f"   ✅ {title}"
                 )
 
                 print(
-                    f"      💰 {int(base_price)} DH"
-                    f" → {your_price} DH"
+                    f"      💰 "
+                    f"{format_price(base_price)}"
+                    f" → "
+                    f"{format_price(selling_price)}"
                 )
 
                 print(
@@ -566,37 +1803,45 @@ def scrape_current_page(page, all_products):
     except Exception as e:
 
         print(
-            f"⚠️ خطأ في طريقة الروابط: {e}"
+            f"⚠️ خطأ في استخراج الروابط: "
+            f"{e}"
         )
 
-    # =====================================================
-    # الطريقة الثانية: إذا لم نستخرج شيئاً
-    # =====================================================
+    # =========================================================
+    # FALLBACK CARDS
+    # =========================================================
 
-    if True:
+    if len(all_products) == before_count:
 
         print(
-            "🔄 لم نجد منتجات عبر الروابط، "
-            "نجرب اكتشاف البطاقات..."
+            "🔄 لم يتم استخراج منتجات "
+            "بالطريقة الأولى، نجرب البطاقات..."
         )
 
         try:
 
             cards = page.locator(
+
                 "[class*='product'], "
                 "[class*='Product'], "
+
                 "[class*='card'], "
                 "[class*='Card'], "
+
                 "[class*='item'], "
                 "[class*='Item'], "
+
                 "[class*='offer'], "
                 "[class*='Offer'], "
+
                 "article, "
                 "li"
+
             ).all()
 
             print(
-                f"🔎 العناصر المرشحة: {len(cards)}"
+                f"🔎 العناصر المرشحة: "
+                f"{len(cards)}"
             )
 
             for card in cards:
@@ -608,11 +1853,6 @@ def scrape_current_page(page, all_products):
                     )
 
                     if len(text) < 5:
-                        continue
-
-                    base_price = extract_price(text)
-
-                    if base_price is None:
                         continue
 
                     low_text = text.lower()
@@ -627,7 +1867,22 @@ def scrape_current_page(page, all_products):
                     ):
                         continue
 
-                    title = find_title(
+                    base_price = (
+                        extract_revendeur_price(
+                            text
+                        )
+                    )
+
+                    if base_price is None:
+
+                        base_price = extract_price(
+                            text
+                        )
+
+                    if base_price is None:
+                        continue
+
+                    title = find_card_title(
                         card,
                         text
                     )
@@ -635,7 +1890,10 @@ def scrape_current_page(page, all_products):
                     if not title:
                         continue
 
-                    # الرابط
+                    # =================================================
+                    # LINK
+                    # =================================================
+
                     href = ""
 
                     try:
@@ -647,65 +1905,111 @@ def scrape_current_page(page, all_products):
                         if a.count() > 0:
 
                             href = (
-                                a.get_attribute("href")
+                                a.get_attribute(
+                                    "href"
+                                )
                                 or ""
                             )
 
-                            if href.startswith("/"):
-                                href = (
-                                    "https://boughalaffiliate.com"
-                                    + href
-                                )
+                            href = absolute_url(
+                                href
+                            )
 
                     except Exception:
                         pass
 
-                    # الصورة
+                    # =================================================
+                    # IMAGE
+                    # =================================================
+
                     image_url = ""
 
-                    for img in card.locator(
-                        "img"
-                    ).all():
+                    try:
 
-                        image_url = (
-                            extract_image(img)
-                            or ""
-                        )
+                        for img in card.locator(
+                            "img"
+                        ).all():
 
-                        if image_url:
-                            break
+                            image_url = (
+                                extract_image(img)
+                                or ""
+                            )
 
-                    # منع التكرار
+                            if image_url:
+                                break
+
+                    except Exception:
+                        pass
+
+                    # =================================================
+                    # DUPLICATE
+                    # =================================================
+
                     duplicate = any(
-                        p["title"].lower()
+
+                        p.get(
+                            "title",
+                            ""
+                        ).lower()
                         == title.lower()
+
                         for p in all_products
+
                     )
 
                     if duplicate:
                         continue
 
-                    your_price = int(
-                        base_price + PROFIT_MARGIN
+                    selling_price = (
+                        base_price
+                        + PROFIT_MARGIN
                     )
 
                     product = {
-                        "id": f"shadhw_{len(all_products) + 1}",
+
+                        "id": (
+                            f"shadhw_"
+                            f"{len(all_products) + 1}"
+                        ),
+
                         "title": title,
+
                         "image": image_url,
-                        "images": [image_url] if image_url else [],
+
+                        "images": (
+                            [image_url]
+                            if image_url
+                            else []
+                        ),
+
+                        "videos": [],
+
                         "description": "",
+
                         "sizes": [],
-                        "price": f"{your_price} DH",
-                        "original_price": f"{int(base_price)} DH",
+
+                        "colors": [],
+
+                        "price": format_price(
+                            selling_price
+                        ),
+
+                        "original_price": format_price(
+                            base_price
+                        ),
+
                         "original_link": href,
+
                         "status": "In Stock"
                     }
 
-                    all_products.append(product)
+                    all_products.append(
+                        product
+                    )
 
                     print(
-                        f"   ✅ CARD: {title}"
+                        f"   ✅ CARD: "
+                        f"{title}"
                     )
 
                 except Exception:
@@ -714,28 +2018,35 @@ def scrape_current_page(page, all_products):
         except Exception as e:
 
             print(
-                f"⚠️ خطأ في اكتشاف البطاقات: {e}"
+                f"⚠️ خطأ في البطاقات: "
+                f"{e}"
             )
 
     new_products = (
         len(all_products)
-        - page_products_before
+        - before_count
     )
 
-    return all_products, new_products
+    return (
+        all_products,
+        new_products
+    )
 
 
 # =========================================================
-# البرنامج الرئيسي
+# MAIN
 # =========================================================
 
 def run_automation():
 
     with sync_playwright() as p:
 
+        # =====================================================
+        # BROWSER
+        # =====================================================
+
         print(
-            "🔗 [1/4] إطلاق الروبوت المتخفي "
-            "ومحاكاة متصفح بشري..."
+            "🔗 [1/4] إطلاق المتصفح..."
         )
 
         browser = p.chromium.launch(
@@ -743,23 +2054,28 @@ def run_automation():
         )
 
         context = browser.new_context(
+
             viewport={
-                'width': 1280,
-                'height': 800
+                "width": 1280,
+                "height": 800
             },
+
             user_agent=(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "Mozilla/5.0 "
+                "(Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 "
                 "(KHTML, like Gecko) "
-                "Chrome/122.0.0.0 Safari/537.36"
+                "Chrome/122.0.0.0 "
+                "Safari/537.36"
             ),
+
             locale="fr-FR"
         )
 
         page = context.new_page()
 
         # =====================================================
-        # LOGIN — أبقيته كما هو
+        # LOGIN
         # =====================================================
 
         page.goto(
@@ -770,29 +2086,33 @@ def run_automation():
         time.sleep(4)
 
         print(
-            "🔐 [2/4] مِلء حقول البيانات "
-            "وتثبيت الجلسة برمجياً..."
+            "🔐 [2/4] ملء بيانات الدخول..."
         )
 
         email_input = page.locator(
-            "input[type='email'], input[name='email']"
+            "input[type='email'], "
+            "input[name='email']"
         ).first
 
         email_input.focus()
-        email_input.fill(EMAIL)
+        email_input.fill(
+            EMAIL
+        )
 
         password_input = page.locator(
-            "input[type='password'], input[name='password']"
+            "input[type='password'], "
+            "input[name='password']"
         ).first
 
         password_input.focus()
-        password_input.fill(PASSWORD)
+        password_input.fill(
+            PASSWORD
+        )
 
         time.sleep(2)
 
         print(
-            "🚀 [3/4] الضغط الفيزيائي العنيف "
-            "على زر Se connecter المباشر..."
+            "🚀 [3/4] تسجيل الدخول..."
         )
 
         try:
@@ -810,23 +2130,25 @@ def run_automation():
                 timeout=5000
             )
 
-        except Exception as click_err:
+        except Exception:
 
             print(
-                "⚠️ النقر البرمجي العادي واجه حماية، "
-                "ننتقل للضغط بالكيبورد..."
+                "⚠️ النقر العادي لم يعمل، "
+                "نستخدم Enter..."
             )
 
-            page.keyboard.press("Enter")
+            page.keyboard.press(
+                "Enter"
+            )
 
         time.sleep(8)
 
         # =====================================================
-        # الدخول للصفحة الأولى
+        # PRODUCTS
         # =====================================================
 
         print(
-            "🛍️ [4/4] الانتقال إلى كتالوج المنتجات..."
+            "🛍️ [4/4] الدخول إلى كتالوج المنتجات..."
         )
 
         page.goto(
@@ -837,7 +2159,7 @@ def run_automation():
         time.sleep(6)
 
         # =====================================================
-        # استخراج كل الصفحات
+        # SCRAPE ALL PAGES
         # =====================================================
 
         all_products = []
@@ -846,13 +2168,13 @@ def run_automation():
 
         empty_pages = 0
 
-        MAX_EMPTY_PAGES = 2
-
         while True:
 
             if page_number == 1:
 
-                url = BASE_PRODUCTS_URL
+                url = (
+                    BASE_PRODUCTS_URL
+                )
 
             else:
 
@@ -892,25 +2214,41 @@ def run_automation():
 
                 break
 
-            page.wait_for_timeout(4000)
-
-            # screenshot للمراجعة
-            page.screenshot(
-                path=f"page_{page_number}.png",
-                full_page=True
+            page.wait_for_timeout(
+                4000
             )
 
-            before = len(all_products)
+            # =================================================
+            # SCREENSHOT
+            # =================================================
 
-            all_products, new_count = scrape_current_page(
-                page,
-                all_products
+            try:
+
+                page.screenshot(
+                    path=(
+                        f"page_{page_number}.png"
+                    ),
+                    full_page=True
+                )
+
+            except Exception:
+                pass
+
+            # =================================================
+            # EXTRACT
+            # =================================================
+
+            all_products, new_count = (
+                scrape_current_page(
+                    page,
+                    all_products
+                )
             )
 
             print("")
             print(
                 f"📦 الصفحة {page_number}: "
-                f"+{new_count} منتج جديد"
+                f"+{new_count} منتج"
             )
 
             print(
@@ -919,7 +2257,7 @@ def run_automation():
             )
 
             # =================================================
-            # إذا الصفحة لا تحتوي منتجات جديدة
+            # EMPTY PAGE
             # =================================================
 
             if new_count == 0:
@@ -927,20 +2265,21 @@ def run_automation():
                 empty_pages += 1
 
                 print(
-                    f"⚠️ الصفحة {page_number} "
-                    f"لم تضف منتجات جديدة "
+                    f"⚠️ الصفحة لم تضف منتجات "
                     f"({empty_pages}/{MAX_EMPTY_PAGES})"
                 )
 
-                if empty_pages >= MAX_EMPTY_PAGES:
+                if (
+                    empty_pages
+                    >= MAX_EMPTY_PAGES
+                ):
 
                     print(
-                        "🛑 صفحتان متتاليتان بدون "
-                        "منتجات جديدة."
+                        "🛑 صفحات فارغة متتالية."
                     )
 
                     print(
-                        "🏁 نعتبر أننا وصلنا إلى نهاية الكتالوج."
+                        "🏁 نهاية الكتالوج."
                     )
 
                     break
@@ -950,46 +2289,121 @@ def run_automation():
                 empty_pages = 0
 
             # =================================================
-            # حماية إضافية من pagination لا نهائي
+            # NEXT PAGE
             # =================================================
 
             page_number += 1
 
-            if page_number > 1000:
+            if page_number > MAX_PAGES:
 
                 print(
-                    "🛑 تم الوصول إلى الحد الأقصى "
-                    "1000 صفحة."
+                    f"🛑 تجاوز {MAX_PAGES} صفحة."
                 )
 
                 break
 
         # =====================================================
-        # تفاصيل كل منتج: الاسم + الوصف + المقاسات + جميع الصور
+        # PRODUCT DETAILS
         # =====================================================
+
         print("")
         print("=" * 70)
-        print("🔍 استخراج تفاصيل المنتجات...")
+
+        print(
+            "🔍 استخراج تفاصيل جميع المنتجات..."
+        )
+
         print("=" * 70)
 
-        for i, product in enumerate(all_products, start=1):
-            print(f"📦 {i}/{len(all_products)}: {product.get('title', '')}")
-            scrape_product_details(context, product)
-            print(f"   🖼️ {len(product.get('images', []))} صورة | 📏 {product.get('sizes', [])}")
+        total = len(
+            all_products
+        )
 
-        for i, product in enumerate(all_products, start=1):
-            product['id'] = f'shadhw_{i}'
-            product.setdefault('images', [])
-            product.setdefault('description', '')
-            product.setdefault('sizes', [])
-            if not product.get('image') and product['images']:
-                product['image'] = product['images'][0]
+        for index, product in enumerate(
+            all_products,
+            start=1
+        ):
+
+            print("")
+            print(
+                f"📦 {index}/{total}: "
+                f"{product.get('title', '')}"
+            )
+
+            scrape_product_details(
+                context,
+                product
+            )
 
         # =====================================================
-        # حفظ المنتجات
+        # FINAL NORMALIZATION
         # =====================================================
 
-        products_list = all_products
+        for index, product in enumerate(
+            all_products,
+            start=1
+        ):
+
+            product["id"] = (
+                f"shadhw_{index}"
+            )
+
+            product.setdefault(
+                "images",
+                []
+            )
+
+            product.setdefault(
+                "videos",
+                []
+            )
+
+            product.setdefault(
+                "description",
+                ""
+            )
+
+            product.setdefault(
+                "sizes",
+                []
+            )
+
+            product.setdefault(
+                "colors",
+                []
+            )
+
+            product.setdefault(
+                "status",
+                "In Stock"
+            )
+
+            product.setdefault(
+                "original_link",
+                ""
+            )
+
+            if (
+                not product.get("image")
+                and product["images"]
+            ):
+
+                product["image"] = (
+                    product["images"][0]
+                )
+
+        # =====================================================
+        # SAVE PRODUCTS.JSON
+        # =====================================================
+
+        print("")
+        print("=" * 70)
+
+        print(
+            "💾 حفظ products.json..."
+        )
+
+        print("=" * 70)
 
         with open(
             "products.json",
@@ -998,14 +2412,20 @@ def run_automation():
         ) as f:
 
             json.dump(
-                products_list,
+                all_products,
                 f,
                 ensure_ascii=False,
                 indent=4
             )
 
+        print(
+            f"✅ تم حفظ "
+            f"{len(all_products)} "
+            f"منتج."
+        )
+
         # =====================================================
-        # حفظ الصفحة الأخيرة
+        # SAVE SOURCE.HTML
         # =====================================================
 
         try:
@@ -1020,14 +2440,19 @@ def run_automation():
                     page.content()
                 )
 
+            print(
+                "✅ تم حفظ source.html"
+            )
+
         except Exception as e:
 
             print(
-                f"⚠️ لم يتم حفظ source.html: {e}"
+                f"⚠️ لم يتم حفظ source.html: "
+                f"{e}"
             )
 
         # =====================================================
-        # التقرير النهائي
+        # FINAL REPORT
         # =====================================================
 
         print("")
@@ -1038,23 +2463,52 @@ def run_automation():
         )
 
         print(
-            f"📄 عدد الصفحات المفحوصة: "
+            f"📄 عدد الصفحات: "
             f"{page_number}"
         )
 
         print(
-            f"📦 إجمالي المنتجات: "
-            f"{len(products_list)}"
+            f"📦 عدد المنتجات: "
+            f"{len(all_products)}"
         )
 
         print(
-            "💾 تم إنشاء products.json"
+            "🖼️ الصور: مفعلة"
+        )
+
+        print(
+            "🎥 الفيديوهات: مفعلة"
+        )
+
+        print(
+            "📝 الوصف: مفعل"
+        )
+
+        print(
+            "📏 المقاسات: مفعلة"
+        )
+
+        print(
+            "🎨 الألوان: مفعلة"
+        )
+
+        print(
+            "💰 Prix revendeur: مفعل"
+        )
+
+        print(
+            f"➕ هامش الربح: "
+            f"{PROFIT_MARGIN} DH"
         )
 
         print("=" * 70)
 
         browser.close()
 
+
+# =========================================================
+# START
+# =========================================================
 
 if __name__ == "__main__":
     run_automation()
