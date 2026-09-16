@@ -1,1 +1,1334 @@
-[]
+[
+    {
+        "id": "shadhw_1",
+        "title": "رادكو رغ",
+        "image": "https://boughalaffiliate.com/product_photos/1781526880_whatsapp-image-2026-06-15-at-142914.jpeg",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_2",
+        "title": "collie ferouj",
+        "image": "https://boughalaffiliate.com/product_photos/1789471337_whatsapp-image-2026-09-15-at-131825.jpeg",
+        "price": "229 DH",
+        "original_price": "179 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_3",
+        "title": "كولي بلدي 5",
+        "image": "https://boughalaffiliate.com/product_photos/1761357307_WhatsApp Image 2025-10-24 at 23.42.37 (1).jpeg",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_4",
+        "title": "collie sm2",
+        "image": "https://boughalaffiliate.com/product_photos/1777711972_whatsapp-image-2026-05-02-at-104359-1.jpeg",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_5",
+        "title": "كولي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_6",
+        "title": "لويز 20",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "299 DH",
+        "original_price": "249 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_7",
+        "title": "موديل القلب",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_8",
+        "title": "كولي اهرامات",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "269 DH",
+        "original_price": "219 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_9",
+        "title": "collie Broiler",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "229 DH",
+        "original_price": "179 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_10",
+        "title": "نبالة بالخاتم",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_11",
+        "title": "كولي عقدة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_12",
+        "title": "موزون 1",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_13",
+        "title": "louza 2",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_14",
+        "title": "لوزة م س",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "229 DH",
+        "original_price": "179 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_15",
+        "title": "كولي مخرم 3 براسلي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_16",
+        "title": "كولي عصير صابون",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_17",
+        "title": "3باك 10لويز",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_18",
+        "title": "سرتلة منقوشة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "150 DH",
+        "original_price": "100 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_19",
+        "title": "bracelets Noir Gold & blanc",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "179 DH",
+        "original_price": "129 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_20",
+        "title": "كولي الصويري",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_21",
+        "title": "كولي خميسة1",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_22",
+        "title": "سرتلة امي الغالية",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_23",
+        "title": "رادكو رغ1",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_24",
+        "title": "كولي فراكة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_25",
+        "title": "خميسة حجرة خضراء",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_26",
+        "title": "عصير صابون",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_27",
+        "title": "collie Smile",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_28",
+        "title": "عصير صابون 3",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_29",
+        "title": "5باك 10لويز",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_30",
+        "title": "موزون بناشي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_31",
+        "title": "سنسلة قلب",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "129 DH",
+        "original_price": "79 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_32",
+        "title": "رادكو منقوش",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_33",
+        "title": "نبالة منقوشة بالخاتم",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_34",
+        "title": "موزون لحمر",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_35",
+        "title": "لويز 10",
+        "image": "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133824.jpeg",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_36",
+        "title": "2باك 10لويز",
+        "image": "https://boughalaffiliate.com/product_photos/1770396718_WhatsApp Image 2026-02-05 at 13.55.19.jpeg",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_37",
+        "title": "موزون غليض",
+        "image": "https://boughalaffiliate.com/product_photos/1770810113_WhatsApp Image 2026-02-11 at 11.58.57 (1).jpeg",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_38",
+        "title": "radco simple 2p",
+        "image": "https://boughalaffiliate.com/product_photos/1787766323_whatsapp-image-2026-08-26-at-194002.jpeg",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_39",
+        "title": "تنبالت",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_40",
+        "title": "1باك 10لويز",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_41",
+        "title": "الصويري 2",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_42",
+        "title": "رادكو سامبل مبروم",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_43",
+        "title": "كولي الشهدة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_44",
+        "title": "بلغة شاشي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_45",
+        "title": "شهدة كولي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_46",
+        "title": "collie ananas",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_47",
+        "title": "عصير صابون 2",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_48",
+        "title": "كولي دك البرة 2",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "229 DH",
+        "original_price": "179 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_49",
+        "title": "كولي دك البرة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "229 DH",
+        "original_price": "179 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_50",
+        "title": "شهدة رقيقة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_51",
+        "title": "كسوة الأطلس",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "329 DH",
+        "original_price": "279 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_52",
+        "title": "chabka 3amra kbira",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "699 DH",
+        "original_price": "649 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_53",
+        "title": "كولي فروج",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_54",
+        "title": "بلغة جلد",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_55",
+        "title": "ensemble VERSACE",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_56",
+        "title": "collie van cleef",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_57",
+        "title": "سرتلة 7",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_58",
+        "title": "lbsa",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "430 DH",
+        "original_price": "380 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_59",
+        "title": "سلهام ملكي كبير",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "300 DH",
+        "original_price": "250 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_60",
+        "title": "خاتم ونبالة 3",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "220 DH",
+        "original_price": "170 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_61",
+        "title": "لبسة أمازيغية للكبار توب عامر وبلغة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "449 DH",
+        "original_price": "399 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_62",
+        "title": "احلاب",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_63",
+        "title": "nebala 2f",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_64",
+        "title": "سرتلة منبثة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_65",
+        "title": "نبالة امازيغية",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_66",
+        "title": "radco simple",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_67",
+        "title": "pac bracelets",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_68",
+        "title": "كولي خميسة2",
+        "image": "https://boughalaffiliate.com/product_photos/1782217157_whatsapp-image-2026-06-23-at-141630-4.jpeg",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_69",
+        "title": "موزون خفيف",
+        "image": "https://boughalaffiliate.com/product_photos/1770810004_WhatsApp Image 2026-02-11 at 11.58.49 (2).jpeg",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_70",
+        "title": "4باك 10لويز",
+        "image": "https://boughalaffiliate.com/product_photos/1770396887_WhatsApp Image 2026-02-05 at 13.55.20.jpeg",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_71",
+        "title": "براسلي وردة 1",
+        "image": "https://boughalaffiliate.com/product_photos/1784991375_whatsapp-image-2026-07-25-at-151826.jpeg",
+        "price": "150 DH",
+        "original_price": "100 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_72",
+        "title": "براسلي الوردة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "150 DH",
+        "original_price": "100 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_73",
+        "title": "لوبان كبير L3",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "380 DH",
+        "original_price": "330 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_74",
+        "title": "موزون ضفرة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_75",
+        "title": "ثلاثية الصويري المنقوش",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_76",
+        "title": "ثنائية ساعة كورميط",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_77",
+        "title": "رادكو عوينة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_78",
+        "title": "لبسة امازيغية مطروزة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "850 DH",
+        "original_price": "800 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_79",
+        "title": "كندورة مطروزة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_80",
+        "title": "كندورة م ز",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_81",
+        "title": "باك فوند كومبلي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "329 DH",
+        "original_price": "279 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_82",
+        "title": "كولي بلدي 6",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_83",
+        "title": "براسليات شهدة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_84",
+        "title": "رادكو 8",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_85",
+        "title": "boite bijoux",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_86",
+        "title": "كولي 99",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_87",
+        "title": "لبسة عامرة امازيغية",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "450 DH",
+        "original_price": "400 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_88",
+        "title": "كولي خميسة3",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_89",
+        "title": "pack cartier",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "149 DH",
+        "original_price": "99 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_90",
+        "title": "سلسلة البجعة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "130 DH",
+        "original_price": "80 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_91",
+        "title": "سلهام امازيغي اسود",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "300 DH",
+        "original_price": "250 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_92",
+        "title": "6/7 ans سلهام ملكي صغير",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_93",
+        "title": "سلهام ملكي صغير (hossin)",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_94",
+        "title": "قطيب حرير",
+        "image": "https://boughalaffiliate.com/product_photos/1776506923_5899816774759287849.jpg",
+        "price": "130 DH",
+        "original_price": "80 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_95",
+        "title": "تونزا صغيرة فوند",
+        "image": "https://boughalaffiliate.com/product_photos/1764238173_WhatsApp Image 2025-11-27 at 10.56.54.jpeg",
+        "price": "149 DH",
+        "original_price": "99 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_96",
+        "title": "سوتوار",
+        "image": "https://boughalaffiliate.com/product_photos/1773160990_WhatsApp Image 2026-03-10 at 17.36.38 (2).jpeg",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_97",
+        "title": "موزون اسود",
+        "image": "https://boughalaffiliate.com/product_photos/1767440258_WhatsApp Image 2026-01-03 at 12.02.34 (11).jpeg",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_98",
+        "title": "موزون",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_99",
+        "title": "نبالة حجرة خضراء",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_100",
+        "title": "سلهام امازيغي كبير",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "300 DH",
+        "original_price": "250 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_101",
+        "title": "ensemble cartier",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_102",
+        "title": "ensemble tapis",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_103",
+        "title": "ensemble simple",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_104",
+        "title": "نبالة منقوشة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "170 DH",
+        "original_price": "120 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_105",
+        "title": "كندورة امازيغية",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_106",
+        "title": "النكشة (لبسة صحراوية )",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "650 DH",
+        "original_price": "600 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_107",
+        "title": "لبسة ايت بعمران",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "1000 DH",
+        "original_price": "950 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_108",
+        "title": "لبسة امازيغية للكبار",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "450 DH",
+        "original_price": "400 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_109",
+        "title": "رادكو 82",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "200 DH",
+        "original_price": "150 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_110",
+        "title": "موزون 2",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_111",
+        "title": "براسلي مع الخاتم",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_112",
+        "title": "براسلي 7",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_113",
+        "title": "جلابة امازيغية مع بلغة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "230 DH",
+        "original_price": "180 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_114",
+        "title": "سرتلة+سنسلة قلب",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "179 DH",
+        "original_price": "129 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_115",
+        "title": "bracelets dore",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_116",
+        "title": "بلغة شاشية طالعة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_117",
+        "title": "النبالة Nbala",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "300 DH",
+        "original_price": "250 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_118",
+        "title": "كولي بلدي 10",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_119",
+        "title": "labsa kompli",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "799 DH",
+        "original_price": "749 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_120",
+        "title": "سلهام تاج اسود",
+        "image": "https://boughalaffiliate.com/product_photos/1767692451_WhatsApp Image 2026-01-01 at 13.06.11 (1).jpeg",
+        "price": "300 DH",
+        "original_price": "250 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_121",
+        "title": "12/13/14 ans سلهام ملكي صغير",
+        "image": "https://boughalaffiliate.com/product_photos/1766674304_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_122",
+        "title": "10/11 ans سلهام ملكي صغير",
+        "image": "https://boughalaffiliate.com/product_photos/1766674199_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_123",
+        "title": "8/9 ans سلهام ملكي صغير",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_124",
+        "title": "4/5 ans سلهام ملكي صغير",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_125",
+        "title": "سلهام ملكي صغير",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_126",
+        "title": "تشدادت تمازيغت",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_127",
+        "title": "لبسة أمازيغية للكبار والصغار",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "699 DH",
+        "original_price": "649 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_128",
+        "title": "وشاح احمر",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "199 DH",
+        "original_price": "149 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_129",
+        "title": "بلغة شاشي بالعقيق طالعة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_130",
+        "title": "تونزا كبيرة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_131",
+        "title": "سبرادوكو",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "249 DH",
+        "original_price": "199 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_132",
+        "title": "بلغة تفناغ",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "169 DH",
+        "original_price": "119 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_133",
+        "title": "لبسة كومبلي خفيفة لصغار",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "349 DH",
+        "original_price": "299 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_134",
+        "title": "لبسة أمازيغية للكبار توب وبلغة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "400 DH",
+        "original_price": "350 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_135",
+        "title": "لبسة أمازيغية كاملة للكبار",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "680 DH",
+        "original_price": "630 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_136",
+        "title": "تونزا Tawnza MWAYAN",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_137",
+        "title": "لبسة صغيرة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "449 DH",
+        "original_price": "399 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_138",
+        "title": "بلغة رجالية",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_139",
+        "title": "TAWNZA تونزة كبيرة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "270 DH",
+        "original_price": "220 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_140",
+        "title": "ثلاثية براصلي",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "250 DH",
+        "original_price": "200 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_141",
+        "title": "الخاتم والنبالة",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "220 DH",
+        "original_price": "170 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_142",
+        "title": "بلغة موزون جلد",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "340 DH",
+        "original_price": "290 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_143",
+        "title": "بلغة dorojin",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "280 DH",
+        "original_price": "230 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_144",
+        "title": "لوبان كبير L1",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "400 DH",
+        "original_price": "350 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_145",
+        "title": "لبان مويان سامبل",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_146",
+        "title": "لوبان سامبل",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "180 DH",
+        "original_price": "130 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_147",
+        "title": "بلغة نسائية صابو",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "150 DH",
+        "original_price": "100 DH",
+        "original_link": "",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_148",
+        "title": "لبسة كومبلي للكبار",
+        "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22350%22%20height%3D%22350%22%20viewBox%3D%220%200%20350%20350%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23f9fafb%22%2F%3E%3Cpath%20d%3D%22M100%20100h150v150H100z%22%20fill%3D%22%23e5e7eb%22%20stroke%3D%22%23d1d5db%22%20stroke-width%3D%222%22%20rx%3D%224%22%2F%3E%3Ccircle%20cx%3D%22175%22%20cy%3D%22150%22%20r%3D%228%22%20fill%3D%22%239ca3af%22%2F%3E%3Cpath%20d%3D%22M100%20200l15-15%2015%2015%2030-30%2015%2015v15H100z%22%20fill%3D%22%23d1d5db%22%2F%3E%3C%2Fsvg%3E",
+        "price": "750 DH",
+        "original_price": "700 DH",
+        "original_link": "",
+        "status": "In Stock"
+    }
+]
