@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شَذْو للمجوهرات | SHADHW JEWELS</title>
-    <!-- استدعاء Tailwind CSS للتصميم السريع والفخم -->
     <script src="https://tailwindcss.com"></script>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
@@ -16,28 +15,23 @@
 </head>
 <body>
 
-    <!-- الهيدر العلوى الفخم للبراند -->
     <header class="border-b border-zinc-800 bg-zinc-950 py-6 text-center sticky top-0 z-50 shadow-lg">
         <h1 class="text-3xl font-bold tracking-widest gold-text">شَذْو</h1>
         <p class="text-xs uppercase tracking-widest text-zinc-400 mt-1">SHADHW JEWELS</p>
         <p class="text-xs text-zinc-500 mt-2">⚜️ حلي عصرية بلمسة الذهب الحقيقي (Plaqué or / Nichelage) ⚜️</p>
     </header>
 
-    <!-- القسم الرئيسي لعرض المنتجات -->
     <main class="max-w-7xl mx-auto px-4 py-12">
         <div class="text-center mb-12">
             <h2 class="text-xl font-semibold">المجموعة المتوفرة حالياً</h2>
             <p class="text-sm text-zinc-400 mt-1">قطع نادرة مصقولة بعناية، مقاومة للماء (ما كيكحالش) 💧</p>
         </div>
 
-        <!-- شبكة المنتجات التي سيتم ملؤها تلقائياً بواسطة الجافاسكريبت -->
         <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- سيتم إدراج المنتجات هنا عبر السكريبت بالأسفل -->
-            <div class="col-span-full text-center text-zinc-500 py-12">جاري تحميل تشكيلة شَذْو الفاخرة...</div>
+            <!-- المنتجات ستظهر هنا -->
         </div>
     </main>
-
-    <!-- نافذة الطلب المنبثقة (Checkout Modal) مخصصة للسوق المغربي COD -->
+    <!-- نافذة الطلب المنبثقة (Checkout Modal) المخصصة للمغرب -->
     <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-zinc-900 border border-zinc-800 w-full max-w-md rounded-xl p-6 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 left-4 text-zinc-400 hover:text-white text-xl">&times;</button>
@@ -47,10 +41,8 @@
                 <p class="text-xs text-zinc-400 mt-1">المرجو ملء المعلومات بدقة لإرسال طلبيتكِ</p>
             </div>
 
-            <!-- تفاصيل المنتج المختار داخل النافذة -->
-            <div id="modal-product-info" class="flex items-center gap-4 bg-zinc-950 p-3 rounded-lg border border-zinc-800 mb-6">
-                <!-- ستظهر الصورة والمعلومات هنا ديناميكياً -->
-            </div>
+            <!-- تفاصيل المنتج المختار -->
+            <div id="modal-product-info" class="flex items-center gap-4 bg-zinc-950 p-3 rounded-lg border border-zinc-800 mb-6"></div>
 
             <!-- استمارة الطلب السريعة -->
             <form id="order-form" onsubmit="submitOrder(event)" class="space-y-4">
@@ -78,46 +70,41 @@
         </div>
     </div>
 
-    <!-- الفوتر العلوى الفخم -->
     <footer class="border-t border-zinc-900 bg-zinc-950 py-6 text-center text-xs text-zinc-500">
         <p>© 2026 شَذْو للمجوهرات. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- سكريبت الجافاسكريبت السحري للربط وعرض المنتجات وتوجيه الطلب للواتساب -->
     <script>
-        // قراءة ملف المنتجات المؤتمت تلقائياً
-        fetch('products.json')
-            .then(response => response.json())
-            .then(products => {
-                const grid = document.getElementById('products-grid');
-                grid.innerHTML = ''; // تنظيف شاشة التحميل
+        // مصفوفة المنتجات مدمجة مباشرة لتجنب حظر CORS في المتصفحات
+        const products = [
+            {id: "shadhw_1", title: "سلسلة شَذْو الملكية - بلاكيور فاخر مقاوم للماء", image: "https://unsplash.com", price: "199 DH"},
+            {id: "shadhw_2", title: "طاقم أساور نيقلاج عصرية بتصميم الذهب الخالص", image: "https://unsplash.com", price: "249 DH"}
+        ];
 
-                products.forEach(product => {
-                    const card = document.createElement('div');
-                    card.className = "bg-zinc-900 border border-zinc-800/60 rounded-xl overflow-hidden shadow-xl hover:border-amber-500/40 transition-all duration-300 flex flex-col group";
-                    card.innerHTML = `
-                        <div class="relative overflow-hidden aspect-square bg-zinc-950 flex items-center justify-center">
-                            <img src="${product.image}" alt="${product.title}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-[10px] gold-text px-2 py-1 rounded font-semibold tracking-wider">متوفر في المخزون</span>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow text-center">
-                            <h3 class="text-sm font-semibold text-zinc-200 line-clamp-2 min-h-[40px] mb-3">${product.title}</h3>
-                            <div class="mt-auto">
-                                <span class="block text-lg font-bold gold-text mb-4">${product.price}</span>
-                                <button onclick="openModal('${product.title}', '${product.price}', '${product.image}')" class="w-full bg-zinc-950 hover:gold-bg hover:text-black text-zinc-300 font-semibold border gold-border py-2.5 px-4 rounded-lg text-xs transition-all duration-300">
-                                    اضغطي هنا للطلب السريع
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-            })
-            .catch(err => {
-                document.getElementById('products-grid').innerHTML = '<div class="col-span-full text-center text-red-500 py-12">حدث خطأ أثناء تحميل الكتالوج. المرجو المحاولة لاحقاً.</div>';
-            });
+        const grid = document.getElementById('products-grid');
+        grid.innerHTML = ''; 
 
-        // دوال التحكم في نافذة الشراء (Modal)
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = "bg-zinc-900 border border-zinc-800/60 rounded-xl overflow-hidden shadow-xl hover:border-amber-500/40 transition-all duration-300 flex flex-col group";
+            card.innerHTML = `
+                <div class="relative overflow-hidden aspect-square bg-zinc-950 flex items-center justify-center">
+                    <img src="${product.image}" alt="${product.title}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-[10px] gold-text px-2 py-1 rounded font-semibold tracking-wider">متوفر في المخزون</span>
+                </div>
+                <div class="p-5 flex flex-col flex-grow text-center">
+                    <h3 class="text-sm font-semibold text-zinc-200 line-clamp-2 min-h-[40px] mb-3">${product.title}</h3>
+                    <div class="mt-auto">
+                        <span class="block text-lg font-bold gold-text mb-4">${product.price}</span>
+                        <button onclick="openModal('${product.title}', '${product.price}', '${product.image}')" class="w-full bg-zinc-950 hover:gold-bg hover:text-black text-zinc-300 font-semibold border gold-border py-2.5 px-4 rounded-lg text-xs transition-all duration-300">
+                            اضغطي هنا للطلب السريع
+                        </button>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
         function openModal(title, price, image) {
             document.getElementById('form-product-title').value = title;
             document.getElementById('form-product-price').value = price;
@@ -130,7 +117,6 @@
                     <span class="text-sm font-bold gold-text mt-1 block">${price}</span>
                 </div>
             `;
-            
             document.getElementById('checkout-modal').classList.remove('hidden');
         }
 
@@ -139,7 +125,6 @@
             document.getElementById('order-form').reset();
         }
 
-        // أتمتة إرسال الطلب عبر الواتساب مباشرة لتأكيد البيعة تلقائياً
         function submitOrder(e) {
             e.preventDefault();
             const title = document.getElementById('form-product-title').value;
@@ -148,7 +133,6 @@
             const phone = document.getElementById('client-phone').value;
             const city = document.getElementById('client-city').value;
 
-            // صياغة الرسالة الفخمة والمنظمة لتصلك في حسابك على الواتساب فوراً
             const message = `🌟 طلب جديد من متجر شَذْو 🌟\n\n` +
                             `🛍️ المنتج: ${title}\n` +
                             `💰 الثمن: ${price}\n\n` +
@@ -159,7 +143,7 @@
                             `📦 المرجو تأكيد الطلبية للشحن السريع.`;
 
             const encodedMessage = encodeURIComponent(message);
-            // توجيه الزبونة تلقائياً لرقم واتساب براند شَذْو (قم بتغيير الرقم لرقمك الفعلي)
+            // ضع رقم الواتساب الحقيقي الخاص بك هنا بدلاً من الأصفار لتستقبل الرسائل مباشرة
             const whatsappUrl = `https://wa.me{encodedMessage}`;
             
             window.open(whatsappUrl, '_blank');
