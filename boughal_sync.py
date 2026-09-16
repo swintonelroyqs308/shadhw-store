@@ -8,6 +8,7 @@ EMAIL = os.environ.get("BOUGHAL_EMAIL")
 PASSWORD = os.environ.get("BOUGHAL_PASSWORD")
 
 BASE_PRODUCTS_URL = "https://boughalaffiliate.com/affiliate/products"
+PROFIT_MARGIN = 100
 
 
 def clean_text(value):
@@ -111,6 +112,134 @@ def extract_image(img):
         return url
 
     return None
+
+
+def extract_revendeur_price(text):
+    if not text:
+        return None
+    text = clean_text(text)
+    patterns = [
+        r"prix\s+revendeur\s*[:\-]?\s*(\d+(?:[.,]\d{1,2})?)",
+        r"revendeur\s*[:\-]?\s*(\d+(?:[.,]\d{1,2})?)",
+    ]
+    for pattern in patterns:
+        m = re.search(pattern, text, re.IGNORECASE)
+        if m:
+            try:
+                return float(m.group(1).replace(',', '.'))
+            except Exception:
+                pass
+    lines = [clean_text(x) for x in text.split("\n") if clean_text(x)]
+    for i, line in enumerate(lines):
+        if 'prix revendeur' in line.lower() or 'revendeur' in line.lower():
+            v = extract_price(line)
+            if v is not None:
+                return v
+            if i + 1 < len(lines):
+                v = extract_price(lines[i+1])
+                if v is not None:
+                    return v
+    return None
+
+def extract_all_images(container):
+    results=[]; seen=set()
+    try:
+        imgs=container.locator('img').all()
+        for img in imgs:
+            candidates=[]
+            for attr in ['src','data-src','data-image','data-original','data-lazy-src','data-lazy','data-url','data-original-src']:
+                try:
+                    v=img.get_attribute(attr)
+                    if v: candidates.append(v)
+                except Exception: pass
+            try:
+                srcset=img.get_attribute('srcset')
+                if srcset:
+                    candidates += [x.strip().split(' ')[0] for x in srcset.split(',') if x.strip()]
+            except Exception: pass
+            for v in candidates:
+                if v.startswith('//'): v='https:'+v
+                elif v.startswith('/'): v='https://boughalaffiliate.com'+v
+                low=v.lower()
+                if not v or any(x in low for x in ['placeholder','placehold','unsplash.com','default-image','default_image','no-image','no_image','noimage']): continue
+                if v not in seen:
+                    seen.add(v); results.append(v)
+    except Exception: pass
+    return results
+
+def extract_description(page):
+    selectors=["[class*='description']","[class*='Description']","#description",".description","[data-description]"]
+    candidates=[]
+    for sel in selectors:
+        try:
+            for el in page.locator(sel).all():
+                try:
+                    t=clean_text(el.inner_text())
+                    if len(t)>=10: candidates.append(t)
+                except Exception: pass
+        except Exception: pass
+    if candidates: return max(candidates,key=len)
+    return ''
+
+def extract_sizes(page):
+    sizes=[]; seen=set()
+    rx=re.compile(r'^(?:XXS|XS|S|M|L|XL|XXL|XXXL|2XL|3XL|4XL|5XL|\d{2})$',re.I)
+    for sel in ["select option","input[type='radio']","label","button","[class*='size']","[class*='Size']","[data-size]"]:
+        try:
+            for el in page.locator(sel).all():
+                vals=[]
+                for attr in ['data-size','value']:
+                    try:
+                        v=el.get_attribute(attr)
+                        if v: vals.append(v)
+                    except Exception: pass
+                try: vals.append(el.inner_text())
+                except Exception: pass
+                for v in vals:
+                    for part in re.split(r'[:|/\-,]+',clean_text(v)):
+                        part=clean_text(part)
+                        if rx.match(part) and part.upper() not in seen:
+                            seen.add(part.upper()); sizes.append(part.upper())
+        except Exception: pass
+    return sizes
+
+def scrape_product_details(context, product):
+    url=product.get('original_link')
+    if not url: return product
+    detail=context.new_page()
+    try:
+        detail.goto(url,wait_until='domcontentloaded',timeout=30000)
+        try: detail.wait_for_load_state('networkidle',timeout=12000)
+        except Exception: pass
+        detail.wait_for_timeout(2000)
+        body=clean_text(detail.locator('body').inner_text())
+        # name
+        for sel in ['h1','h2','[class*="product-title"]','[class*="title"]']:
+            try:
+                for el in detail.locator(sel).all():
+                    t=clean_text(el.inner_text())
+                    if 3<=len(t)<=250 and extract_price(t) is None:
+                        product['title']=t; raise StopIteration
+            except StopIteration: break
+            except Exception: pass
+        # all gallery images
+        imgs=extract_all_images(detail.locator('body'))
+        if imgs:
+            product['images']=imgs; product['image']=imgs[0]
+        # description and sizes
+        product['description']=extract_description(detail)
+        product['sizes']=extract_sizes(detail)
+        # exact reseller price from detail page
+        rp=extract_revendeur_price(body)
+        if rp is not None:
+            product['original_price']=f'{int(rp)} DH'
+            product['price']=f'{int(rp + PROFIT_MARGIN)} DH'
+    except Exception as e:
+        print(f'      ⚠️ تفاصيل المنتج: {e}')
+    finally:
+        try: detail.close()
+        except Exception: pass
+    return product
 
 
 def looks_like_product_link(href):
@@ -336,13 +465,19 @@ def scrape_current_page(page, all_products):
                 # السعر
                 # =================================================
 
-                base_price = extract_price(text)
+                base_price = extract_revendeur_price(text)
+
+                if base_price is None:
+                    base_price = extract_revendeur_price(text)
+
+                    if base_price is None:
+                        base_price = extract_price(text)
 
                 if base_price is None:
                     continue
 
                 your_price = int(
-                    base_price + 50
+                    base_price + PROFIT_MARGIN
                 )
 
                 # =================================================
@@ -396,6 +531,9 @@ def scrape_current_page(page, all_products):
                     "id": f"shadhw_{len(all_products) + 1}",
                     "title": title,
                     "image": image_url,
+                    "images": [image_url] if image_url else [],
+                    "description": "",
+                    "sizes": [],
                     "price": f"{your_price} DH",
                     "original_price": f"{int(base_price)} DH",
                     "original_link": absolute_href,
@@ -435,7 +573,7 @@ def scrape_current_page(page, all_products):
     # الطريقة الثانية: إذا لم نستخرج شيئاً
     # =====================================================
 
-    if len(all_products) == page_products_before:
+    if True:
 
         print(
             "🔄 لم نجد منتجات عبر الروابط، "
@@ -548,13 +686,16 @@ def scrape_current_page(page, all_products):
                         continue
 
                     your_price = int(
-                        base_price + 50
+                        base_price + PROFIT_MARGIN
                     )
 
                     product = {
                         "id": f"shadhw_{len(all_products) + 1}",
                         "title": title,
                         "image": image_url,
+                        "images": [image_url] if image_url else [],
+                        "description": "",
+                        "sizes": [],
                         "price": f"{your_price} DH",
                         "original_price": f"{int(base_price)} DH",
                         "original_link": href,
@@ -822,6 +963,27 @@ def run_automation():
                 )
 
                 break
+
+        # =====================================================
+        # تفاصيل كل منتج: الاسم + الوصف + المقاسات + جميع الصور
+        # =====================================================
+        print("")
+        print("=" * 70)
+        print("🔍 استخراج تفاصيل المنتجات...")
+        print("=" * 70)
+
+        for i, product in enumerate(all_products, start=1):
+            print(f"📦 {i}/{len(all_products)}: {product.get('title', '')}")
+            scrape_product_details(context, product)
+            print(f"   🖼️ {len(product.get('images', []))} صورة | 📏 {product.get('sizes', [])}")
+
+        for i, product in enumerate(all_products, start=1):
+            product['id'] = f'shadhw_{i}'
+            product.setdefault('images', [])
+            product.setdefault('description', '')
+            product.setdefault('sizes', [])
+            if not product.get('image') and product['images']:
+                product['image'] = product['images'][0]
 
         # =====================================================
         # حفظ المنتجات
