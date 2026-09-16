@@ -1,0 +1,38 @@
+name: Boughal Affiliate Diagnostic Run
+
+on:
+  workflow_dispatch: # هادي كتعطينا زر "Play" يدوّي باش نجربو السكريبت وقتما بغينا!
+  schedule:
+    - cron: '0 */6 * * *' # هادي كتقول لجيت هاب يخدم السكريبت بوحدو كل 6 د الساعات فابور
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python Environment
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Automation Tools (Playwright)
+      run: |
+        python -m pip install --upgrade pip
+        pip install playwright
+        playwright install chromium
+
+    - name: Execute Diagnostic Script
+      env:
+        BOUGHAL_EMAIL: ${{ secrets.BOUGHAL_EMAIL }}
+        BOUGHAL_PASSWORD: ${{ secrets.BOUGHAL_PASSWORD }}
+      run: python boughal_sync.py
+
+    - name: Save Diagnostic Results to Repository
+      run: |
+        git config --global user.name 'Shadhw Bot'
+        git config --global user.email 'bot@shadhw.store'
+        git add page_preview.png source.html
+        git commit -m "Saved layout diagnostic data from Boughal" || exit 0
+        git push
