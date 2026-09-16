@@ -1,7 +1,7 @@
 [
     {
         "id": "shadhw_1",
-        "title": "سلسلة شَذْو الملكية - بلاكيور فاخر مقاوم للماء",
+        "title": "سلسلة شَذْو الملكية - قلادة مطفية مطلية بالذهب الفاخر مقاومة تماماً للماء الرطوبة",
         "image": "https://unsplash.com",
         "price": "199 DH",
         "original_link": "#",
@@ -9,9 +9,17 @@
     },
     {
         "id": "shadhw_2",
-        "title": "طاقم أساور نيقلاج عصرية بتصميم الذهب",
+        "title": "طاقم أساور النيقلاج الساحر - لمعان بلاتيني دائم وتصميم عصري خلاب",
         "image": "https://unsplash.com",
         "price": "249 DH",
+        "original_link": "#",
+        "status": "In Stock"
+    },
+    {
+        "id": "shadhw_3",
+        "title": "خاتم شَذْو الأنيق المرصع بالكامل بحبيبات الكريستال البراقة - بلاتيني نيقلاج",
+        "image": "https://unsplash.com",
+        "price": "149 DH",
         "original_link": "#",
         "status": "In Stock"
     }
