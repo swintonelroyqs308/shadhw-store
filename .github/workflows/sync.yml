@@ -33,6 +33,7 @@ jobs:
       run: |
         git config --global user.name 'Shadhw Bot'
         git config --global user.email 'bot@shadhw.store'
-        git add page_preview.png source.html
+        git add page_preview.png source.html products.json
         git commit -m "Saved layout diagnostic data from Boughal" || exit 0
         git push
+
