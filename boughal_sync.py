@@ -217,7 +217,6 @@ def extract_real_image_url(img):
             if x.strip()
         ]
 
-        # ناخذ أكبر/آخر صورة في srcset
         for part in reversed(parts):
             pieces = part.split()
 
@@ -237,7 +236,6 @@ def extract_real_image_url(img):
         if not candidate:
             continue
 
-        # Ignore SVG/data placeholders
         if candidate.startswith("data:"):
             continue
 
@@ -251,7 +249,6 @@ def extract_real_image_url(img):
 
         lower = url.lower()
 
-        # Ignore obvious placeholder images
         if (
             "placeholder" in lower
             or "loading" in lower
@@ -625,78 +622,6 @@ def extract_sizes(page):
 
 
 # ============================================================
-# COLORS
-# ============================================================
-
-def extract_colors(page):
-
-    colors = []
-
-    selectors = [
-        "[data-color]",
-        ".color-button",
-        ".color-btn",
-        "button[class*='color']",
-        "label[class*='color']",
-        "input[name='color']",
-        "input[name='colors']",
-        "select[name='color'] option",
-        "select[name='colors'] option",
-    ]
-
-    for selector in selectors:
-
-        try:
-
-            elements = page.locator(
-                selector
-            ).all()
-
-            for element in elements:
-
-                for attr in [
-                    "data-color",
-                    "value",
-                    "title",
-                    "aria-label",
-                ]:
-
-                    value = get_attr(
-                        element,
-                        attr
-                    )
-
-                    if value:
-                        colors.append(value)
-
-                text = get_inner_text(
-                    element
-                )
-
-                if text:
-                    colors.append(text)
-
-        except Exception:
-            pass
-
-    colors = unique_list(colors)
-
-    ignored = {
-        "color",
-        "colors",
-        "couleur",
-        "couleurs",
-        "choisir",
-        "select",
-    }
-
-    return [
-        x for x in colors
-        if x.lower() not in ignored
-    ]
-
-
-# ============================================================
 # STATUS
 # ============================================================
 
@@ -883,7 +808,6 @@ def extract_card_product(card, index):
         "videos": [],
         "description": "",
         "sizes": [],
-        "colors": [],
         "price": (
             format_price(
                 original_price_value + PROFIT_MARGIN
@@ -1057,20 +981,6 @@ def scrape_product_details(
 
         print(
             f"   📏 Sizes: {sizes}"
-        )
-
-        # ====================================================
-        # COLORS
-        # ====================================================
-
-        colors = extract_colors(
-            page
-        )
-
-        product["colors"] = colors
-
-        print(
-            f"   🎨 Colors: {colors}"
         )
 
         # ====================================================
