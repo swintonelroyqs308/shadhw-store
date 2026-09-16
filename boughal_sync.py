@@ -1,23 +1,28 @@
 import os
 import json
+import time
 import re
-import asyncio
 from urllib.parse import urljoin
-
-from playwright.async_api import async_playwright
+from playwright.sync_api import sync_playwright
 
 
 # ============================================================
 # CONFIG
 # ============================================================
 
+EMAIL = os.environ.get("BOUGHAL_EMAIL")
+PASSWORD = os.environ.get("BOUGHAL_PASSWORD")
+
 BASE_URL = "https://boughalaffiliate.com"
 BASE_PRODUCTS_URL = f"{BASE_URL}/affiliate/products"
 
+PROFIT_MARGIN = 100
+
+MAX_PAGES = 1000
+MAX_EMPTY_PAGES = 2
+
 OUTPUT_FILE = "products.json"
 SOURCE_FILE = "source.html"
-
-PROFIT_MARGIN = 100
 
 
 # ============================================================
@@ -27,30 +32,41 @@ PROFIT_MARGIN = 100
 def clean_text(value):
     if not value:
         return ""
-
-    value = re.sub(r"\s+", " ", str(value))
-    return value.strip()
+    return " ".join(str(value).split()).strip()
 
 
-def absolute_url(url):
+def absolute_url(url, base=BASE_URL):
     if not url:
         return ""
 
-    url = url.strip()
+    url = str(url).strip()
+
+    if not url:
+        return ""
 
     if url.startswith("data:"):
         return ""
 
-    return urljoin(BASE_URL, url)
+    if url.startswith("//"):
+        return "https:" + url
+
+    return urljoin(base, url)
 
 
 def unique_list(items):
     result = []
+    seen = set()
 
     for item in items:
         item = clean_text(item)
 
-        if item and item not in result:
+        if not item:
+            continue
+
+        key = item.lower()
+
+        if key not in seen:
+            seen.add(key)
             result.append(item)
 
     return result
@@ -60,82 +76,120 @@ def extract_price(text):
     if not text:
         return None
 
-    text = text.replace(",", ".")
+    patterns = [
+        r'(\d+(?:[.,]\d{1,2})?)\s*(?:DH|dh|MAD|mad)',
+        r'(?:DH|dh|MAD|mad)\s*(\d+(?:[.,]\d{1,2})?)',
+        r'(\d+(?:[.,]\d{1,2})?)\s*د\.?\s*م',
+        r'(\d+(?:[.,]\d{1,2})?)\s*(?:درهم|درهما|درهمًا)',
+    ]
 
-    matches = re.findall(
-        r"(\d+(?:\.\d+)?)\s*(?:MAD|DH|د\.م|درهم)?",
-        text,
-        re.I
-    )
+    for pattern in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
 
-    if not matches:
-        return None
+        if match:
+            try:
+                return float(
+                    match.group(1).replace(",", ".")
+                )
+            except Exception:
+                pass
 
-    try:
-        return float(matches[-1])
-    except:
-        return None
+    return None
 
 
 def format_price(value):
     if value is None:
         return ""
 
-    try:
-        value = float(value)
+    if float(value).is_integer():
+        return f"{int(value)} DH"
 
-        if value.is_integer():
-            return f"{int(value)} DH"
-
-        return f"{value:.2f} DH"
-
-    except:
-        return ""
+    return f"{value:.2f} DH"
 
 
 def extract_revendeur_price(text):
     if not text:
         return None
 
-    lines = text.splitlines()
+    text = clean_text(text)
 
-    for line in lines:
+    patterns = [
+        r'prix\s+revendeur\s*[:\-]?\s*(\d+(?:[.,]\d{1,2})?)',
+        r'prix\s+revendeur.{0,100}?(\d+(?:[.,]\d{1,2})?)',
+        r'revendeur\s*[:\-]?\s*(\d+(?:[.,]\d{1,2})?)',
+        r'revendeur.{0,100}?(\d+(?:[.,]\d{1,2})?)',
+    ]
 
-        if re.search(
-            r"revendeur|prix\s+revendeur",
-            line,
-            re.I
-        ):
-            price = extract_price(line)
+    for pattern in patterns:
+        match = re.search(
+            pattern,
+            text,
+            re.IGNORECASE
+        )
 
-            if price is not None:
-                return price
+        if match:
+            try:
+                return float(
+                    match.group(1).replace(",", ".")
+                )
+            except Exception:
+                pass
 
     return None
 
 
-def get_attr(element, name):
+def get_attr(locator, attribute):
     try:
-        return element.get_attribute(name)
-    except:
-        return None
+        value = locator.get_attribute(attribute)
+
+        if value:
+            return clean_text(value)
+
+    except Exception:
+        pass
+
+    return ""
 
 
-async def get_inner_text(element):
+def get_inner_text(locator):
     try:
-        return await element.inner_text()
-    except:
+        return clean_text(locator.inner_text())
+    except Exception:
         return ""
 
 
 # ============================================================
-# IMAGES
+# REAL IMAGE EXTRACTION FROM PRODUCT PAGE
 # ============================================================
 
-async def extract_real_image_url(img):
+def extract_real_image_url(img):
+    """
+    نأخذ الصور الحقيقية من صفحة المنتج.
+    الأولوية:
+    src
+    data-src
+    data-lazy-src
+    data-original
+    data-image
+    srcset
+    """
 
-    attrs = [
-        "src",
+    candidates = []
+
+    # --------------------------------------------------------
+    # src
+    # --------------------------------------------------------
+
+    src = get_attr(img, "src")
+
+    if src:
+        candidates.append(src)
+
+    # --------------------------------------------------------
+    # lazy attributes
+    # --------------------------------------------------------
+
+    for attr in [
         "data-src",
         "data-lazy-src",
         "data-original",
@@ -144,205 +198,259 @@ async def extract_real_image_url(img):
         "data-large",
         "data-zoom",
         "data-url",
-    ]
-
-    for attr in attrs:
-
-        value = await get_attr(img, attr)
+    ]:
+        value = get_attr(img, attr)
 
         if value:
+            candidates.append(value)
 
-            value = value.strip()
-
-            if value.startswith("data:"):
-                continue
-
-            if value:
-                return absolute_url(value)
-
+    # --------------------------------------------------------
     # srcset
+    # --------------------------------------------------------
 
-    srcset = await get_attr(img, "srcset")
+    srcset = get_attr(img, "srcset")
 
     if srcset:
-
         parts = [
             x.strip()
             for x in srcset.split(",")
             if x.strip()
         ]
 
-        if parts:
+        # ناخذ أكبر/آخر صورة في srcset
+        for part in reversed(parts):
+            pieces = part.split()
 
-            last = parts[-1].split(" ")[0]
+            if pieces:
+                candidates.append(
+                    pieces[0].strip()
+                )
 
-            if last:
-                return absolute_url(last)
+    # --------------------------------------------------------
+    # Validate candidates
+    # --------------------------------------------------------
+
+    for candidate in candidates:
+
+        candidate = candidate.strip()
+
+        if not candidate:
+            continue
+
+        # Ignore SVG/data placeholders
+        if candidate.startswith("data:"):
+            continue
+
+        if candidate.startswith("blob:"):
+            continue
+
+        url = absolute_url(candidate)
+
+        if not url:
+            continue
+
+        lower = url.lower()
+
+        # Ignore obvious placeholder images
+        if (
+            "placeholder" in lower
+            or "loading" in lower
+            or "blank" in lower
+            or "spinner" in lower
+        ):
+            continue
+
+        return url
 
     return ""
 
 
-async def extract_product_page_images(page):
+def extract_product_page_images(page):
+    """
+    استخراج جميع الصور من صفحة المنتج نفسها.
+    """
 
     images = []
 
-    # --------------------------------------------------------
-    # IMG
-    # --------------------------------------------------------
+    # ========================================================
+    # 1. جميع img الموجودة في الصفحة
+    # ========================================================
 
-    img_elements = await page.locator("img").all()
+    try:
+        img_elements = page.locator("img").all()
 
-    for img in img_elements:
+        for img in img_elements:
 
-        url = await extract_real_image_url(img)
+            url = extract_real_image_url(img)
 
-        if url:
-            images.append(url)
+            if url:
+                images.append(url)
 
-    # --------------------------------------------------------
-    # BACKGROUND IMAGE
-    # --------------------------------------------------------
+    except Exception:
+        pass
 
-    elements = await page.locator("[style]").all()
+    # ========================================================
+    # 2. صور موجودة كـ background-image
+    # ========================================================
 
-    for element in elements:
+    try:
+        elements = page.locator(
+            "[style*='background-image']"
+        ).all()
 
-        style = await get_attr(element, "style")
+        for element in elements:
 
-        if not style:
-            continue
+            style = get_attr(
+                element,
+                "style"
+            )
 
-        matches = re.findall(
-            r'url\(["\']?(.*?)["\']?\)',
-            style,
-            re.I
-        )
+            if not style:
+                continue
 
-        for match in matches:
+            matches = re.findall(
+                r'url\([\'"]?([^\'")]+)',
+                style,
+                re.IGNORECASE
+            )
 
-            url = match.strip()
+            for match in matches:
 
-            if url and not url.startswith("data:"):
-                images.append(absolute_url(url))
+                if match.startswith("data:"):
+                    continue
 
-    # --------------------------------------------------------
-    # IMAGE LINKS
-    # --------------------------------------------------------
+                url = absolute_url(match)
 
-    links = await page.locator("a[href]").all()
+                if url:
+                    images.append(url)
 
-    for link in links:
+    except Exception:
+        pass
 
-        href = await get_attr(link, "href")
+    # ========================================================
+    # 3. صور من links / anchors
+    # ========================================================
 
-        if not href:
-            continue
+    try:
+        links = page.locator(
+            "a[href]"
+        ).all()
 
-        href = href.strip()
+        for link in links:
 
-        if re.search(
-            r"\.(jpg|jpeg|png|webp|gif)(\?.*)?$",
-            href,
-            re.I
-        ):
-            images.append(absolute_url(href))
+            href = get_attr(
+                link,
+                "href"
+            )
+
+            if not href:
+                continue
+
+            lower = href.lower()
+
+            if any(
+                ext in lower
+                for ext in [
+                    ".jpg",
+                    ".jpeg",
+                    ".png",
+                    ".webp",
+                    ".gif",
+                    ".avif"
+                ]
+            ):
+
+                url = absolute_url(href)
+
+                if url:
+                    images.append(url)
+
+    except Exception:
+        pass
 
     return unique_list(images)
 
 
 # ============================================================
-# VIDEOS
+# VIDEO EXTRACTION
 # ============================================================
 
-async def extract_videos(page):
-
+def extract_videos(page):
     videos = []
 
-    # --------------------------------------------------------
-    # VIDEO
-    # --------------------------------------------------------
+    try:
 
-    video_elements = await page.locator("video").all()
+        # <video>
+        for video in page.locator("video").all():
 
-    for video in video_elements:
-
-        attrs = [
-            "src",
-            "data-src",
-            "data-video",
-            "data-url",
-        ]
-
-        for attr in attrs:
-
-            value = await get_attr(video, attr)
-
-            if value:
-
-                value = value.strip()
-
-                if value and not value.startswith("data:"):
-                    videos.append(absolute_url(value))
-
-        # SOURCE
-
-        sources = await video.locator("source").all()
-
-        for source in sources:
-
-            attrs = [
+            for attr in [
                 "src",
                 "data-src",
                 "data-video",
-            ]
+                "data-url",
+            ]:
 
-            for attr in attrs:
-
-                value = await get_attr(source, attr)
+                value = get_attr(
+                    video,
+                    attr
+                )
 
                 if value:
+                    url = absolute_url(value)
 
-                    value = value.strip()
+                    if url and not url.startswith("blob:"):
+                        videos.append(url)
 
-                    if value and not value.startswith("data:"):
-                        videos.append(
-                            absolute_url(value)
-                        )
+        # <source>
+        for source in page.locator(
+            "video source"
+        ).all():
 
-    # --------------------------------------------------------
-    # SEARCH MP4 EVERYWHERE
-    # --------------------------------------------------------
+            for attr in [
+                "src",
+                "data-src",
+                "data-video",
+            ]:
 
-    elements = await page.locator(
-        "[src], [href], [data-src], [data-video]"
-    ).all()
-
-    for element in elements:
-
-        attrs = [
-            "src",
-            "href",
-            "data-src",
-            "data-video",
-        ]
-
-        for attr in attrs:
-
-            value = await get_attr(element, attr)
-
-            if not value:
-                continue
-
-            value = value.strip()
-
-            if re.search(
-                r"\.mp4(\?.*)?$",
-                value,
-                re.I
-            ):
-                videos.append(
-                    absolute_url(value)
+                value = get_attr(
+                    source,
+                    attr
                 )
+
+                if value:
+                    url = absolute_url(value)
+
+                    if url:
+                        videos.append(url)
+
+        # mp4 anywhere
+        for element in page.locator(
+            "[src], [href], [data-src], [data-video]"
+        ).all():
+
+            for attr in [
+                "src",
+                "href",
+                "data-src",
+                "data-video",
+            ]:
+
+                value = get_attr(
+                    element,
+                    attr
+                )
+
+                if (
+                    value
+                    and ".mp4" in value.lower()
+                ):
+
+                    videos.append(
+                        absolute_url(value)
+                    )
+
+    except Exception:
+        pass
 
     return unique_list(videos)
 
@@ -351,7 +459,9 @@ async def extract_videos(page):
 # DESCRIPTION
 # ============================================================
 
-async def extract_description(page):
+def extract_description(page):
+
+    descriptions = []
 
     selectors = [
         ".description",
@@ -362,152 +472,258 @@ async def extract_description(page):
 
     for selector in selectors:
 
-        elements = await page.locator(selector).all()
+        try:
 
-        for element in elements:
+            elements = page.locator(
+                selector
+            ).all()
 
-            text = await get_inner_text(element)
+            for element in elements:
 
-            text = clean_text(text)
+                text = get_inner_text(
+                    element
+                )
 
-            if text and len(text) > 20:
+                if text and len(text) > 5:
+                    descriptions.append(text)
 
-                return text
+        except Exception:
+            pass
 
-    # Search headings containing Description
+    # --------------------------------------------------------
+    # Heading Description
+    # --------------------------------------------------------
 
-    headings = await page.locator(
-        "h1, h2, h3, h4, h5, h6"
-    ).all()
+    try:
 
-    for heading in headings:
+        headings = page.locator(
+            "h1, h2, h3, h4, h5, h6"
+        ).all()
 
-        heading_text = clean_text(
-            await get_inner_text(heading)
-        )
+        for heading in headings:
 
-        if re.search(
-            r"description",
-            heading_text,
-            re.I
-        ):
+            heading_text = get_inner_text(
+                heading
+            )
+
+            if "description" not in heading_text.lower():
+                continue
 
             try:
 
-                parent = heading.locator("..")
-
-                text = clean_text(
-                    await parent.inner_text()
+                parent = heading.locator(
+                    ".."
                 )
 
-                if text and len(text) > len(heading_text):
+                text = get_inner_text(
+                    parent
+                )
+
+                if text:
 
                     text = re.sub(
-                        r"^description\s*:?\s*",
+                        r'^\s*description\s*',
                         "",
                         text,
-                        flags=re.I
+                        flags=re.IGNORECASE
                     )
 
-                    if len(text) > 20:
-                        return text
+                    text = clean_text(text)
 
-            except:
+                    if len(text) > 5:
+                        descriptions.append(text)
+
+            except Exception:
                 pass
 
-    return ""
+    except Exception:
+        pass
+
+    descriptions = unique_list(
+        descriptions
+    )
+
+    if not descriptions:
+        return ""
+
+    return max(
+        descriptions,
+        key=len
+    )
 
 
 # ============================================================
 # SIZES
 # ============================================================
 
-async def extract_sizes(page):
+def extract_sizes(page):
 
     sizes = []
 
     selectors = [
-
         "input[name='size']",
         "input[name='sizes']",
-
         "[data-size]",
-
         ".size-button",
         ".size-btn",
-
         "button[class*='size']",
         "label[class*='size']",
-
         "select[name='size'] option",
         "select[name='sizes'] option",
     ]
 
     for selector in selectors:
 
-        elements = await page.locator(selector).all()
+        try:
 
-        for element in elements:
+            elements = page.locator(
+                selector
+            ).all()
 
-            value = (
-                await get_attr(element, "value")
-                or await get_attr(element, "data-size")
-            )
+            for element in elements:
 
-            text = clean_text(
-                await get_inner_text(element)
-            )
-
-            if value:
-                value = clean_text(value)
-
-            candidate = value or text
-
-            if candidate:
-
-                candidate = clean_text(candidate)
-
-                if candidate.lower() not in [
-                    "select",
-                    "choisir",
-                    "choose",
-                    "taille",
-                    "size",
+                for attr in [
+                    "value",
+                    "data-size",
+                    "title",
+                    "aria-label",
                 ]:
 
-                    sizes.append(candidate)
+                    value = get_attr(
+                        element,
+                        attr
+                    )
 
-    return unique_list(sizes)
+                    if value:
+                        sizes.append(value)
+
+                text = get_inner_text(
+                    element
+                )
+
+                if text:
+                    sizes.append(text)
+
+        except Exception:
+            pass
+
+    sizes = unique_list(sizes)
+
+    ignored = {
+        "size",
+        "sizes",
+        "taille",
+        "tailles",
+        "choisir",
+        "select",
+    }
+
+    return [
+        x for x in sizes
+        if x.lower() not in ignored
+    ]
+
+
+# ============================================================
+# COLORS
+# ============================================================
+
+def extract_colors(page):
+
+    colors = []
+
+    selectors = [
+        "[data-color]",
+        ".color-button",
+        ".color-btn",
+        "button[class*='color']",
+        "label[class*='color']",
+        "input[name='color']",
+        "input[name='colors']",
+        "select[name='color'] option",
+        "select[name='colors'] option",
+    ]
+
+    for selector in selectors:
+
+        try:
+
+            elements = page.locator(
+                selector
+            ).all()
+
+            for element in elements:
+
+                for attr in [
+                    "data-color",
+                    "value",
+                    "title",
+                    "aria-label",
+                ]:
+
+                    value = get_attr(
+                        element,
+                        attr
+                    )
+
+                    if value:
+                        colors.append(value)
+
+                text = get_inner_text(
+                    element
+                )
+
+                if text:
+                    colors.append(text)
+
+        except Exception:
+            pass
+
+    colors = unique_list(colors)
+
+    ignored = {
+        "color",
+        "colors",
+        "couleur",
+        "couleurs",
+        "choisir",
+        "select",
+    }
+
+    return [
+        x for x in colors
+        if x.lower() not in ignored
+    ]
 
 
 # ============================================================
 # STATUS
 # ============================================================
 
-async def extract_status(page):
-
-    text = ""
+def extract_status(page):
 
     try:
-        text = clean_text(
-            await page.locator("body").inner_text()
-        )
-    except:
-        pass
+        text = get_inner_text(page)
+    except Exception:
+        return ""
 
-    if re.search(
-        r"rupture|épuisé|epuise|out\s+of\s+stock|indisponible",
-        text,
-        re.I
-    ):
-        return "out_of_stock"
+    lower = text.lower()
 
-    if re.search(
-        r"disponible|en\s+stock|in\s+stock",
-        text,
-        re.I
+    if (
+        "rupture de stock" in lower
+        or "out of stock" in lower
+        or "épuisé" in lower
+        or "epuise" in lower
+        or "indisponible" in lower
     ):
-        return "in_stock"
+        return "Out of Stock"
+
+    if (
+        "en stock" in lower
+        or "in stock" in lower
+        or "disponible" in lower
+    ):
+        return "In Stock"
 
     return ""
 
@@ -516,59 +732,88 @@ async def extract_status(page):
 # TITLE
 # ============================================================
 
-async def extract_title(page):
+def extract_title(page, fallback=""):
 
     selectors = [
         "h1",
         ".product-title",
-        ".product-name",
         "[class*='product-title']",
-        "[class*='product-name']",
+        "h2",
     ]
 
     for selector in selectors:
 
-        elements = await page.locator(selector).all()
+        try:
 
-        for element in elements:
+            elements = page.locator(
+                selector
+            ).all()
 
-            text = clean_text(
-                await get_inner_text(element)
-            )
+            for element in elements:
 
-            if text:
-                return text
+                text = get_inner_text(
+                    element
+                )
 
-    return ""
+                if text and len(text) > 1:
+                    return text
+
+        except Exception:
+            pass
+
+    return clean_text(fallback)
 
 
 # ============================================================
-# CARD PRODUCT
+# LISTING CARD
 # ============================================================
 
-async def extract_card_product(card, index):
+def extract_card_product(card, index):
 
-    source_id = await get_attr(
-        card,
-        "data-id"
-    )
-
-    title = await get_attr(
+    title = get_attr(
         card,
         "data-name"
     )
 
-    original_link = await get_attr(
+    if not title:
+
+        try:
+            title = get_inner_text(
+                card.locator("h4").first
+            )
+        except Exception:
+            pass
+
+    if not title:
+
+        try:
+            title = get_inner_text(
+                card.locator("h3").first
+            )
+        except Exception:
+            pass
+
+    original_link = get_attr(
         card,
         "data-url"
     )
 
-    card_text = ""
+    original_link = absolute_url(
+        original_link
+    )
 
-    try:
-        card_text = await card.inner_text()
-    except:
-        pass
+    source_id = get_attr(
+        card,
+        "data-id"
+    )
+
+    card_text = get_inner_text(
+        card
+    )
+
+    # ========================================================
+    # Revendeur
+    # ========================================================
 
     original_price_value = extract_revendeur_price(
         card_text
@@ -576,66 +821,80 @@ async def extract_card_product(card, index):
 
     if original_price_value is None:
 
-        # fallback: search all card text for Revendeur
+        try:
 
-        original_price_value = extract_price(
-            card_text
-        )
+            elements = card.locator(
+                "p"
+            ).all()
 
-    price_value = None
+            for element in elements:
 
-    if original_price_value is not None:
-        price_value = (
-            original_price_value
-            + PROFIT_MARGIN
-        )
+                text = get_inner_text(
+                    element
+                )
+
+                if "revendeur" in text.lower():
+
+                    value = extract_price(
+                        text
+                    )
+
+                    if value is not None:
+                        original_price_value = value
+                        break
+
+        except Exception:
+            pass
+
+    # ========================================================
+    # Status
+    # ========================================================
 
     status = ""
 
-    if re.search(
-        r"rupture|épuisé|epuise|out\s+of\s+stock|indisponible",
-        card_text,
-        re.I
-    ):
-        status = "out_of_stock"
+    lower = card_text.lower()
 
-    elif re.search(
-        r"disponible|en\s+stock|in\s+stock",
-        card_text,
-        re.I
+    if (
+        "rupture de stock" in lower
+        or "out of stock" in lower
+        or "épuisé" in lower
+        or "epuise" in lower
+        or "indisponible" in lower
     ):
-        status = "in_stock"
+        status = "Out of Stock"
+
+    elif (
+        "en stock" in lower
+        or "in stock" in lower
+        or "disponible" in lower
+    ):
+        status = "In Stock"
+
+    # ========================================================
+    # Product
+    # ========================================================
 
     return {
-
         "id": f"shadhw_{index}",
-
-        "source_id": source_id or "",
-
+        "source_id": source_id,
         "title": clean_text(title),
-
         "image": "",
-
         "images": [],
-
         "videos": [],
-
         "description": "",
-
         "sizes": [],
-
-        "price": format_price(price_value),
-
+        "colors": [],
+        "price": (
+            format_price(
+                original_price_value + PROFIT_MARGIN
+            )
+            if original_price_value is not None
+            else ""
+        ),
         "original_price": format_price(
             original_price_value
         ),
-
-        "original_link": (
-            absolute_url(original_link)
-            if original_link
-            else ""
-        ),
-
+        "original_link": original_link,
         "status": status,
     }
 
@@ -644,120 +903,99 @@ async def extract_card_product(card, index):
 # PRODUCT DETAILS
 # ============================================================
 
-async def scrape_product_details(
-    browser,
-    product
+def scrape_product_details(
+    context,
+    product,
+    index,
+    total
 ):
 
-    url = product.get("original_link")
+    url = product.get(
+        "original_link"
+    )
 
     if not url:
         return product
 
-    page = await browser.new_page()
+    page = context.new_page()
 
     try:
 
+        print()
         print(
-            f"\n🔎 Product: {product.get('title')}"
+            f"🔍 [{index}/{total}] "
+            f"{product.get('title', '')}"
         )
 
         print(
-            f"🌐 URL: {url}"
+            f"   URL: {url}"
         )
 
-        await page.goto(
+        page.goto(
             url,
             wait_until="domcontentloaded",
             timeout=60000
         )
 
-        # ----------------------------------------------------
-        # WAIT
-        # ----------------------------------------------------
-
         try:
-            await page.wait_for_load_state(
+            page.wait_for_load_state(
                 "networkidle",
                 timeout=15000
             )
-        except:
+        except Exception:
             pass
 
-        # ----------------------------------------------------
-        # SCROLL FOR LAZY LOADING
-        # ----------------------------------------------------
+        page.wait_for_timeout(2500)
 
-        await page.evaluate(
-            """
-            async () => {
-                await new Promise(resolve => {
-
-                    let totalHeight = 0;
-                    const distance = 500;
-
-                    const timer = setInterval(() => {
-
-                        window.scrollBy(
-                            0,
-                            distance
-                        );
-
-                        totalHeight += distance;
-
-                        if (
-                            totalHeight >=
-                            document.body.scrollHeight
-                        ) {
-                            clearInterval(timer);
-                            resolve();
-                        }
-
-                    }, 200);
-
-                });
-            }
-            """
-        )
-
-        await page.wait_for_timeout(1500)
-
-        # ----------------------------------------------------
-        # SAVE SOURCE HTML
-        # ----------------------------------------------------
+        # ====================================================
+        # Scroll to load ALL lazy content
+        # ====================================================
 
         try:
 
-            html = await page.content()
+            page.evaluate("""
+                async () => {
+                    const distance = 500;
+                    const delay = 250;
 
-            with open(
-                SOURCE_FILE,
-                "w",
-                encoding="utf-8"
-            ) as f:
+                    while (
+                        document.documentElement.scrollTop +
+                        window.innerHeight <
+                        document.documentElement.scrollHeight
+                    ) {
+                        window.scrollBy(0, distance);
+                        await new Promise(
+                            resolve => setTimeout(resolve, delay)
+                        );
+                    }
 
-                f.write(html)
+                    window.scrollTo(0, 0);
+                }
+            """)
 
-        except Exception as e:
+            page.wait_for_timeout(2000)
 
-            print(
-                f"⚠️ source.html error: {e}"
-            )
+        except Exception:
+            pass
 
-        # ----------------------------------------------------
+        # ====================================================
         # TITLE
-        # ----------------------------------------------------
+        # ====================================================
 
-        title = await extract_title(page)
+        title = extract_title(
+            page,
+            product.get("title", "")
+        )
 
         if title:
             product["title"] = title
 
-        # ----------------------------------------------------
-        # IMAGES
-        # ----------------------------------------------------
+        # ====================================================
+        # IMPORTANT:
+        # ALL IMAGES FROM PRODUCT PAGE
+        # ====================================================
 
-        images = await extract_product_page_images(
+        images = extract_product_page_images(
             page
         )
 
@@ -766,136 +1004,147 @@ async def scrape_product_details(
         )
 
         if product["images"]:
-
-            product["image"] = (
-                product["images"][0]
-            )
+            product["image"] = product["images"][0]
 
         print(
-            f"   🖼 Images: {len(product['images'])}"
+            f"   🖼️ Images: "
+            f"{len(product['images'])}"
         )
 
-        # ----------------------------------------------------
+        # ====================================================
         # VIDEOS
-        # ----------------------------------------------------
+        # ====================================================
 
-        videos = await extract_videos(
+        videos = extract_videos(
             page
         )
 
-        product["videos"] = unique_list(
-            videos
-        )
+        product["videos"] = videos
 
         print(
-            f"   🎥 Videos: {product['videos']}"
+            f"   🎥 Videos: "
+            f"{len(videos)}"
         )
 
-        # ----------------------------------------------------
+        # ====================================================
         # DESCRIPTION
-        # ----------------------------------------------------
+        # ====================================================
 
-        description = await extract_description(
+        description = extract_description(
             page
         )
 
         product["description"] = (
             description
+            if description
+            else ""
         )
 
         print(
             f"   📝 Description: "
-            f"{bool(description)}"
+            f"{'YES' if description else 'NO'}"
         )
 
-        # ----------------------------------------------------
+        # ====================================================
         # SIZES
-        # ----------------------------------------------------
+        # ====================================================
 
-        sizes = await extract_sizes(
+        sizes = extract_sizes(
             page
         )
 
-        product["sizes"] = unique_list(
-            sizes
-        )
+        product["sizes"] = sizes
 
         print(
-            f"   📏 Sizes: {product['sizes']}"
+            f"   📏 Sizes: {sizes}"
         )
 
-        # ----------------------------------------------------
-        # STATUS
-        # ----------------------------------------------------
+        # ====================================================
+        # COLORS
+        # ====================================================
 
-        status = await extract_status(
+        colors = extract_colors(
+            page
+        )
+
+        product["colors"] = colors
+
+        print(
+            f"   🎨 Colors: {colors}"
+        )
+
+        # ====================================================
+        # STATUS
+        # ====================================================
+
+        status = extract_status(
             page
         )
 
         if status:
             product["status"] = status
 
-        print(
-            f"   📦 Status: "
-            f"{product['status']}"
+        # ====================================================
+        # REVENDEUR PRICE
+        # ====================================================
+
+        page_text = get_inner_text(
+            page
         )
 
-        # ----------------------------------------------------
-        # PRICE / REVENDEUR
-        # ----------------------------------------------------
+        original_price_value = extract_revendeur_price(
+            page_text
+        )
+
+        if original_price_value is not None:
+
+            product["original_price"] = format_price(
+                original_price_value
+            )
+
+            product["price"] = format_price(
+                original_price_value +
+                PROFIT_MARGIN
+            )
+
+        print(
+            f"   💰 Revendeur: "
+            f"{product.get('original_price', '')}"
+        )
+
+        print(
+            f"   💰 Vente: "
+            f"{product.get('price', '')}"
+        )
+
+        # ====================================================
+        # Save debug product HTML
+        # ====================================================
 
         try:
 
-            body_text = await page.locator(
-                "body"
-            ).inner_text()
+            with open(
+                "product_debug.html",
+                "w",
+                encoding="utf-8"
+            ) as f:
 
-            reseller_price = (
-                extract_revendeur_price(
-                    body_text
-                )
-            )
-
-            if reseller_price is not None:
-
-                product[
-                    "original_price"
-                ] = format_price(
-                    reseller_price
+                f.write(
+                    page.content()
                 )
 
-                product[
-                    "price"
-                ] = format_price(
-                    reseller_price
-                    + PROFIT_MARGIN
-                )
-
-                print(
-                    f"   💰 Revendeur: "
-                    f"{product['original_price']}"
-                )
-
-                print(
-                    f"   💵 Vente: "
-                    f"{product['price']}"
-                )
-
-        except Exception as e:
-
-            print(
-                f"⚠️ Price error: {e}"
-            )
+        except Exception:
+            pass
 
     except Exception as e:
 
         print(
-            f"❌ Product error: {e}"
+            f"   ⚠️ Detail error: {e}"
         )
 
     finally:
 
-        await page.close()
+        page.close()
 
     return product
 
@@ -916,169 +1165,225 @@ def save_products(products):
             products,
             f,
             ensure_ascii=False,
-            indent=2
+            indent=4
         )
-
-    print(
-        f"\n💾 Saved {len(products)} products "
-        f"to {OUTPUT_FILE}"
-    )
 
 
 # ============================================================
 # LOGIN
 # ============================================================
 
-async def login(page):
+def login(page):
 
-    email = os.getenv(
-        "BOUGHAL_EMAIL"
-    )
+    print("🔐 تسجيل الدخول...")
 
-    password = os.getenv(
-        "BOUGHAL_PASSWORD"
-    )
-
-    if not email or not password:
-
-        raise Exception(
-            "BOUGHAL_EMAIL / BOUGHAL_PASSWORD "
-            "are missing."
-        )
-
-    print("🔐 Opening login...")
-
-    await page.goto(
+    page.goto(
         BASE_URL,
         wait_until="domcontentloaded",
         timeout=60000
     )
 
-    # --------------------------------------------------------
+    page.wait_for_timeout(1500)
+
+    if "/login" not in page.url.lower():
+
+        for selector in [
+            "a[href*='login']",
+            "a[href*='connexion']",
+        ]:
+
+            try:
+
+                locator = page.locator(
+                    selector
+                ).first
+
+                if locator.count() > 0:
+
+                    locator.click()
+
+                    page.wait_for_timeout(
+                        1500
+                    )
+
+                    break
+
+            except Exception:
+                pass
+
+    # ========================================================
     # EMAIL
-    # --------------------------------------------------------
-
-    email_selectors = [
-        "input[type='email']",
-        "input[name='email']",
-        "input[placeholder*='email' i]",
-    ]
-
-    password_selectors = [
-        "input[type='password']",
-        "input[name='password']",
-    ]
+    # ========================================================
 
     email_input = None
 
-    for selector in email_selectors:
+    for selector in [
+        "input[type='email']",
+        "input[name='email']",
+        "input[name='username']",
+    ]:
 
-        locator = page.locator(
-            selector
-        )
+        try:
 
-        if await locator.count():
+            locator = page.locator(
+                selector
+            ).first
 
-            email_input = locator.first
-            break
+            if locator.count() > 0:
+
+                email_input = locator
+                break
+
+        except Exception:
+            pass
+
+    # ========================================================
+    # PASSWORD
+    # ========================================================
 
     password_input = None
 
-    for selector in password_selectors:
+    for selector in [
+        "input[type='password']",
+        "input[name='password']",
+    ]:
 
-        locator = page.locator(
-            selector
+        try:
+
+            locator = page.locator(
+                selector
+            ).first
+
+            if locator.count() > 0:
+
+                password_input = locator
+                break
+
+        except Exception:
+            pass
+
+    if email_input is None or password_input is None:
+
+        print(
+            "⚠️ Login fields not found."
         )
 
-        if await locator.count():
+        return False
 
-            password_input = locator.first
-            break
+    if not EMAIL or not PASSWORD:
 
-    if not email_input or not password_input:
-
-        raise Exception(
-            "Login fields not found."
+        print(
+            "⚠️ BOUGHAL_EMAIL / "
+            "BOUGHAL_PASSWORD missing."
         )
 
-    await email_input.fill(email)
+        return False
 
-    await password_input.fill(password)
+    email_input.fill(
+        EMAIL
+    )
 
-    # --------------------------------------------------------
+    password_input.fill(
+        PASSWORD
+    )
+
+    # ========================================================
     # SUBMIT
-    # --------------------------------------------------------
-
-    submit_selectors = [
-        "button[type='submit']",
-        "input[type='submit']",
-        "button:has-text('Login')",
-        "button:has-text('Connexion')",
-        "button:has-text('Se connecter')",
-    ]
+    # ========================================================
 
     submitted = False
 
-    for selector in submit_selectors:
+    for selector in [
+        "button[type='submit']",
+        "input[type='submit']",
+        "button:has-text('Connexion')",
+        "button:has-text('Login')",
+        "button:has-text('Se connecter')",
+    ]:
 
-        locator = page.locator(
-            selector
-        )
+        try:
 
-        if await locator.count():
+            button = page.locator(
+                selector
+            ).first
 
-            await locator.first.click()
+            if button.count() > 0:
 
-            submitted = True
-            break
+                button.click()
+
+                submitted = True
+
+                break
+
+        except Exception:
+            pass
 
     if not submitted:
 
-        await password_input.press(
+        password_input.press(
             "Enter"
         )
 
-    await page.wait_for_timeout(
+    page.wait_for_timeout(
         3000
     )
 
     try:
 
-        await page.wait_for_load_state(
+        page.wait_for_load_state(
             "networkidle",
             timeout=15000
         )
 
-    except:
+    except Exception:
         pass
 
-    print("✅ Login completed.")
+    print(
+        f"🌐 URL: {page.url}"
+    )
+
+    return True
 
 
 # ============================================================
-# SCRAPE CURRENT PAGE
+# SCRAPE CURRENT LISTING PAGE
 # ============================================================
 
-async def scrape_current_page(
+def scrape_current_page(
     page,
-    products,
-    start_index
+    products
 ):
 
     print(
-        "\n📄 Reading products page..."
+        f"📄 Page: {page.url}"
     )
 
-    await page.wait_for_timeout(
-        1500
-    )
+    try:
 
-    cards = await page.locator(
+        with open(
+            SOURCE_FILE,
+            "w",
+            encoding="utf-8"
+        ) as f:
+
+            f.write(
+                page.content()
+            )
+
+    except Exception:
+        pass
+
+    # ========================================================
+    # REAL PRODUCT CARD
+    # ========================================================
+
+    cards = page.locator(
         "div.productCard[data-url]"
     ).all()
 
     print(
-        f"🛒 Found {len(cards)} product cards."
+        f"🔎 Products on page: "
+        f"{len(cards)}"
     )
 
     if not cards:
@@ -1086,49 +1391,55 @@ async def scrape_current_page(
 
     added = 0
 
+    existing_links = {
+        p.get("original_link")
+        for p in products
+        if p.get("original_link")
+    }
+
     for card in cards:
 
-        try:
+        href = get_attr(
+            card,
+            "data-url"
+        )
 
-            index = (
-                start_index
-                + added
-                + 1
-            )
+        if not href:
+            continue
 
-            product = await extract_card_product(
-                card,
-                index
-            )
+        href = absolute_url(
+            href
+        )
 
-            # ------------------------------------------------
-            # SCRAPE PRODUCT PAGE
-            # ------------------------------------------------
+        if href in existing_links:
+            continue
 
-            product = await scrape_product_details(
-                page.context.browser,
-                product
-            )
+        product = extract_card_product(
+            card,
+            len(products) + 1
+        )
 
-            products.append(
-                product
-            )
+        if not product.get(
+            "original_link"
+        ):
+            continue
 
-            added += 1
+        products.append(
+            product
+        )
 
-            # ------------------------------------------------
-            # SAVE AFTER EACH PRODUCT
-            # ------------------------------------------------
+        existing_links.add(
+            product["original_link"]
+        )
 
-            save_products(
-                products
-            )
+        added += 1
 
-        except Exception as e:
-
-            print(
-                f"❌ Card error: {e}"
-            )
+        print(
+            f"   + "
+            f"{product['title']} | "
+            f"{product['original_price']} | "
+            f"{product['price']}"
+        )
 
     return added
 
@@ -1137,73 +1448,95 @@ async def scrape_current_page(
 # MAIN
 # ============================================================
 
-async def main():
+def main():
 
     products = []
 
-    async with async_playwright() as p:
+    with sync_playwright() as p:
 
-        browser = await p.chromium.launch(
+        # ====================================================
+        # IMPORTANT FOR GITHUB ACTIONS
+        # ====================================================
+
+        browser = p.chromium.launch(
             headless=True
         )
 
-        context = await browser.new_context(
+        context = browser.new_context(
             viewport={
                 "width": 1440,
                 "height": 900
             }
         )
 
-        page = await context.new_page()
+        page = context.new_page()
+
+        # ====================================================
+        # LOGIN
+        # ====================================================
+
+        if not login(page):
+
+            browser.close()
+
+            return
+
+        # ====================================================
+        # PRODUCTS PAGE
+        # ====================================================
+
+        page.goto(
+            BASE_PRODUCTS_URL,
+            wait_until="domcontentloaded",
+            timeout=60000
+        )
 
         try:
 
-            # ------------------------------------------------
-            # LOGIN
-            # ------------------------------------------------
+            page.wait_for_load_state(
+                "networkidle",
+                timeout=15000
+            )
 
-            await login(page)
+        except Exception:
+            pass
 
-            # ------------------------------------------------
-            # PRODUCTS
-            # ------------------------------------------------
+        page.wait_for_timeout(
+            2000
+        )
 
-            page_number = 1
+        # ====================================================
+        # PAGINATION
+        # ====================================================
 
-            empty_pages = 0
+        empty_pages = 0
 
-            max_pages = 1000
+        for page_number in range(
+            1,
+            MAX_PAGES + 1
+        ):
 
-            while page_number <= max_pages:
+            if page_number == 1:
 
-                if page_number == 1:
+                url = BASE_PRODUCTS_URL
 
-                    url = BASE_PRODUCTS_URL
+            else:
 
-                else:
-
-                    url = (
-                        f"{BASE_PRODUCTS_URL}"
-                        f"?page={page_number}"
-                    )
-
-                print(
-                    f"\n{'=' * 60}"
+                url = (
+                    f"{BASE_PRODUCTS_URL}"
+                    f"?page={page_number}"
                 )
 
-                print(
-                    f"📄 PAGE {page_number}"
-                )
+            print()
+            print("=" * 70)
+            print(
+                f"📄 PAGE {page_number}"
+            )
+            print("=" * 70)
 
-                print(
-                    f"🌐 {url}"
-                )
+            try:
 
-                print(
-                    f"{'=' * 60}"
-                )
-
-                await page.goto(
+                page.goto(
                     url,
                     wait_until="domcontentloaded",
                     timeout=60000
@@ -1211,80 +1544,118 @@ async def main():
 
                 try:
 
-                    await page.wait_for_load_state(
+                    page.wait_for_load_state(
                         "networkidle",
                         timeout=15000
                     )
 
-                except:
+                except Exception:
                     pass
 
-                await page.wait_for_timeout(
+                page.wait_for_timeout(
                     1500
                 )
 
-                # ------------------------------------------------
-                # CHECK CARDS
-                # ------------------------------------------------
-
-                card_count = await page.locator(
-                    "div.productCard[data-url]"
-                ).count()
+            except Exception as e:
 
                 print(
-                    f"🛒 Cards: {card_count}"
+                    f"⚠️ Page error: {e}"
                 )
 
-                if card_count == 0:
+                continue
 
-                    empty_pages += 1
-
-                    print(
-                        f"⚠️ Empty page "
-                        f"{empty_pages}/2"
-                    )
-
-                    if empty_pages >= 2:
-                        break
-
-                    page_number += 1
-
-                    continue
-
-                empty_pages = 0
-
-                # ------------------------------------------------
-                # SCRAPE
-                # ------------------------------------------------
-
-                await scrape_current_page(
-                    page,
-                    products,
-                    len(products)
-                )
-
-                page_number += 1
-
-            # ------------------------------------------------
-            # FINAL SAVE
-            # ------------------------------------------------
+            added = scrape_current_page(
+                page,
+                products
+            )
 
             save_products(
                 products
             )
 
             print(
-                "\n✅ SCRAPING FINISHED"
+                f"📦 Added: {added} | "
+                f"Total: {len(products)}"
             )
 
-            print(
-                f"📦 Total products: "
-                f"{len(products)}"
+            if added == 0:
+
+                empty_pages += 1
+
+            else:
+
+                empty_pages = 0
+
+            if empty_pages >= MAX_EMPTY_PAGES:
+
+                print(
+                    "🛑 No new products."
+                )
+
+                break
+
+        # ====================================================
+        # DETAILS
+        # ====================================================
+
+        print()
+        print("=" * 70)
+        print(
+            "🔍 PRODUCT DETAILS"
+        )
+        print("=" * 70)
+
+        total = len(products)
+
+        for index, product in enumerate(
+            products,
+            start=1
+        ):
+
+            scrape_product_details(
+                context,
+                product,
+                index,
+                total
             )
 
-        finally:
+            product["id"] = (
+                f"shadhw_{index}"
+            )
 
-            await browser.close()
+            # Save after EVERY product
+            save_products(
+                products
+            )
+
+        # ====================================================
+        # FINAL
+        # ====================================================
+
+        save_products(
+            products
+        )
+
+        print()
+        print("=" * 70)
+        print(
+            "✅ DONE"
+        )
+        print("=" * 70)
+
+        print(
+            f"📦 Products: {len(products)}"
+        )
+
+        print(
+            f"💾 {OUTPUT_FILE}"
+        )
+
+        print(
+            f"📝 {SOURCE_FILE}"
+        )
+
+        browser.close()
 
 
 # ============================================================
@@ -1292,7 +1663,4 @@ async def main():
 # ============================================================
 
 if __name__ == "__main__":
-
-    asyncio.run(
-        main()
-    )
+    main()
