@@ -3,7 +3,7 @@ name: Boughal Affiliate Diagnostic Run
 on:
   workflow_dispatch: # هادي كتعطينا زر "Play" يدوّي باش نجربو السكريبت وقتما بغينا!
   schedule:
-    - cron: '0 */6 * * *' # هادي كتقول لجيت هاب يخدم السكريبت بوحدو كل 6 د الساعات فابور
+    - cron: '0 0 * * *' # هادي كتقول لجيت هاب يخدم السكريبت بوحدو كل 6 د الساعات فابور
 
 jobs:
   run-script:
