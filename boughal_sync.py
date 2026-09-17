@@ -625,6 +625,19 @@ def extract_sizes(page):
 # STATUS
 # ============================================================
 
+def is_unavailable_product(page):
+    """
+    Vérifie le code source de la page produit.
+    Tous les produits indisponibles contiennent le texte exact:
+    "غير متوفر حاليا"
+    """
+    try:
+        source = page.content()
+        return bool(re.search(r"غير\\s*متوفر\\s*حاليا", source, re.IGNORECASE))
+    except Exception:
+        return False
+
+
 def extract_status(page):
 
     try:
@@ -870,17 +883,6 @@ def scrape_product_details(
             pass
 
         page.wait_for_timeout(2500)
-
-        # ====================================================
-        # SKIP UNAVAILABLE PRODUCTS
-        # ====================================================
-        # المنتج غير المتوفر يتم التعرف عليه من الـ HTML نفسه
-        # عبر عبارة: "غير متوفر حاليا"
-        page_source = page.content()
-
-        if re.search(r"غير\s*متوفر\s*حاليا", page_source, re.IGNORECASE):
-            print("   ⏭️ غير متوفر حاليا - تم تخطي المنتج")
-            return None
 
         # ====================================================
         # Scroll to load ALL lazy content
@@ -1345,6 +1347,50 @@ def scrape_current_page(
         ):
             continue
 
+        # ========================================================
+        # CHECK AVAILABILITY BEFORE ADDING PRODUCT
+        # ========================================================
+        detail_page = None
+
+        try:
+            detail_page = page.context.new_page()
+
+            detail_page.goto(
+                product["original_link"],
+                wait_until="domcontentloaded",
+                timeout=60000
+            )
+
+            try:
+                detail_page.wait_for_load_state(
+                    "networkidle",
+                    timeout=10000
+                )
+            except Exception:
+                pass
+
+            # نحتاج فقط للكود المصدري هنا، لذلك لا ننتظر
+            # الصور أو الفيديو أو باقي التفاصيل.
+            if is_unavailable_product(detail_page):
+                print(
+                    f"   ⏭️ تخطي غير متوفر: "
+                    f"{product['title']}"
+                )
+                continue
+
+        except Exception as e:
+            # إذا فشل فحص الصفحة، لا نحذف المنتج احتياطياً.
+            print(
+                f"   ⚠️ Availability check error: {e}"
+            )
+
+        finally:
+            if detail_page:
+                try:
+                    detail_page.close()
+                except Exception:
+                    pass
+
         products.append(
             product
         )
@@ -1533,19 +1579,12 @@ def main():
             start=1
         ):
 
-            result = scrape_product_details(
+            scrape_product_details(
                 context,
                 product,
                 index,
                 total
             )
-
-            # إذا كان المنتج غير متوفر، scrape_product_details يرجع None
-            # نحذف المنتج من القائمة حتى لا يدخل products.json
-            if result is None:
-                products.remove(product)
-                save_products(products)
-                continue
 
             product["id"] = (
                 f"shadhw_{index}"
