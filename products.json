@@ -1,29 +1,24 @@
 [
     {
         "id": "shadhw_1",
-        "source_id": "317",
-        "title": "collie Broiler",
+        "source_id": "311",
+        "title": "كولي توليب",
         "image": "https://boughalaffiliate.com/logo.png",
         "images": [
             "https://boughalaffiliate.com/logo.png",
             "https://boughalaffiliate.com/urlanding-icon.png",
-            "https://boughalaffiliate.com/product_photos/1788621456_whatsapp-image-2026-09-05-at-152039-1.jpeg",
-            "https://boughalaffiliate.com/product_photos/1788621456_whatsapp-image-2026-09-05-at-152039.jpeg",
-            "https://boughalaffiliate.com/product_photos/1788621456_whatsapp-image-2026-09-05-at-152038.jpeg"
+            "https://boughalaffiliate.com/product_photos/1787305668_whatsapp-image-2026-08-21-at-113947-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1787305668_whatsapp-image-2026-08-21-at-113947-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1787305668_whatsapp-image-2026-08-21-at-113947.jpeg"
         ],
         "videos": [
-            "https://boughalaffiliate.com/product_videos/1788621456_whatsapp-video-2026-09-05-at-152051.mp4",
-            "https://boughalaffiliate.com/product_videos/1788621457_whatsapp-video-2026-09-05-at-152046.mp4"
+            "https://boughalaffiliate.com/product_videos/1787305668_whatsapp-video-2026-08-21-at-113950.mp4"
         ],
-        "description": "براسلي ستوندار 6cm من نوع jh",
-        "sizes": [
-            "7",
-            "8",
-            "9"
-        ],
-        "price": "185 DH",
-        "original_price": "85 DH",
-        "original_link": "https://boughalaffiliate.com/affiliate/products/317",
+        "description": "كولي من نوع jh",
+        "sizes": [],
+        "price": "170 DH",
+        "original_price": "70 DH",
+        "original_link": "https://boughalaffiliate.com/affiliate/products/311",
         "status": ""
     },
     {
@@ -57,6 +52,33 @@
     },
     {
         "id": "shadhw_3",
+        "source_id": "317",
+        "title": "collie Broiler",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1788621456_whatsapp-image-2026-09-05-at-152039-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788621456_whatsapp-image-2026-09-05-at-152039.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788621456_whatsapp-image-2026-09-05-at-152038.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1788621456_whatsapp-video-2026-09-05-at-152051.mp4",
+            "https://boughalaffiliate.com/product_videos/1788621457_whatsapp-video-2026-09-05-at-152046.mp4"
+        ],
+        "description": "براسلي ستوندار 6cm من نوع jh",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
+        "price": "185 DH",
+        "original_price": "85 DH",
+        "original_link": "https://boughalaffiliate.com/affiliate/products/317",
+        "status": ""
+    },
+    {
+        "id": "shadhw_4",
         "source_id": "308",
         "title": "louza 2",
         "image": "https://boughalaffiliate.com/logo.png",
@@ -74,34 +96,11 @@
         ],
         "description": "البراسلي ستوندار 6 سنتم من نوع jh",
         "sizes": [
-            "7",
-            "8"
+            "7"
         ],
         "price": "210 DH",
         "original_price": "110 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/308",
-        "status": ""
-    },
-    {
-        "id": "shadhw_4",
-        "source_id": "311",
-        "title": "كولي توليب",
-        "image": "https://boughalaffiliate.com/logo.png",
-        "images": [
-            "https://boughalaffiliate.com/logo.png",
-            "https://boughalaffiliate.com/urlanding-icon.png",
-            "https://boughalaffiliate.com/product_photos/1787305668_whatsapp-image-2026-08-21-at-113947-2.jpeg",
-            "https://boughalaffiliate.com/product_photos/1787305668_whatsapp-image-2026-08-21-at-113947-1.jpeg",
-            "https://boughalaffiliate.com/product_photos/1787305668_whatsapp-image-2026-08-21-at-113947.jpeg"
-        ],
-        "videos": [
-            "https://boughalaffiliate.com/product_videos/1787305668_whatsapp-video-2026-08-21-at-113950.mp4"
-        ],
-        "description": "كولي من نوع jh",
-        "sizes": [],
-        "price": "170 DH",
-        "original_price": "70 DH",
-        "original_link": "https://boughalaffiliate.com/affiliate/products/311",
         "status": ""
     },
     {
@@ -739,11 +738,15 @@
     {
         "id": "shadhw_29",
         "source_id": "161",
-        "title": "Headers",
-        "image": "",
-        "images": [],
+        "title": "5باك 10لويز",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770396973_WhatsApp Image 2026-02-05 at 13.36.30.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "باك لويز كيتكون من 10 لويزات مع حلقات وعصير الصابون",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -753,9 +756,12 @@
     {
         "id": "shadhw_30",
         "source_id": "172",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -767,11 +773,21 @@
     {
         "id": "shadhw_31",
         "source_id": "220",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "title": "سنسلة قلب",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1777723633_whatsapp-image-2026-05-02-at-140029-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777723638_whatsapp-image-2026-05-02-at-140029-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777723640_whatsapp-image-2026-05-02-at-140029-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777723641_whatsapp-image-2026-05-02-at-140029.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1777723642_whatsapp-video-2026-05-02-at-140029-1.mp4",
+            "https://boughalaffiliate.com/product_videos/1777723643_whatsapp-video-2026-05-02-at-140029.mp4"
+        ],
+        "description": "سنسلة قلب مع البواطة",
         "sizes": [],
         "price": "115 DH",
         "original_price": "15 DH",
@@ -781,11 +797,19 @@
     {
         "id": "shadhw_32",
         "source_id": "197",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "title": "رادكو منقوش",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1775126088_WhatsApp Image 2026-04-01 at 13.05.11 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1775126088_WhatsApp Image 2026-04-01 at 13.05.11 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1775126088_WhatsApp Image 2026-04-01 at 13.05.11 (1).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1775126088_WhatsApp Video 2026-04-01 at 13.05.11.mp4"
+        ],
+        "description": "رادكو منقوش كيتكون من سنسلة وبراسلي acier من نوع",
         "sizes": [],
         "price": "185 DH",
         "original_price": "85 DH",
@@ -795,12 +819,24 @@
     {
         "id": "shadhw_33",
         "source_id": "183",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "title": "نبالة منقوشة بالخاتم",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1775823220_WhatsApp Image 2026-04-10 at 13.57.28 (1).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1775823220_WhatsApp Video 2026-04-10 at 13.57.29 (3).mp4",
+            "https://boughalaffiliate.com/product_videos/1775823220_WhatsApp Video 2026-04-10 at 13.57.29 (2).mp4",
+            "https://boughalaffiliate.com/product_videos/1775823220_WhatsApp Video 2026-04-10 at 13.57.29 (1).mp4"
+        ],
+        "description": "نبالة منقوشة ستوندار 6 س م مع خاتم متوفر في القياسات التالية 7 /8 / 9",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "150 DH",
         "original_price": "50 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/183",
@@ -809,11 +845,19 @@
     {
         "id": "shadhw_34",
         "source_id": "117",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "title": "موزون لحمر",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1767439509_WhatsApp Image 2026-01-03 at 12.02.34 (5).jpeg",
+            "https://boughalaffiliate.com/product_photos/1767439509_WhatsApp Image 2026-01-03 at 12.02.34 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1767439509_WhatsApp Image 2026-01-03 at 12.02.34 (2).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1767439836_WhatsApp Video 2026-01-03 at 12.29.02.mp4"
+        ],
+        "description": "حزام موزون احمر عامر وغليض طول 2 متر",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -823,12 +867,39 @@
     {
         "id": "shadhw_35",
         "source_id": "316",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "لويز 10",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133824.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133811.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133750.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133737.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133724.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133705.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133643-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133628.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133618.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133601.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133545.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133533.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133511.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133454.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177356_whatsapp-image-2026-08-31-at-133436.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177357_whatsapp-image-2026-08-31-at-133424.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177357_whatsapp-image-2026-08-31-at-133403.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177357_whatsapp-image-2026-08-31-at-133345.jpeg",
+            "https://boughalaffiliate.com/product_photos/1788177357_whatsapp-image-2026-08-31-at-135024.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "من نوع jh للطلب المرجو تحديد الموديل",
+        "sizes": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
         "price": "230 DH",
         "original_price": "130 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/316",
@@ -837,11 +908,15 @@
     {
         "id": "shadhw_36",
         "source_id": "158",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "2باك 10لويز",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770396718_WhatsApp Image 2026-02-05 at 13.55.19.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "باك لويز كيتكون من 10 لويزات مع حلقات وعصير الصابون",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -851,11 +926,18 @@
     {
         "id": "shadhw_37",
         "source_id": "163",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "title": "موزون غليض",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770810113_WhatsApp Image 2026-02-11 at 11.58.57 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770810113_WhatsApp Image 2026-02-11 at 11.58.58 (1).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1770810113_WhatsApp Video 2026-02-11 at 11.59.01.mp4"
+        ],
+        "description": "موزون نوعية ممتازة متوفر باللون الاسود",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -865,11 +947,19 @@
     {
         "id": "shadhw_38",
         "source_id": "314",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "title": "radco simple 2p",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1787766323_whatsapp-image-2026-08-26-at-194002.jpeg",
+            "https://boughalaffiliate.com/product_photos/1787766323_whatsapp-image-2026-08-26-at-193956.jpeg",
+            "https://boughalaffiliate.com/product_photos/1787766323_whatsapp-image-2026-08-26-at-193955.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1787766323_whatsapp-video-2026-08-26-at-194008.mp4"
+        ],
+        "description": "من نوع jh",
         "sizes": [],
         "price": "185 DH",
         "original_price": "85 DH",
@@ -879,11 +969,17 @@
     {
         "id": "shadhw_39",
         "source_id": "156",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "تنبالت",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770374684_5969976972504927462.jpg",
+            "https://boughalaffiliate.com/product_photos/1770374684_5969976972504927460.jpg",
+            "https://boughalaffiliate.com/product_photos/1770374684_5969976972504927465.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تنبالت معدن مشلل بالنقرة للطلب المرجو تحديدالشكل",
         "sizes": [],
         "price": "170 DH",
         "original_price": "70 DH",
@@ -893,11 +989,15 @@
     {
         "id": "shadhw_40",
         "source_id": "157",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "1باك 10لويز",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770396619_WhatsApp Image 2026-02-05 at 13.55.18.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "باك لويز كيتكون من 10 لويزات مع حلقات وعصير الصابون",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -907,12 +1007,24 @@
     {
         "id": "shadhw_41",
         "source_id": "309",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "title": "الصويري 2",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1786729351_whatsapp-image-2026-08-14-at-193724.jpeg",
+            "https://boughalaffiliate.com/product_photos/1786729351_whatsapp-image-2026-08-14-at-193724-1.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1786729351_whatsapp-video-2026-08-14-at-193729.mp4",
+            "https://boughalaffiliate.com/product_videos/1786729351_whatsapp-video-2026-08-14-at-193723.mp4"
+        ],
+        "description": "من نوع jh قياس البراسلي 6 سنتم",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "195 DH",
         "original_price": "95 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/309",
@@ -921,12 +1033,24 @@
     {
         "id": "shadhw_42",
         "source_id": "224",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "title": "رادكو سامبل مبروم",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1778232858_whatsapp-image-2026-05-07-at-132020-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1778232860_whatsapp-image-2026-05-08-at-111948.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1778232861_whatsapp-video-2026-05-07-at-132109.mp4"
+        ],
+        "description": "رادكو سامبل مبروم الخاتم متوفر في الاحجام 7 /8 /9 /10",
+        "sizes": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
         "price": "220 DH",
         "original_price": "120 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/224",
@@ -935,9 +1059,12 @@
     {
         "id": "shadhw_43",
         "source_id": "211",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -949,11 +1076,20 @@
     {
         "id": "shadhw_44",
         "source_id": "143",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "title": "كولي الشهدة",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1769786372_WhatsApp Image 2026-01-30 at 16.12.14.jpeg",
+            "https://boughalaffiliate.com/product_photos/1769786372_WhatsApp Image 2026-01-30 at 16.12.11.jpeg",
+            "https://boughalaffiliate.com/product_photos/1769786372_WhatsApp Image 2026-01-30 at 16.12.08 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1769786372_WhatsApp Image 2026-01-30 at 16.12.08.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1769862035_WhatsApp Video 2026-01-31 at 13.09.49.mp4"
+        ],
+        "description": "كولي بلدي ستوندار والخاتم متوفر في جميع المقاسات",
         "sizes": [],
         "price": "210 DH",
         "original_price": "110 DH",
@@ -963,11 +1099,17 @@
     {
         "id": "shadhw_45",
         "source_id": "47",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "بلغة شاشي",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761600052_IMG-20251023-WA0023.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600052_IMG_20251022_165947_720.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600052_IMG_20251022_165940_057.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "بلغة شاشي طالعة متوفرة فجميع المقاسات",
         "sizes": [],
         "price": "160 DH",
         "original_price": "60 DH",
@@ -977,11 +1119,17 @@
     {
         "id": "shadhw_46",
         "source_id": "44",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
+        "title": "بلغة شاشي",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761600039_IMG-20251023-WA0023.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600039_IMG_20251022_165947_720.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600039_IMG_20251022_165940_057.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "بلغة شاشي طالعة متوفرة فجميع المقاسات",
         "sizes": [],
         "price": "160 DH",
         "original_price": "60 DH",
@@ -991,12 +1139,25 @@
     {
         "id": "shadhw_47",
         "source_id": "214",
-        "title": "Service Unavailable",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "title": "شهدة كولي",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1777140235_whatsapp-image-2026-04-25-at-200040-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777140237_whatsapp-image-2026-04-25-at-200040-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777140237_whatsapp-image-2026-04-25-at-200040.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1777140238_whatsapp-video-2026-04-25-at-200044.mp4",
+            "https://boughalaffiliate.com/product_videos/1777140239_whatsapp-video-2026-04-25-at-200048.mp4"
+        ],
+        "description": "كولي الشهدة مكون من كورميط سنسلة حلقات وخاتم متوفر في الاحجام 7/8/9",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "220 DH",
         "original_price": "120 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/214",
@@ -1005,9 +1166,12 @@
     {
         "id": "shadhw_48",
         "source_id": "218",
-        "title": "Bague mariage",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1020,11 +1184,22 @@
         "id": "shadhw_49",
         "source_id": "204",
         "title": "collie ananas",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1782999143_whatsapp-image-2026-07-02-at-151055-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782999143_whatsapp-image-2026-07-02-at-151055.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782999143_whatsapp-image-2026-07-02-at-151054-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782999143_whatsapp-image-2026-07-02-at-151054.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1782999143_whatsapp-video-2026-07-02-at-151054.mp4"
+        ],
+        "description": "jh براسلي ستوندار 6cm والخاتم متوفر في المقاس 7/8/9",
+        "sizes": [
+            "7"
+        ],
         "price": "190 DH",
         "original_price": "90 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/204",
@@ -1034,11 +1209,23 @@
         "id": "shadhw_50",
         "source_id": "312",
         "title": "عصير صابون 2",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1787311494_whatsapp-image-2026-08-21-at-131338-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1787311494_whatsapp-image-2026-08-21-at-131338-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1787311494_whatsapp-image-2026-08-21-at-131338.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1787311494_whatsapp-video-2026-08-21-at-131338.mp4"
+        ],
+        "description": "من نوع jh قياس الدبليج 6.5 سنتم / 6.8 سنتم المرجو تحديد قياس الدبليج في التعليق",
+        "sizes": [
+            "8",
+            "9",
+            "10"
+        ],
         "price": "155 DH",
         "original_price": "55 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/312",
@@ -1048,11 +1235,25 @@
         "id": "shadhw_51",
         "source_id": "174",
         "title": "كولي دك البرة 2",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1786785203_whatsapp-image-2026-08-15-at-110644-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1786785204_whatsapp-image-2026-08-15-at-110644.jpeg",
+            "https://boughalaffiliate.com/product_photos/1786785204_whatsapp-image-2026-08-15-at-110641-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1786785204_whatsapp-image-2026-08-15-at-110641.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1786785204_whatsapp-video-2026-08-15-at-110650.mp4",
+            "https://boughalaffiliate.com/product_videos/1786785204_whatsapp-video-2026-08-15-at-110637.mp4"
+        ],
+        "description": "سنتم6 البراسلي طاي ستوندار",
+        "sizes": [
+            "8",
+            "9",
+            "10"
+        ],
         "price": "185 DH",
         "original_price": "85 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/174",
@@ -1062,11 +1263,22 @@
         "id": "shadhw_52",
         "source_id": "142",
         "title": "كولي دك البرة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1786730304_whatsapp-image-2026-08-14-at-195308-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1786730304_whatsapp-image-2026-08-14-at-195308-1.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1786730304_whatsapp-video-2026-08-14-at-195311.mp4"
+        ],
+        "description": "سنتم6 البراسلي طاي ستوندار",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "185 DH",
         "original_price": "85 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/142",
@@ -1076,11 +1288,23 @@
         "id": "shadhw_53",
         "source_id": "238",
         "title": "شهدة رقيقة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1783680124_whatsapp-image-2026-07-10-at-123152-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783680124_whatsapp-image-2026-07-10-at-123152-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783680124_whatsapp-image-2026-07-10-at-123152.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1783680124_whatsapp-video-2026-07-10-at-123152.mp4"
+        ],
+        "description": "من نوع jh",
+        "sizes": [
+            "4.7",
+            "5.6",
+            "6"
+        ],
         "price": "165 DH",
         "original_price": "65 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/238",
@@ -1090,11 +1314,32 @@
         "id": "shadhw_54",
         "source_id": "294",
         "title": "كسوة الأطلس",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1784108236_whatsapp-image-2026-07-14-at-234805.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108236_whatsapp-image-2026-07-14-at-234804.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234800.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234759.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234757.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234754.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234749.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234748-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234748.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234747-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234747.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784108237_whatsapp-image-2026-07-14-at-234742.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "كسوة الأطلس فقط",
+        "sizes": [
+            "m",
+            "l",
+            "xl",
+            "xxl",
+            "xxxl"
+        ],
         "price": "290 DH",
         "original_price": "190 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/294",
@@ -1104,10 +1349,15 @@
         "id": "shadhw_55",
         "source_id": "131",
         "title": "chabka 3amra kbira",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1767868906_photo_2026-01-04_21-45-09.jpg",
+            "https://boughalaffiliate.com/product_photos/1767868906_photo_2026-01-04_21-45-08.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "labsa chabka 3amra kompli",
         "sizes": [],
         "price": "650 DH",
         "original_price": "550 DH",
@@ -1118,11 +1368,25 @@
         "id": "shadhw_56",
         "source_id": "225",
         "title": "كولي فروج",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1778233386_whatsapp-image-2026-05-07-at-132022-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1778233388_whatsapp-image-2026-05-07-at-132022-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1778233389_whatsapp-image-2026-05-07-at-132021-7.jpeg",
+            "https://boughalaffiliate.com/product_photos/1778233389_whatsapp-image-2026-05-07-at-132021-6.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1778233390_whatsapp-video-2026-05-07-at-132119-1.mp4"
+        ],
+        "description": "كولي فروج سنسلة كرافاش الخاتم متوفر ف القياس 7/8/9/10 نوع المنتوج jh",
+        "sizes": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
         "price": "190 DH",
         "original_price": "90 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/225",
@@ -1132,11 +1396,25 @@
         "id": "shadhw_57",
         "source_id": "307",
         "title": "بلغة جلد",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1785936678_5785354878413639306.jpg",
+            "https://boughalaffiliate.com/product_photos/1785936678_5785354878413639308.jpg",
+            "https://boughalaffiliate.com/product_photos/1785936678_5785354878413639307.jpg",
+            "https://boughalaffiliate.com/product_photos/1785936678_5785354878413639311.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة جلد",
+        "sizes": [
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45"
+        ],
         "price": "220 DH",
         "original_price": "120 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/307",
@@ -1146,10 +1424,20 @@
         "id": "shadhw_58",
         "source_id": "212",
         "title": "ensemble VERSACE",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1777547177_whatsapp-image-2026-04-30-at-130436.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777547178_whatsapp-image-2026-04-30-at-130435-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777547179_whatsapp-image-2026-04-30-at-130435.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1777547179_whatsapp-video-2026-04-30-at-130445.mp4",
+            "https://boughalaffiliate.com/product_videos/1777547180_whatsapp-video-2026-04-30-at-130442.mp4",
+            "https://boughalaffiliate.com/product_videos/1777547181_whatsapp-video-2026-04-30-at-130439.mp4"
+        ],
+        "description": "باك كيتكون من سنلسلة حلقات وكورميط",
         "sizes": [],
         "price": "160 DH",
         "original_price": "60 DH",
@@ -1160,10 +1448,21 @@
         "id": "shadhw_59",
         "source_id": "152",
         "title": "collie van cleef",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770220511_WhatsApp Image 2026-02-04 at 16.34.12 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770220511_WhatsApp Image 2026-02-04 at 16.34.12 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770220511_WhatsApp Image 2026-02-04 at 16.34.12.jpeg",
+            "https://boughalaffiliate.com/product_photos/1770286585_WhatsApp Image 2026-02-04 at 18.08.43.jpeg",
+            "https://boughalaffiliate.com/product_photos/1770286585_WhatsApp Image 2026-02-04 at 18.08.31.jpeg",
+            "https://boughalaffiliate.com/product_photos/1770286585_WhatsApp Image 2026-02-04 at 18.08.24.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1770220511_WhatsApp Video 2026-02-04 at 16.46.25 - Copie.mp4"
+        ],
+        "description": "collie van cleef blanc et noir",
         "sizes": [],
         "price": "150 DH",
         "original_price": "50 DH",
@@ -1174,11 +1473,21 @@
         "id": "shadhw_60",
         "source_id": "151",
         "title": "سرتلة 7",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770204300_WhatsApp Image 2026-02-03 at 13.31.58 (5).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770204300_WhatsApp Image 2026-02-03 at 13.31.59 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770204300_WhatsApp Image 2026-02-03 at 13.31.58 (4).jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "سرتلة 7 مبروم وسامبل",
+        "sizes": [
+            "6",
+            "6.5",
+            "6.8"
+        ],
         "price": "145 DH",
         "original_price": "45 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/151",
@@ -1188,11 +1497,20 @@
         "id": "shadhw_61",
         "source_id": "68",
         "title": "lbsa",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1763978934_photo_2025-05-22_00-33-24 (2).jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "lbsa sghira",
+        "sizes": [
+            "6 سنوات",
+            "8 سنوات",
+            "10 سنوات",
+            "12 سنة"
+        ],
         "price": "400 DH",
         "original_price": "300 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/68",
@@ -1202,10 +1520,20 @@
         "id": "shadhw_62",
         "source_id": "115",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1767264255_WhatsApp Image 2025-12-31 at 18.53.14 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1767264255_WhatsApp Image 2025-12-31 at 18.53.14.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767264255_WhatsApp Image 2025-12-31 at 18.53.16.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767264305_WhatsApp Image 2025-12-31 at 18.53.12.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767264496_WhatsApp Image 2025-12-31 at 18.53.14 (2).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1767264912_WhatsApp Video 2025-12-31 at 18.52.42.mp4"
+        ],
+        "description": "سلهام ملكي كبير باللون الابيض مطروز لتشجيع المنتخب الوطني",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -1216,11 +1544,23 @@
         "id": "shadhw_63",
         "source_id": "77",
         "title": "لبسة أمازيغية للكبار توب عامر وبلغة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764239283_WhatsApp Image 2025-11-27 at 10.58.29.jpeg",
+            "https://boughalaffiliate.com/product_photos/1764239283_WhatsApp Image 2025-11-27 at 10.58.30.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "لبسة أمازيغية للكبار توب عامر وبلغة",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "M",
+            "4xl"
+        ],
         "price": "400 DH",
         "original_price": "300 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/77",
@@ -1230,10 +1570,15 @@
         "id": "shadhw_64",
         "source_id": "84",
         "title": "احلاب",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764253797_WhatsApp Image 2025-11-27 at 12.22.56 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764253797_WhatsApp Image 2025-11-27 at 12.22.56.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "احلاب سدرية كبير",
         "sizes": [],
         "price": "240 DH",
         "original_price": "140 DH",
@@ -1244,11 +1589,24 @@
         "id": "shadhw_65",
         "source_id": "303",
         "title": "nebala 2f",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1785401214_whatsapp-image-2026-07-29-at-151821-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1785401214_whatsapp-image-2026-07-29-at-151821-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1785401214_whatsapp-image-2026-07-29-at-151821-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1785401214_whatsapp-image-2026-07-29-at-151821.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1785401214_whatsapp-video-2026-07-29-at-151828.mp4",
+            "https://boughalaffiliate.com/product_videos/1785401214_whatsapp-video-2026-07-29-at-151825.mp4"
+        ],
+        "description": "من نوع jh",
+        "sizes": [
+            "6",
+            "6.5"
+        ],
         "price": "155 DH",
         "original_price": "55 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/303",
@@ -1258,11 +1616,23 @@
         "id": "shadhw_66",
         "source_id": "305",
         "title": "سرتلة منبثة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1785403179_whatsapp-image-2026-07-29-at-151355-4.jpeg",
+            "https://boughalaffiliate.com/product_photos/1785403179_whatsapp-image-2026-07-29-at-151355-3.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1785403179_whatsapp-video-2026-07-29-at-151354-2.mp4",
+            "https://boughalaffiliate.com/product_videos/1785403179_whatsapp-video-2026-07-29-at-151351-1.mp4"
+        ],
+        "description": "من نوع jh",
+        "sizes": [
+            "6",
+            "6.5",
+            "6.8"
+        ],
         "price": "150 DH",
         "original_price": "50 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/305",
@@ -1272,10 +1642,18 @@
         "id": "shadhw_67",
         "source_id": "302",
         "title": "نبالة امازيغية",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1785322509_5969976972504927459.jpg",
+            "https://boughalaffiliate.com/product_photos/1785322509_5969976972504927458.jpg",
+            "https://boughalaffiliate.com/product_photos/1785322509_5969976972504927457.jpg",
+            "https://boughalaffiliate.com/product_photos/1785322510_5969976972504927456.jpg",
+            "https://boughalaffiliate.com/product_photos/1785322510_5969976972504927455.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "معدن مشلل بالنقرة",
         "sizes": [],
         "price": "205 DH",
         "original_price": "105 DH",
@@ -1286,11 +1664,25 @@
         "id": "shadhw_68",
         "source_id": "203",
         "title": "radco simple",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1776086182_WhatsApp Image 2026-04-13 at 15.11.20 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1776086182_WhatsApp Image 2026-04-13 at 15.11.20 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1776086182_WhatsApp Image 2026-04-13 at 15.11.20.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1776086182_WhatsApp Video 2026-04-13 at 15.11.20 (2).mp4",
+            "https://boughalaffiliate.com/product_videos/1776086182_WhatsApp Video 2026-04-13 at 15.11.20 (1).mp4",
+            "https://boughalaffiliate.com/product_videos/1776086182_WhatsApp Video 2026-04-13 at 15.11.20.mp4"
+        ],
+        "description": "كولي بلدي للمناسبات من نوع jh براسلي ستوندار 6cm والخاتم متوفر في المقاس 7/8/",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "195 DH",
         "original_price": "95 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/203",
@@ -1300,10 +1692,18 @@
         "id": "shadhw_69",
         "source_id": "149",
         "title": "pac bracelets",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770112791_WhatsApp Image 2026-02-03 at 10.52.56 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770112791_WhatsApp Image 2026-02-03 at 10.52.56 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770112791_WhatsApp Image 2026-02-03 at 10.52.56 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770112791_WhatsApp Image 2026-02-03 at 10.52.56.jpeg",
+            "https://boughalaffiliate.com/product_photos/1770112791_WhatsApp Image 2026-02-03 at 10.52.55.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "باك اساور ستوندار انيق للطلب المرجو تحديد اللون في التعليق",
         "sizes": [],
         "price": "150 DH",
         "original_price": "50 DH",
@@ -1314,11 +1714,26 @@
         "id": "shadhw_70",
         "source_id": "279",
         "title": "كولي خميسة2",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1782217157_whatsapp-image-2026-06-23-at-141630-4.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217158_whatsapp-image-2026-06-23-at-141630-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217158_whatsapp-image-2026-06-23-at-141630-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217158_whatsapp-image-2026-06-23-at-141630-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217158_whatsapp-image-2026-06-23-at-141630.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1782217158_whatsapp-video-2026-06-23-at-141637.mp4",
+            "https://boughalaffiliate.com/product_videos/1782217158_whatsapp-video-2026-06-23-at-141635.mp4"
+        ],
+        "description": "براسلي ستوندار",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "185 DH",
         "original_price": "85 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/279",
@@ -1328,10 +1743,14 @@
         "id": "shadhw_71",
         "source_id": "160",
         "title": "4باك 10لويز",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770396887_WhatsApp Image 2026-02-05 at 13.55.20.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "باك لويز كيتكون من 10 لويزات مع حلقات وعصير الصابون",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -1342,10 +1761,26 @@
         "id": "shadhw_72",
         "source_id": "299",
         "title": "براسلي وردة 1",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1784991375_whatsapp-image-2026-07-25-at-151826.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991375_whatsapp-image-2026-07-25-at-151815.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151731.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151707.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151635.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151559.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151543.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151532.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151517.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151500.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151438.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151357.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784991376_whatsapp-image-2026-07-25-at-151337.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "acier inoxydable للطلب المرجو تحديد الموديل",
         "sizes": [],
         "price": "135 DH",
         "original_price": "35 DH",
@@ -1356,10 +1791,29 @@
         "id": "shadhw_73",
         "source_id": "298",
         "title": "براسلي الوردة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-151309.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-151240.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-151227.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-151142.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-151118.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-150945.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-150922.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-150904.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-150841.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-150818.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990919_whatsapp-image-2026-07-25-at-150705.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990920_whatsapp-image-2026-07-25-at-150554.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990920_whatsapp-image-2026-07-25-at-150534.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990920_whatsapp-image-2026-07-25-at-150509.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990920_whatsapp-image-2026-07-25-at-150453.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784990920_whatsapp-image-2026-07-25-at-150436.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "acier inoxydable للطلب المرجو تحديد الموديل",
         "sizes": [],
         "price": "135 DH",
         "original_price": "35 DH",
@@ -1370,10 +1824,15 @@
         "id": "shadhw_74",
         "source_id": "40",
         "title": "لوبان كبير L3",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761442459_WhatsApp Image 2025-10-26 at 01.44.49 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1761442459_WhatsApp Image 2025-10-26 at 01.44.49.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "لوبان كبير L3",
         "sizes": [],
         "price": "319 DH",
         "original_price": "219 DH",
@@ -1384,8 +1843,17 @@
         "id": "shadhw_75",
         "source_id": "297",
         "title": "موزون ضفرة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1784981150_whatsapp-image-2026-07-14-at-193236.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784981151_whatsapp-image-2026-07-14-at-193235-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784981151_whatsapp-image-2026-07-14-at-193235-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784981151_whatsapp-image-2026-07-14-at-193235.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784981151_whatsapp-image-2026-07-14-at-193229-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784981152_whatsapp-image-2026-07-14-at-193229.jpeg"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1398,11 +1866,22 @@
         "id": "shadhw_76",
         "source_id": "296",
         "title": "ثلاثية الصويري المنقوش",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1784980040_whatsapp-image-2026-07-25-at-134022-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784980040_whatsapp-image-2026-07-25-at-134022-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784980040_whatsapp-image-2026-07-25-at-134022.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1784980040_whatsapp-video-2026-07-25-at-134025.mp4"
+        ],
+        "description": "من نوع jh",
+        "sizes": [
+            "6",
+            "6.5"
+        ],
         "price": "180 DH",
         "original_price": "80 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/296",
@@ -1412,10 +1891,33 @@
         "id": "shadhw_77",
         "source_id": "295",
         "title": "ثنائية ساعة كورميط",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171703.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171644.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171629.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171613.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171550.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171531.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171515.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171456.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171440.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171416.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171352.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171331.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171308.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820166_whatsapp-image-2026-07-23-at-171242.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820167_whatsapp-image-2026-07-23-at-171221.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820167_whatsapp-image-2026-07-23-at-171146.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820167_whatsapp-image-2026-07-23-at-171044.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820167_whatsapp-image-2026-07-23-at-171027.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820167_whatsapp-image-2026-07-23-at-171001.jpeg",
+            "https://boughalaffiliate.com/product_photos/1784820167_whatsapp-image-2026-07-23-at-170851.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "للطلب المرجو تحديد رقم الموديل المدرج على الصور",
         "sizes": [],
         "price": "185 DH",
         "original_price": "85 DH",
@@ -1426,10 +1928,18 @@
         "id": "shadhw_78",
         "source_id": "194",
         "title": "رادكو عوينة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1774950776_WhatsApp Image 2026-03-31 at 11.29.19.jpeg",
+            "https://boughalaffiliate.com/product_photos/1774950776_WhatsApp Image 2026-03-31 at 11.29.18 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1774950776_WhatsApp Image 2026-03-31 at 11.29.18.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1774950776_WhatsApp Video 2026-03-31 at 11.29.24.mp4"
+        ],
+        "description": "رادكو عوينة كيتكون من سنسلة وبراسلي acier من نوع",
         "sizes": [],
         "price": "190 DH",
         "original_price": "90 DH",
@@ -1440,11 +1950,27 @@
         "id": "shadhw_79",
         "source_id": "292",
         "title": "لبسة امازيغية مطروزة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450-6.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450-5.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450-4.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783684652_whatsapp-image-2026-07-08-at-173450.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1783684652_whatsapp-video-2026-07-04-at-181627.mp4"
+        ],
+        "description": "توب كريب روزا",
+        "sizes": [
+            "xl",
+            "xxl",
+            "xxxl"
+        ],
         "price": "700 DH",
         "original_price": "600 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/292",
@@ -1454,11 +1980,33 @@
         "id": "shadhw_80",
         "source_id": "291",
         "title": "كندورة مطروزة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1783679139_whatsapp-image-2026-07-10-at-114911-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679140_whatsapp-image-2026-07-10-at-114911-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679140_whatsapp-image-2026-07-10-at-114911.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679140_chatgpt-image-10-juil-2026-12-20-53.png",
+            "https://boughalaffiliate.com/product_photos/1783679140_chatgpt-image-10-juil-2026-12-08-45.png",
+            "https://boughalaffiliate.com/product_photos/1783679141_whatsapp-image-2026-07-08-at-173442-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679141_whatsapp-image-2026-07-08-at-173442-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679141_whatsapp-image-2026-07-08-at-173441-7.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679141_whatsapp-image-2026-07-08-at-173441-5.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783679141_whatsapp-image-2026-07-08-at-173441-4.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1783679141_whatsapp-video-2026-07-10-at-114919.mp4"
+        ],
+        "description": "طرزة توب كريب طاي ستوندار + البلغة كادو المرجو تحديد لون البلغة",
+        "sizes": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41"
+        ],
         "price": "235 DH",
         "original_price": "135 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/291",
@@ -1467,9 +2015,12 @@
     {
         "id": "shadhw_81",
         "source_id": "227",
-        "title": "رادكو سامبل",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1482,11 +2033,28 @@
         "id": "shadhw_82",
         "source_id": "290",
         "title": "كندورة م ز",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-135115-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-135115-4.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-150722.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-145156.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-144251-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-144251.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_whatsapp-image-2026-07-09-at-144252.jpeg",
+            "https://boughalaffiliate.com/product_photos/1783607123_chatgpt-image-9-juil-2026-14-00-04.png",
+            "https://boughalaffiliate.com/product_photos/1783607124_chatgpt-image-9-juil-2026-13-58-18.png",
+            "https://boughalaffiliate.com/product_photos/1783607124_whatsapp-image-2026-07-09-at-135115-2.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1783682729_whatsapp-video-2026-07-10-at-114741.mp4"
+        ],
+        "description": "توب فيسكوز",
+        "sizes": [
+            "standard"
+        ],
         "price": "180 DH",
         "original_price": "80 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/290",
@@ -1496,10 +2064,16 @@
         "id": "shadhw_83",
         "source_id": "102",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765559861_5891147701099891766.jpg",
+            "https://boughalaffiliate.com/product_photos/1765559861_5891147701099891762.jpg",
+            "https://boughalaffiliate.com/product_photos/1765559861_5891147701099891759.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي كبير توب كريب روزا الطول 120",
         "sizes": [],
         "price": "280 DH",
         "original_price": "180 DH",
@@ -1510,10 +2084,16 @@
         "id": "shadhw_84",
         "source_id": "78",
         "title": "باك فوند كومبلي",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764241964_WhatsApp Image 2025-11-27 at 11.01.18 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764241964_WhatsApp Image 2025-11-27 at 11.01.18 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764241964_WhatsApp Image 2025-11-27 at 11.01.18 (1).jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "باك فوند كومبلي والبراسلي كادو من عندنا",
         "sizes": [],
         "price": "280 DH",
         "original_price": "180 DH",
@@ -1524,11 +2104,19 @@
         "id": "shadhw_85",
         "source_id": "31",
         "title": "كولي بلدي 6",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761357381_WhatsApp Image 2025-10-24 at 23.42.36.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "كولي بلدي مخرم عبار البراسلي ستندار 6 سنتيم والسنسلة 60 سنتيم والخاتم عبار 7 و 8 و 9",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "219 DH",
         "original_price": "119 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/31",
@@ -1538,11 +2126,22 @@
         "id": "shadhw_86",
         "source_id": "241",
         "title": "براسليات شهدة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1779115412_whatsapp-image-2026-05-16-at-185653-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1779115414_whatsapp-image-2026-05-16-at-185653-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1779115414_whatsapp-image-2026-05-16-at-185653.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1779115414_whatsapp-video-2026-05-16-at-185656.mp4"
+        ],
+        "description": "5.3cm 6cm",
+        "sizes": [
+            "5.3",
+            "6"
+        ],
         "price": "165 DH",
         "original_price": "65 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/241",
@@ -1551,9 +2150,12 @@
     {
         "id": "shadhw_87",
         "source_id": "187",
-        "title": "كولي دك برة 3",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1565,9 +2167,12 @@
     {
         "id": "shadhw_88",
         "source_id": "205",
-        "title": "رادكو محجر",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1579,9 +2184,12 @@
     {
         "id": "shadhw_89",
         "source_id": "147",
-        "title": "كولي بلدي 003",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1593,9 +2201,12 @@
     {
         "id": "shadhw_90",
         "source_id": "272",
-        "title": "25ثلاثيات",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1607,9 +2218,12 @@
     {
         "id": "shadhw_91",
         "source_id": "148",
-        "title": "كولي 004",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1622,10 +2236,18 @@
         "id": "shadhw_92",
         "source_id": "195",
         "title": "رادكو 8",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1774951497_WhatsApp Image 2026-03-31 at 11.41.05.jpeg",
+            "https://boughalaffiliate.com/product_photos/1774951497_WhatsApp Image 2026-03-31 at 11.41.04 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1774951497_WhatsApp Image 2026-03-31 at 11.41.04.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1774951497_WhatsApp Video 2026-03-31 at 11.41.09.mp4"
+        ],
+        "description": "رادكو 8 من نوع xp",
         "sizes": [],
         "price": "210 DH",
         "original_price": "110 DH",
@@ -1636,10 +2258,17 @@
         "id": "shadhw_93",
         "source_id": "273",
         "title": "boite bijoux",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1781696253_whatsapp-image-2026-06-17-at-133320-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781696254_whatsapp-image-2026-06-17-at-133320.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781696254_whatsapp-image-2026-06-17-at-133319-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781696254_whatsapp-image-2026-06-17-at-133319.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "boite bijoux",
         "sizes": [],
         "price": "170 DH",
         "original_price": "70 DH",
@@ -1650,11 +2279,25 @@
         "id": "shadhw_94",
         "source_id": "282",
         "title": "كولي 99",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1782222413_whatsapp-image-2026-06-23-at-154219-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782222413_whatsapp-image-2026-06-23-at-154219.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782222413_whatsapp-image-2026-06-23-at-154216-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782222413_whatsapp-image-2026-06-23-at-154216-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782222413_whatsapp-image-2026-06-23-at-154216.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1782222413_whatsapp-video-2026-06-23-at-154219.mp4"
+        ],
+        "description": "براسلي ستوندار",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "185 DH",
         "original_price": "85 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/282",
@@ -1664,11 +2307,27 @@
         "id": "shadhw_95",
         "source_id": "207",
         "title": "لبسة عامرة امازيغية",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287838.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287837.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287836.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287834.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287833.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287827.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335145_5899816774759287825.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "لبسة عامرة للكبار توب كلينطون كتشمل ادال وصاية وقفطان وقطيب حرير",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "M"
+        ],
         "price": "470 DH",
         "original_price": "370 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/207",
@@ -1678,11 +2337,24 @@
         "id": "shadhw_96",
         "source_id": "281",
         "title": "كولي خميسة3",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1782217582_whatsapp-image-2026-06-23-at-142424-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217582_whatsapp-image-2026-06-23-at-142424-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217582_whatsapp-image-2026-06-23-at-142424-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1782217582_whatsapp-image-2026-06-23-at-142424.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1782217582_whatsapp-video-2026-06-23-at-142429.mp4"
+        ],
+        "description": "براسلي ستوندار",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "185 DH",
         "original_price": "85 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/281",
@@ -1691,9 +2363,12 @@
     {
         "id": "shadhw_97",
         "source_id": "276",
-        "title": "كولي مصحف 2",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1705,9 +2380,12 @@
     {
         "id": "shadhw_98",
         "source_id": "253",
-        "title": "6ثلاثيات",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1719,9 +2397,12 @@
     {
         "id": "shadhw_99",
         "source_id": "186",
-        "title": "كولي مصحف",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1734,11 +2415,21 @@
         "id": "shadhw_100",
         "source_id": "277",
         "title": "pack cartier",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1781711440_whatsapp-image-2026-06-17-at-174353-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781711440_whatsapp-image-2026-06-17-at-174353-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781711440_whatsapp-image-2026-06-17-at-174353-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781711440_whatsapp-image-2026-06-17-at-174353.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "pack cartier",
+        "sizes": [
+            "5",
+            "6"
+        ],
         "price": "140 DH",
         "original_price": "40 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/277",
@@ -1748,10 +2439,17 @@
         "id": "shadhw_101",
         "source_id": "275",
         "title": "سلسلة البجعة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1781701665_whatsapp-image-2026-06-15-at-231644.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781701665_whatsapp-image-2026-06-15-at-231642.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781701665_whatsapp-image-2026-06-15-at-231645.jpeg",
+            "https://boughalaffiliate.com/product_photos/1781701665_whatsapp-image-2026-06-15-at-231640.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "المرجو تحديد اللون الوردي /الابيض",
         "sizes": [],
         "price": "125 DH",
         "original_price": "25 DH",
@@ -1762,10 +2460,16 @@
         "id": "shadhw_102",
         "source_id": "165",
         "title": "سلهام امازيغي اسود",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770976279_WhatsApp Image 2026-02-12 at 16.11.52 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770976279_WhatsApp Image 2026-02-12 at 16.11.52 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770976279_WhatsApp Image 2026-02-12 at 16.11.52.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام امازيغي كبير اسود طول 1.20",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -1776,10 +2480,17 @@
         "id": "shadhw_103",
         "source_id": "110",
         "title": "6/7 ans سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766673995_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766673995_WhatsApp Image 2025-12-25 at 15.19.47 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766673995_WhatsApp Image 2025-12-25 at 15.19.47 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766673995_WhatsApp Image 2025-12-25 at 15.19.47.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "توب كريب روزا مطروز ومخدوم بالسفيفة",
         "sizes": [],
         "price": "215 DH",
         "original_price": "115 DH",
@@ -1790,10 +2501,18 @@
         "id": "shadhw_104",
         "source_id": "58",
         "title": "سلهام ملكي صغير (hossin)",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1762994450_5812292960538790807.jpg",
+            "https://boughalaffiliate.com/product_photos/1762994450_5812292960538790808.jpg",
+            "https://boughalaffiliate.com/product_photos/1762994450_5812292960538790811.jpg",
+            "https://boughalaffiliate.com/product_photos/1762994450_5812292960538790810.jpg",
+            "https://boughalaffiliate.com/product_photos/1762994450_5812292960538790812.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "3 - 4 → 50 cm 5 → 60 cm 5 - 6 → 70 cm 6 - 7 → 80 cm 7 - 8 → 90 cm 9 - 10 → 100 cm 11 - 12 → 110 cm",
         "sizes": [],
         "price": "169 DH",
         "original_price": "69 DH",
@@ -1804,10 +2523,14 @@
         "id": "shadhw_105",
         "source_id": "210",
         "title": "قطيب حرير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1776506923_5899816774759287849.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "قطيب حرير متوفر في جميع الالوان للطلب المرجو تحديد اللون",
         "sizes": [],
         "price": "145 DH",
         "original_price": "45 DH",
@@ -1818,10 +2541,17 @@
         "id": "shadhw_106",
         "source_id": "76",
         "title": "تونزا صغيرة فوند",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764238173_WhatsApp Image 2025-11-27 at 10.56.54.jpeg",
+            "https://boughalaffiliate.com/product_photos/1764238173_WhatsApp Image 2025-11-27 at 10.56.53 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764238173_WhatsApp Image 2025-11-27 at 10.56.53 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764238173_WhatsApp Image 2025-11-27 at 10.56.53.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تونزا صغيرة فوند بالالوان",
         "sizes": [],
         "price": "145 DH",
         "original_price": "45 DH",
@@ -1832,10 +2562,18 @@
         "id": "shadhw_107",
         "source_id": "178",
         "title": "سوتوار",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1773160990_WhatsApp Image 2026-03-10 at 17.36.38 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1773160990_WhatsApp Image 2026-03-10 at 17.36.38 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1773160990_WhatsApp Image 2026-03-10 at 17.36.38.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1773160990_WhatsApp Video 2026-03-10 at 17.36.42.mp4"
+        ],
+        "description": "سنسلة سوتوار",
         "sizes": [],
         "price": "170 DH",
         "original_price": "70 DH",
@@ -1846,10 +2584,17 @@
         "id": "shadhw_108",
         "source_id": "239",
         "title": "نبالة حجرة خضراء",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1778759680_whatsapp-image-2026-05-14-at-133113-7.jpeg",
+            "https://boughalaffiliate.com/product_photos/1778759682_whatsapp-image-2026-05-14-at-133113-6.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1778759683_whatsapp-video-2026-05-14-at-133117.mp4"
+        ],
+        "description": "نبالة ستوندار 6 سم من نوع gx",
         "sizes": [],
         "price": "160 DH",
         "original_price": "60 DH",
@@ -1860,10 +2605,18 @@
         "id": "shadhw_109",
         "source_id": "105",
         "title": "سلهام امازيغي كبير",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765555314_WhatsApp Image 2025-12-12 at 16.29.00.jpeg",
+            "https://boughalaffiliate.com/product_photos/1765555314_WhatsApp Image 2025-12-12 at 16.29.00 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765555314_WhatsApp Image 2025-12-12 at 16.29.00 (1).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1765555314_IMG_4766.mov"
+        ],
+        "description": "سلهام امازيغي كبير الطول120",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -1874,11 +2627,22 @@
         "id": "shadhw_110",
         "source_id": "222",
         "title": "ensemble cartier",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1778161504_whatsapp-image-2026-04-27-at-000102.jpeg",
+            "https://boughalaffiliate.com/product_photos/1778161508_whatsapp-image-2026-05-07-at-132019-3.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1778161508_whatsapp-video-2026-05-07-at-132059-1.mp4"
+        ],
+        "description": "ensemble cartier",
+        "sizes": [
+            "7",
+            "8",
+            "9"
+        ],
         "price": "170 DH",
         "original_price": "70 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/222",
@@ -1888,10 +2652,21 @@
         "id": "shadhw_111",
         "source_id": "217",
         "title": "ensemble tapis",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1777551795_whatsapp-image-2026-04-30-at-141747-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777551796_whatsapp-image-2026-04-30-at-141747-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777551797_whatsapp-image-2026-04-30-at-141751-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777551797_whatsapp-image-2026-04-30-at-141751-2.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1777552212_whatsapp-video-2026-04-30-at-141750-2.mp4",
+            "https://boughalaffiliate.com/product_videos/1777552215_whatsapp-video-2026-04-30-at-141758.mp4",
+            "https://boughalaffiliate.com/product_videos/1777552215_whatsapp-video-2026-04-30-at-141755.mp4"
+        ],
+        "description": "ensemble tapis",
         "sizes": [],
         "price": "150 DH",
         "original_price": "50 DH",
@@ -1902,10 +2677,20 @@
         "id": "shadhw_112",
         "source_id": "215",
         "title": "ensemble simple",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1777551335_whatsapp-image-2026-04-30-at-141140-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777551336_whatsapp-image-2026-04-30-at-141140-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777551337_whatsapp-image-2026-04-30-at-141140-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777551337_whatsapp-image-2026-04-30-at-141140.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1777551338_whatsapp-video-2026-04-30-at-141146.mp4",
+            "https://boughalaffiliate.com/product_videos/1777551340_whatsapp-video-2026-04-30-at-141143.mp4"
+        ],
+        "description": "ensemble simple",
         "sizes": [],
         "price": "145 DH",
         "original_price": "45 DH",
@@ -1916,10 +2701,19 @@
         "id": "shadhw_113",
         "source_id": "213",
         "title": "نبالة منقوشة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1777140034_whatsapp-image-2026-04-25-at-195104-3.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777140038_whatsapp-image-2026-04-25-at-195104-2.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777140039_whatsapp-image-2026-04-25-at-195104-1.jpeg",
+            "https://boughalaffiliate.com/product_photos/1777140040_whatsapp-image-2026-04-25-at-195104.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1777140041_whatsapp-video-2026-04-25-at-195714.mp4"
+        ],
+        "description": "نبالة ستوندار 6 سنتم",
         "sizes": [],
         "price": "160 DH",
         "original_price": "60 DH",
@@ -1930,10 +2724,16 @@
         "id": "shadhw_114",
         "source_id": "202",
         "title": "كندورة امازيغية",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1775818409_WhatsApp Image 2026-04-10 at 12.46.33 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1775818409_WhatsApp Image 2026-04-10 at 12.46.33.jpeg",
+            "https://boughalaffiliate.com/product_photos/1775818409_ChatGPT Image 10 avr. 2026, 12_26_38.png"
+        ],
         "videos": [],
-        "description": "",
+        "description": "كندورة ستوندار توب فيسكوز /3 carrée للطلب المرجو تحديد اللون",
         "sizes": [],
         "price": "185 DH",
         "original_price": "85 DH",
@@ -1943,9 +2743,12 @@
     {
         "id": "shadhw_115",
         "source_id": "56",
-        "title": "باك هدية",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1957,9 +2760,12 @@
     {
         "id": "shadhw_116",
         "source_id": "99",
-        "title": "كولي بلدي 03",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1971,9 +2777,12 @@
     {
         "id": "shadhw_117",
         "source_id": "98",
-        "title": "كولي بلدي 02",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1985,9 +2794,12 @@
     {
         "id": "shadhw_118",
         "source_id": "100",
-        "title": "كولي بلدي 04",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -1999,9 +2811,12 @@
     {
         "id": "shadhw_119",
         "source_id": "75",
-        "title": "01 كولي بلدي",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2014,11 +2829,24 @@
         "id": "shadhw_120",
         "source_id": "209",
         "title": "النكشة (لبسة صحراوية )",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1776336588_5818859660591697340.jpg",
+            "https://boughalaffiliate.com/product_photos/1776336588_5818859660591697342.jpg",
+            "https://boughalaffiliate.com/product_photos/1776336588_5818859660591697343.jpg",
+            "https://boughalaffiliate.com/product_photos/1776336588_5818859660591697344.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "مكونة من الملحاف صاية ضفرة عقيق لعنق من الكريسطال عقيق ليد",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "M"
+        ],
         "price": "545 DH",
         "original_price": "445 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/209",
@@ -2028,11 +2856,22 @@
         "id": "shadhw_121",
         "source_id": "208",
         "title": "لبسة ايت بعمران",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1776335662_5899816774759287823.jpg",
+            "https://boughalaffiliate.com/product_photos/1776335662_5899816774759287824.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "لبسة أيت بعمران بالأكسيسوارات ديالها صاية ملحاف إسني أيت بعمران (حجم كبير) قطيب دواح الخروب البعمراني تشدات أيت بعمران أحلاب بعمراني (تزلاكت ) بلغة صابوا",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "M"
+        ],
         "price": "955 DH",
         "original_price": "855 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/208",
@@ -2042,11 +2881,24 @@
         "id": "shadhw_122",
         "source_id": "206",
         "title": "لبسة امازيغية للكبار",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1776333890_5899816774759287832.jpg",
+            "https://boughalaffiliate.com/product_photos/1776333890_5899816774759287831.jpg",
+            "https://boughalaffiliate.com/product_photos/1776333890_5899816774759287830.jpg",
+            "https://boughalaffiliate.com/product_photos/1776333890_5899816774759287829.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "لبسة امازيغية للكبارتشتمل على صاية وادال توب كريب عامر مع قفطان من نوع كلينطون متوفر في جميع المقاسات وقطيب حرير",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "M"
+        ],
         "price": "360 DH",
         "original_price": "260 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/206",
@@ -2055,9 +2907,12 @@
     {
         "id": "shadhw_123",
         "source_id": "193",
-        "title": "radco 2p",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2070,10 +2925,19 @@
         "id": "shadhw_124",
         "source_id": "198",
         "title": "رادكو 82",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1775126955_WhatsApp Image 2026-04-01 at 13.04.04 (6).jpeg",
+            "https://boughalaffiliate.com/product_photos/1775126955_WhatsApp Image 2026-04-01 at 13.04.04 (5).jpeg",
+            "https://boughalaffiliate.com/product_photos/1775126955_WhatsApp Image 2026-04-01 at 13.04.04 (4).jpeg",
+            "https://boughalaffiliate.com/product_photos/1775126955_WhatsApp Image 2026-04-01 at 13.04.04 (3).jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1775126955_WhatsApp Video 2026-04-01 at 13.04.04 (1).mp4"
+        ],
+        "description": "رادكو 8 كيتكون من سنسلة وبراسلي acier من نوع",
         "sizes": [],
         "price": "185 DH",
         "original_price": "85 DH",
@@ -2084,10 +2948,16 @@
         "id": "shadhw_125",
         "source_id": "133",
         "title": "براسلي مع الخاتم",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1769013572_WhatsApp Image 2026-01-21 at 13.06.42 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1769013572_WhatsApp Image 2026-01-21 at 13.06.42 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1769013572_WhatsApp Image 2026-01-21 at 13.06.41 (2).jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "براسلي مع الخاتم من نوع gh",
         "sizes": [],
         "price": "175 DH",
         "original_price": "75 DH",
@@ -2098,10 +2968,19 @@
         "id": "shadhw_126",
         "source_id": "182",
         "title": "براسلي 7",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1773159212_WhatsApp Image 2026-03-10 at 17.10.36 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1773159212_WhatsApp Image 2026-03-10 at 17.10.36 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1773159212_WhatsApp Image 2026-03-10 at 17.10.36 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1773159212_WhatsApp Image 2026-03-10 at 17.10.36.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1773159212_WhatsApp Video 2026-03-10 at 17.10.08.mp4"
+        ],
+        "description": "باك براسلي مكون من 7",
         "sizes": [],
         "price": "150 DH",
         "original_price": "50 DH",
@@ -2111,9 +2990,12 @@
     {
         "id": "shadhw_127",
         "source_id": "132",
-        "title": "3 براسلي",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2125,9 +3007,12 @@
     {
         "id": "shadhw_128",
         "source_id": "134",
-        "title": "براسلي بالخاتم 1",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2140,11 +3025,25 @@
         "id": "shadhw_129",
         "source_id": "180",
         "title": "جلابة امازيغية مع بلغة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1772719623_WhatsApp Image 2026-03-05 at 14.57.39 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1772719623_WhatsApp Image 2026-03-05 at 14.57.39 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1772719623_WhatsApp Image 2026-03-05 at 14.57.39.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1772719623_WhatsApp Video 2026-03-05 at 14.57.38.mp4"
+        ],
+        "description": "جلابة امازيغية مع بلغة من رقم 23 الى 35 للطلب المرجو تحديد العمر ورقم الحذاء",
+        "sizes": [
+            "4 سنوات",
+            "6 سنوات",
+            "8 سنوات",
+            "10 سنوات",
+            "12 سنة"
+        ],
         "price": "210 DH",
         "original_price": "110 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/180",
@@ -2154,10 +3053,18 @@
         "id": "shadhw_130",
         "source_id": "176",
         "title": "سرتلة+سنسلة قلب",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1772118562_WhatsApp Image 2026-02-26 at 15.35.09 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1772118562_WhatsApp Image 2026-02-26 at 15.35.09 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1772118562_WhatsApp Image 2026-02-26 at 15.35.09.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1772118562_WhatsApp Video 2026-02-26 at 15.35.17.mp4"
+        ],
+        "description": "سرتلة 7 مبروم وسامبل مم سنسلة بالقلب les tailles 6cm /6.5cm /6.8cm",
         "sizes": [],
         "price": "155 DH",
         "original_price": "55 DH",
@@ -2167,9 +3074,12 @@
     {
         "id": "shadhw_131",
         "source_id": "153",
-        "title": "باك دك البرة",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2182,10 +3092,18 @@
         "id": "shadhw_132",
         "source_id": "155",
         "title": "bracelets dore",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1770288661_WhatsApp Image 2026-02-05 at 11.46.24.jpeg",
+            "https://boughalaffiliate.com/product_photos/1770288661_WhatsApp Image 2026-02-05 at 11.46.23 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1770288661_WhatsApp Image 2026-02-05 at 11.46.23.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1770288661_WhatsApp Video 2026-02-05 at 11.46.25.mp4"
+        ],
+        "description": "3p bracelets",
         "sizes": [],
         "price": "175 DH",
         "original_price": "75 DH",
@@ -2196,11 +3114,30 @@
         "id": "shadhw_133",
         "source_id": "3",
         "title": "بلغة شاشية طالعة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807528.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807529.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807530.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807531.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807532.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807533.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807537.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807538.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886097_5945171036695807539.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة شاشية طالعة disponible",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36",
+            "41"
+        ],
         "price": "160 DH",
         "original_price": "60 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/3",
@@ -2209,9 +3146,12 @@
     {
         "id": "shadhw_134",
         "source_id": "39",
-        "title": "لوبان كبير L2",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2224,10 +3164,18 @@
         "id": "shadhw_135",
         "source_id": "7",
         "title": "النبالة Nbala",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1760885505_5838992478701734370.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885505_5838992478701734369 (1).jpg",
+            "https://boughalaffiliate.com/product_photos/1760885505_5838992478701734369.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885505_5838992478701734368.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885505_5838992478701734367.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "2 نبالات",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -2238,11 +3186,20 @@
         "id": "shadhw_136",
         "source_id": "141",
         "title": "كولي بلدي 10",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1769594578_WhatsApp Image 2026-01-27 at 15.32.34.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "كولي بلدي ستوندار مع الخاتم متوفر في جميع المقاسات 7/8/9/10",
+        "sizes": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
         "price": "219 DH",
         "original_price": "119 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/141",
@@ -2252,11 +3209,22 @@
         "id": "shadhw_137",
         "source_id": "130",
         "title": "labsa kompli",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1767868696_photo_2026-01-08_11-30-30.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "labsa amazighia kbira",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "M",
+            "4xl"
+        ],
         "price": "680 DH",
         "original_price": "580 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/130",
@@ -2266,10 +3234,16 @@
         "id": "shadhw_138",
         "source_id": "119",
         "title": "سلهام تاج اسود",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1767692451_WhatsApp Image 2026-01-01 at 13.06.11 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1767692451_WhatsApp Image 2026-01-01 at 13.06.11.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767692451_WhatsApp Image 2026-01-01 at 13.06.10.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي كبير باللون الاسود للكبار مطروز",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -2280,10 +3254,18 @@
         "id": "shadhw_139",
         "source_id": "114",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1767265167_WhatsApp Image 2025-12-31 at 18.53.04.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767265167_WhatsApp Image 2025-12-31 at 18.53.09.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767265167_WhatsApp Image 2025-12-31 at 18.53.03.jpeg",
+            "https://boughalaffiliate.com/product_photos/1767265167_WhatsApp Image 2025-12-31 at 18.53.04 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1767265226_WhatsApp Image 2025-12-31 at 18.53.05.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي كبير باللون الاسود مطروز لتشجيع المنتخب الوطني",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -2294,10 +3276,17 @@
         "id": "shadhw_140",
         "source_id": "113",
         "title": "12/13/14 ans سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766674304_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674304_WhatsApp Image 2025-12-25 at 15.19.47 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674304_WhatsApp Image 2025-12-25 at 15.19.47 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674304_WhatsApp Image 2025-12-25 at 15.19.47.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "توب كريب روزا مطروز مخدوم بالسفيفة",
         "sizes": [],
         "price": "245 DH",
         "original_price": "145 DH",
@@ -2308,10 +3297,17 @@
         "id": "shadhw_141",
         "source_id": "112",
         "title": "10/11 ans سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766674199_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674199_WhatsApp Image 2025-12-25 at 15.19.47 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674199_WhatsApp Image 2025-12-25 at 15.19.47 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674199_WhatsApp Image 2025-12-25 at 15.19.47.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "توب كريب روزا مطروز مخدوم بالسفيفة",
         "sizes": [],
         "price": "235 DH",
         "original_price": "135 DH",
@@ -2322,10 +3318,17 @@
         "id": "shadhw_142",
         "source_id": "111",
         "title": "8/9 ans سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766674114_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674114_WhatsApp Image 2025-12-25 at 15.19.47 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674114_WhatsApp Image 2025-12-25 at 15.19.47 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766674114_WhatsApp Image 2025-12-25 at 15.19.47.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تووب كريب روزا مطروز مخدوم بالسفيفة",
         "sizes": [],
         "price": "225 DH",
         "original_price": "125 DH",
@@ -2336,10 +3339,17 @@
         "id": "shadhw_143",
         "source_id": "109",
         "title": "4/5 ans سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766673741_WhatsApp Image 2025-12-25 at 15.19.47 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766673741_WhatsApp Image 2025-12-25 at 15.19.47 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766673741_WhatsApp Image 2025-12-25 at 15.19.47 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766673741_WhatsApp Image 2025-12-25 at 15.19.47.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "توب كريب روزا مطروز ومخدوم بالسفيفة",
         "sizes": [],
         "price": "195 DH",
         "original_price": "95 DH",
@@ -2350,10 +3360,17 @@
         "id": "shadhw_144",
         "source_id": "108",
         "title": "سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766396540_WhatsApp Image 2025-12-22 at 10.40.08 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766396540_WhatsApp Image 2025-12-22 at 10.40.08 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766396540_WhatsApp Image 2025-12-22 at 10.40.08 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1766396540_WhatsApp Image 2025-12-22 at 10.40.08.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي للصغار ابتداء من 4 سنوات الى 13 سنة مكون من توب كلينطون بثمن مناسب",
         "sizes": [],
         "price": "169 DH",
         "original_price": "69 DH",
@@ -2364,10 +3381,17 @@
         "id": "shadhw_145",
         "source_id": "107",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1766072283_-5917833587040390085_121.jpg",
+            "https://boughalaffiliate.com/product_photos/1766072283_-5917833587040390087_121.jpg",
+            "https://boughalaffiliate.com/product_photos/1766396744_5911000856713169859.jpg",
+            "https://boughalaffiliate.com/product_photos/1766396744_5911000856713169861.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي للكبار مكون من توب كلينطون بثمن مناسب طواه 120",
         "sizes": [],
         "price": "195 DH",
         "original_price": "95 DH",
@@ -2378,10 +3402,22 @@
         "id": "shadhw_146",
         "source_id": "106",
         "title": "لبسة عامرة امازيغية",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.49.jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.48 (7).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.48 (6).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.48 (5).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.48 (4).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.48 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.48 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.47 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765631157_WhatsApp Image 2025-12-10 at 11.47.47 (2).jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "لبسة مكونة من قفطان صاية ادال ابتداء من 12 سنة للطلب المرجو تحديد اللون والسن",
         "sizes": [],
         "price": "390 DH",
         "original_price": "290 DH",
@@ -2392,10 +3428,15 @@
         "id": "shadhw_147",
         "source_id": "103",
         "title": "تشدادت تمازيغت",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765533546_WhatsApp Image 2025-12-10 at 11.49.10 (3).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765533546_WhatsApp Image 2025-12-10 at 11.49.10 (2).jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تشدادت اكسيسوار مكون من معدن مشلل بالنقرة وحجر لريزين",
         "sizes": [],
         "price": "190 DH",
         "original_price": "90 DH",
@@ -2406,10 +3447,17 @@
         "id": "shadhw_148",
         "source_id": "89",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764864355_WhatsApp Image 2025-12-04 at 16.24.47 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764864355_WhatsApp Image 2025-12-04 at 16.24.47.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1764864355_WhatsApp Video 2025-12-04 at 16.56.12.mp4"
+        ],
+        "description": "سلهام ملكي كبير توب كريب روزا بالنسبة للطول 1.20",
         "sizes": [],
         "price": "250 DH",
         "original_price": "150 DH",
@@ -2420,10 +3468,18 @@
         "id": "shadhw_149",
         "source_id": "101",
         "title": "لبسة أمازيغية للكبار والصغار",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765381821_WhatsApp Image 2025-12-10 at 12.52.25 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765381821_WhatsApp Image 2025-12-10 at 12.52.25 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765381821_WhatsApp Image 2025-12-10 at 12.52.25.jpeg"
+        ],
+        "videos": [
+            "https://boughalaffiliate.com/product_videos/1765381821_WhatsApp Video 2025-12-10 at 12.52.29 (2).mp4"
+        ],
+        "description": "عرض خاص في اللبسة الامازيغة للكبار والصغار الطلبات حسب الاعمار",
         "sizes": [],
         "price": "630 DH",
         "original_price": "530 DH",
@@ -2434,11 +3490,22 @@
         "id": "shadhw_150",
         "source_id": "90",
         "title": "وشاح احمر",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765039657_IMG_20251206_172058_517.jpg",
+            "https://boughalaffiliate.com/product_photos/1765039657_IMG_20251206_172058_547.jpg",
+            "https://boughalaffiliate.com/product_photos/1765039657_IMG_20251206_173035_387.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "ميكاسا سكارف 2025",
+        "sizes": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
         "price": "179 DH",
         "original_price": "79 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/90",
@@ -2448,11 +3515,24 @@
         "id": "shadhw_151",
         "source_id": "87",
         "title": "بلغة شاشي بالعقيق طالعة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1765034670_WhatsApp Image 2025-12-06 at 13.04.41 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765034670_WhatsApp Image 2025-12-06 at 13.04.41 (2).jpeg",
+            "https://boughalaffiliate.com/product_photos/1765034670_WhatsApp Image 2025-12-06 at 13.04.41.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة شاشي بالعقيق طالعة",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36",
+            "41"
+        ],
         "price": "235 DH",
         "original_price": "135 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/87",
@@ -2462,10 +3542,14 @@
         "id": "shadhw_152",
         "source_id": "83",
         "title": "تونزا كبيرة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764253182_WhatsApp Image 2025-11-27 at 12.22.55 (2).jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تونزا كبيرة",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -2476,11 +3560,18 @@
         "id": "shadhw_153",
         "source_id": "82",
         "title": "سبرادوكو",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764248169_WhatsApp Image 2025-11-27 at 12.22.55 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1764248169_WhatsApp Image 2025-11-27 at 12.22.55.jpeg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "موديل سبرادوكو مزيج من البلغة و الحذاء الرياضي",
+        "sizes": [
+            "37 38 39 40 41 42 43 44"
+        ],
         "price": "230 DH",
         "original_price": "130 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/82",
@@ -2490,10 +3581,14 @@
         "id": "shadhw_154",
         "source_id": "74",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764150362_WhatsApp Image 2025-11-26 at 10.36.05.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي كبير بالطربوش",
         "sizes": [],
         "price": "329 DH",
         "original_price": "229 DH",
@@ -2504,11 +3599,22 @@
         "id": "shadhw_155",
         "source_id": "73",
         "title": "بلغة تفناغ",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764078907_A6700031.JPG",
+            "https://boughalaffiliate.com/product_photos/1764078907_A6700035.JPG"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة تفناغ نوع ممتاز متوفرة لون احمر ابيض مقاس 36....41",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36"
+        ],
         "price": "150 DH",
         "original_price": "50 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/73",
@@ -2518,11 +3624,20 @@
         "id": "shadhw_156",
         "source_id": "72",
         "title": "بلغة تفناغ",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة تفناغ نوع ممتاز متوفرة لون احمر ابيض مقاس 36....41",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36"
+        ],
         "price": "150 DH",
         "original_price": "50 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/72",
@@ -2532,11 +3647,20 @@
         "id": "shadhw_157",
         "source_id": "71",
         "title": "بلغة تفناغ",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة تفناغ نوع ممتاز متوفرة لون احمر ابيض مقاس 36....41",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36"
+        ],
         "price": "150 DH",
         "original_price": "50 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/71",
@@ -2546,11 +3670,20 @@
         "id": "shadhw_158",
         "source_id": "70",
         "title": "بلغة تفناغ",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة تفناغ نوع ممتاز متوفرة لون احمر ابيض مقاس 36....41",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36"
+        ],
         "price": "150 DH",
         "original_price": "50 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/70",
@@ -2560,11 +3693,21 @@
         "id": "shadhw_159",
         "source_id": "69",
         "title": "لبسة كومبلي خفيفة لصغار",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764078422_IMG-20251122-WA0197.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "لبسة لصغار كاملة من 3 سنين الى 12 سنة مكونة من صاية أدال قفطان بلغة تونزا فوند لوبان",
+        "sizes": [
+            "4 سنوات",
+            "6 سنوات",
+            "8 سنوات",
+            "10 سنوات",
+            "12 سنة"
+        ],
         "price": "330 DH",
         "original_price": "230 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/69",
@@ -2574,10 +3717,14 @@
         "id": "shadhw_160",
         "source_id": "66",
         "title": "لبسة أمازيغية للكبار توب وبلغة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1764157789_photo_2025-11-26_12-47-19.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "لبسة أمازيغية للكبار توب وبلغة قفطان صاية توب مضوبلة أدال توب كلنتون بلغة صابوا",
         "sizes": [],
         "price": "349 DH",
         "original_price": "249 DH",
@@ -2588,10 +3735,14 @@
         "id": "shadhw_161",
         "source_id": "65",
         "title": "لبسة أمازيغية كاملة للكبار",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1763716548_A6709806.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "لبسة كاملة بالأكسيسوارات ديالها مكونة من قفطان صاية توب مضوبلة أدال توب كلنتون بلغة صابوا تاج كبير معدن مشلل بالنقرة لوبان عادي أحلاب (سدرية )",
         "sizes": [],
         "price": "619 DH",
         "original_price": "519 DH",
@@ -2602,10 +3753,20 @@
         "id": "shadhw_162",
         "source_id": "6",
         "title": "تونزا Tawnza MWAYAN",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802679.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802677.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802678.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802676 (1).jpg",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802676.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802675.jpg",
+            "https://boughalaffiliate.com/product_photos/1760885417_5868685318490802674.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تونزا Tawnza MWAYAN",
         "sizes": [],
         "price": "200 DH",
         "original_price": "100 DH",
@@ -2616,11 +3777,21 @@
         "id": "shadhw_163",
         "source_id": "64",
         "title": "لبسة صغيرة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1763469938_photo_2025-05-22_00-33-24 (2).jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "لبسة صغيرة مكونة من سبع قطع ابتداء من اربع سنوات الى اثنا عشرة سنة",
+        "sizes": [
+            "4 سنوات",
+            "6 سنوات",
+            "8 سنوات",
+            "10 سنوات",
+            "12 سنة"
+        ],
         "price": "400 DH",
         "original_price": "300 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/64",
@@ -2630,11 +3801,24 @@
         "id": "shadhw_164",
         "source_id": "48",
         "title": "بلغة رجالية",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761735916_photo_2025-04-22_00-14-17.jpg",
+            "https://boughalaffiliate.com/product_photos/1761735916_photo_2025-04-22_00-14-25.jpg",
+            "https://boughalaffiliate.com/product_photos/1761735916_photo_2025-04-22_00-14-33.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة رجالية جلد متوفرة مقاس",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "41",
+            "42"
+        ],
         "price": "240 DH",
         "original_price": "140 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/48",
@@ -2644,11 +3828,23 @@
         "id": "shadhw_165",
         "source_id": "43",
         "title": "سلهام ملكي صغير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761573594_WhatsApp Image 2025-10-26 at 21.23.44_7d486681.jpg",
+            "https://boughalaffiliate.com/product_photos/1761573594_WhatsApp Image 2025-10-26 at 21.23.44_c35a1e3f.jpg",
+            "https://boughalaffiliate.com/product_photos/1761573594_WhatsApp Image 2025-10-26 at 21.23.45_486875e5.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "سلهام ملكي لصغار",
+        "sizes": [
+            "4 سنوات",
+            "6 سنوات",
+            "8 سنوات",
+            "10 سنوات",
+            "12 سنة"
+        ],
         "price": "179 DH",
         "original_price": "79 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/43",
@@ -2658,10 +3854,15 @@
         "id": "shadhw_166",
         "source_id": "54",
         "title": "TAWNZA تونزة كبيرة",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761905609_photo_2024-10-15_12-42-07 (2).jpg",
+            "https://boughalaffiliate.com/product_photos/1761905609_photo_2024-10-15_12-42-07.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "تونزة كبيرة مشلة بالنقرة",
         "sizes": [],
         "price": "240 DH",
         "original_price": "140 DH",
@@ -2672,10 +3873,14 @@
         "id": "shadhw_167",
         "source_id": "53",
         "title": "ثلاثية براصلي",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761761406_WhatsApp Image 2025-10-29 at 16.42.19 (1).jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "عبار صتوندار",
         "sizes": [],
         "price": "209 DH",
         "original_price": "109 DH",
@@ -2684,40 +3889,46 @@
     },
     {
         "id": "shadhw_168",
-        "source_id": "49",
-        "title": "الخاتم والنبالة",
-        "image": "",
-        "images": [],
-        "videos": [],
-        "description": "",
-        "sizes": [],
-        "price": "189 DH",
-        "original_price": "89 DH",
-        "original_link": "https://boughalaffiliate.com/affiliate/products/49",
-        "status": ""
-    },
-    {
-        "id": "shadhw_169",
         "source_id": "46",
         "title": "بلغة موزون جلد",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761600312_IMG-20251023-WA0082.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600312_IMG-20251023-WA0083.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600312_IMG-20251023-WA0084.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600312_IMG-20251023-WA0081.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة شاشي طالعة متوفرة فجميع المقاسات",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36",
+            "41"
+        ],
         "price": "320 DH",
         "original_price": "220 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/46",
         "status": ""
     },
     {
-        "id": "shadhw_170",
+        "id": "shadhw_169",
         "source_id": "45",
         "title": "بلغة dorojin",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761600213_IMG-20251025-WA0157.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600213_IMG-20251025-WA0158.jpg",
+            "https://boughalaffiliate.com/product_photos/1761600213_IMG-20251025-WA0156.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "بلغة شاشي طالعة متوفرة فجميع المقاسات",
         "sizes": [],
         "price": "230 DH",
         "original_price": "130 DH",
@@ -2725,13 +3936,18 @@
         "status": ""
     },
     {
-        "id": "shadhw_171",
+        "id": "shadhw_170",
         "source_id": "38",
         "title": "لوبان كبير L1",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761442237_WhatsApp Image 2025-10-26 at 01.47.48 (1).jpeg",
+            "https://boughalaffiliate.com/product_photos/1761442237_WhatsApp Image 2025-10-26 at 01.47.48.jpeg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "لوبان كبير L1",
         "sizes": [],
         "price": "369 DH",
         "original_price": "269 DH",
@@ -2739,11 +3955,14 @@
         "status": ""
     },
     {
-        "id": "shadhw_172",
+        "id": "shadhw_171",
         "source_id": "18",
-        "title": "لبان تكموت كبيرة",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2753,11 +3972,14 @@
         "status": ""
     },
     {
-        "id": "shadhw_173",
+        "id": "shadhw_172",
         "source_id": "16",
-        "title": "لبان كبير سامبل",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2767,11 +3989,14 @@
         "status": ""
     },
     {
-        "id": "shadhw_174",
+        "id": "shadhw_173",
         "source_id": "17",
-        "title": "لبان كرش طويل",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2781,11 +4006,14 @@
         "status": ""
     },
     {
-        "id": "shadhw_175",
+        "id": "shadhw_174",
         "source_id": "14",
-        "title": "لبان كرش طويل",
-        "image": "",
-        "images": [],
+        "title": "Tableau de bord",
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2795,13 +4023,19 @@
         "status": ""
     },
     {
-        "id": "shadhw_176",
+        "id": "shadhw_175",
         "source_id": "15",
         "title": "سلهام ملكي كبير",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761188212_DSC09741.jpg",
+            "https://boughalaffiliate.com/product_photos/1761188212_DSC09744 (1) (2).png",
+            "https://boughalaffiliate.com/product_photos/1761188212_DSC09735 (2).png"
+        ],
         "videos": [],
-        "description": "",
+        "description": "سلهام ملكي كبير",
         "sizes": [],
         "price": "269 DH",
         "original_price": "169 DH",
@@ -2809,11 +4043,17 @@
         "status": ""
     },
     {
-        "id": "shadhw_177",
+        "id": "shadhw_176",
         "source_id": "13",
         "title": "لبان مويان سامبل",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761152347_6037089817939610791.jpg",
+            "https://boughalaffiliate.com/product_photos/1761152347_6037089817939610819.jpg",
+            "https://boughalaffiliate.com/product_photos/1761152347_6037089817939610815.jpg"
+        ],
         "videos": [],
         "description": "",
         "sizes": [],
@@ -2823,13 +4063,19 @@
         "status": ""
     },
     {
-        "id": "shadhw_178",
+        "id": "shadhw_177",
         "source_id": "12",
         "title": "لوبان سامبل",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1761148800_6037089817939610783.jpg",
+            "https://boughalaffiliate.com/product_photos/1761148800_6037089817939610790.jpg",
+            "https://boughalaffiliate.com/product_photos/1761148800_6037089817939610810.jpg"
+        ],
         "videos": [],
-        "description": "",
+        "description": "لوبان سامبل",
         "sizes": [],
         "price": "169 DH",
         "original_price": "69 DH",
@@ -2837,28 +4083,66 @@
         "status": ""
     },
     {
-        "id": "shadhw_179",
+        "id": "shadhw_178",
         "source_id": "8",
         "title": "بلغة نسائية صابو",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558400.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558397.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558396.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558395.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558389.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558386.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558382.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558381.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558380.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558379.jpg",
+            "https://boughalaffiliate.com/product_photos/1760886537_5888512145954558378.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "بلغة نسائية صابو",
+        "sizes": [
+            "39",
+            "40",
+            "38",
+            "37",
+            "36",
+            "41"
+        ],
         "price": "145 DH",
         "original_price": "45 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/8",
         "status": ""
     },
     {
-        "id": "shadhw_180",
+        "id": "shadhw_179",
         "source_id": "5",
         "title": "لبسة كومبلي للكبار",
-        "image": "",
-        "images": [],
+        "image": "https://boughalaffiliate.com/logo.png",
+        "images": [
+            "https://boughalaffiliate.com/logo.png",
+            "https://boughalaffiliate.com/urlanding-icon.png",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185793.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185795.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185796.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185797.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185798.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185819.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185821.jpg",
+            "https://boughalaffiliate.com/product_photos/1760802018_5773671330414185822.jpg",
+            "https://boughalaffiliate.com/product_photos/1760864267_1760802018_5773671330414185793.jpg"
+        ],
         "videos": [],
-        "description": "",
-        "sizes": [],
+        "description": "اللباس التقليدي الأمازيغي كومبلي للكبار",
+        "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "M"
+        ],
         "price": "690 DH",
         "original_price": "590 DH",
         "original_link": "https://boughalaffiliate.com/affiliate/products/5",
