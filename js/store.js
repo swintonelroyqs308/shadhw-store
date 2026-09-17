@@ -84,7 +84,7 @@ function renderCart() {
     const container = $('#cartItems');
     const cart = getCart();
     if (!cart.length) {
-        container.innerHTML = '<div class="cart-empty">السلة خاوية حالياً ✨<br>اختاري قطعة باش تبداي.</div>';
+        container.innerHTML = '<div class="cart-empty">السلة خاوية حالياً.<br>اختاري قطعة باش تبداي.</div>';
         $('#cartTotal').textContent = '0 DH';
         return;
     }

@@ -127,12 +127,19 @@ function renderGallery(product) {
         <div class="gallery-thumbs">
             ${mediaItems.map((item, index) => item.type === 'image'
                 ? `<button class="gallery-thumb ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الصورة ${index + 1}"><img src="${escapeHtml(item.src)}" alt=""></button>`
-                : `<button class="gallery-thumb gallery-video-button ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الفيديو ${index + 1}"><span class="gallery-video-thumb"><video src="${escapeHtml(item.src)}" muted playsinline preload="metadata"></video><i>▶</i></span></button>`
+                : `<button class="gallery-thumb gallery-video-button ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الفيديو ${index + 1}"><span class="gallery-video-thumb"><video src="${escapeHtml(item.src)}" muted playsinline preload="metadata"></video><i aria-hidden="true"></i></span></button>`
             ).join('')}
         </div>`;
 
     gallery.querySelectorAll('.gallery-thumb').forEach(button => {
         button.addEventListener('click', () => renderMainMedia(Number(button.dataset.index)));
+    });
+    gallery.querySelectorAll('.gallery-video-thumb video').forEach(video => {
+        const showFrame = () => {
+            try { video.currentTime = Math.min(0.1, video.duration || 0.1); } catch {}
+        };
+        video.addEventListener('loadedmetadata', showFrame, { once: true });
+        video.addEventListener('loadeddata', showFrame, { once: true });
     });
     $('#zoomButton').addEventListener('click', () => openLightbox(activeMediaIndex));
     renderMainMedia(0);
@@ -194,7 +201,7 @@ function renderProduct(product) {
         </div>
         <section id="upsell" class="upsell-section">
             <div class="upsell-heading">
-                <h2>قد تعجبك أيضاً ✨</h2>
+                <h2>قد تعجبك أيضاً</h2>
             </div>
             <div id="upsellGrid" class="upsell-grid"></div>
         </section>`;
@@ -213,7 +220,7 @@ function renderProduct(product) {
 
     $('#addCart').addEventListener('click', () => {
         if (addToCart(selectedSize)) {
-            $('#addCart').textContent = 'تمت الإضافة ✓';
+            $('#addCart').textContent = 'تمت الإضافة ';
             setTimeout(() => { $('#addCart').textContent = 'أضيفي للسلة'; }, 1400);
         }
     });

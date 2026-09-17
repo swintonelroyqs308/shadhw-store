@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
 
 :root {
     --ink: #1b1510;
     --muted: #76695d;
     --cream: #f8f3ea;
     --surface: #fffdf9;
-    --gold: #c59a57;
-    --gold-light: #e1c38e;
-    --gold-dark: #8f672f;
+    --gold: #B58A62;
+    --gold-light: #d7b58f;
+    --gold-dark: #8e6544;
     --line: rgba(71, 49, 25, .12);
     --shadow: 0 18px 55px rgba(42, 28, 12, .11);
     --radius: 22px;
-    --brand-font: 'Aref Ruqaa', 'Amiri', serif;
-    --body-font: 'Amiri', Georgia, serif;
+    --brand-font: 'Cairo', sans-serif;
+    --body-font: 'Cairo', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -21,7 +21,7 @@ body {
     margin: 0;
     color: var(--ink);
     background:
-        radial-gradient(circle at 8% 8%, rgba(197,154,87,.08), transparent 24%),
+        radial-gradient(circle at 8% 8%, rgba(181,138,98,.08), transparent 24%),
         var(--cream);
     font-family: var(--body-font);
     font-size: 17px;
@@ -96,7 +96,7 @@ a { color: inherit; text-decoration: none; }
     border-radius: 999px;
     background: var(--ink);
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: 12px;
 }
 .cart-icon { font-size: 15px; }
@@ -231,7 +231,7 @@ a { color: inherit; text-decoration: none; }
     box-shadow: 0 8px 28px rgba(50,30,10,.055);
     transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-.product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(197,154,87,.28); }
+.product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(181,138,98,.28); }
 .product-card-image {
     aspect-ratio: 1 / 1.08;
     background: #f1ece3;
@@ -265,7 +265,9 @@ a { color: inherit; text-decoration: none; }
 }
 .product-card-link:hover { background: var(--gold-dark); }
 .loading, .empty-message { grid-column: 1 / -1; text-align: center; padding: 70px 20px; color: var(--muted); }
-.empty-icon { color: var(--gold); font-size: 30px; }
+.empty-icon {
+    display:none;
+     color: var(--gold); font-size: 30px; }
 .empty-message h3 { color: var(--ink); margin: 8px 0 0; font-family: var(--brand-font); font-size: 30px; }
 
 .product-page {
@@ -314,10 +316,10 @@ a { color: inherit; text-decoration: none; }
     transition: .2s ease;
 }
 .gallery-thumb:hover { transform: translateY(-1px); }
-.gallery-thumb.active { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(197,154,87,.12); }
+.gallery-thumb.active { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(181,138,98,.12); }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-video-thumb { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1d1915; color: #fff; font-size: 20px; }
-.gallery-video-thumb small { position: absolute; bottom: 4px; font-family: Arial,sans-serif; font-size: 8px; opacity: .85; }
+.gallery-video-thumb small { position: absolute; bottom: 4px; font-family: 'Cairo', sans-serif; font-size: 8px; opacity: .85; }
 .zoom-hint {
     position: absolute;
     left: 14px;
@@ -466,8 +468,8 @@ a { color: inherit; text-decoration: none; }
     --gold: #B58A62;
     --gold-light: #d2b18e;
     --gold-dark: #B58A62;
-    --brand-font: 'Aref Ruqaa', 'Noto Naskh Arabic', serif;
-    --body-font: 'Noto Naskh Arabic', 'Aref Ruqaa', serif;
+    --brand-font: 'Cairo', sans-serif;
+    --body-font: 'Cairo', sans-serif;
 }
 
 body, button, input { font-family: var(--body-font); }
@@ -565,14 +567,20 @@ body, button, input { font-family: var(--body-font); }
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
-    padding-right: 1px;
-    font-style: normal;
-    font-size: 15px;
-    color: white;
+    display: block;
     background: rgba(181,138,98,.92);
     box-shadow: 0 5px 18px rgba(0,0,0,.22);
+}
+.gallery-video-thumb i::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 11px solid #fffaf4;
 }
 
 /* Mobile: show the complete supplied 1680×944 background without cropping or stretching. */
@@ -581,7 +589,7 @@ body, button, input { font-family: var(--body-font); }
         min-height: 0;
         height: auto;
         aspect-ratio: 1680 / 944;
-        background-size: 100% auto;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: top center;
         background-color: #20160f;
@@ -601,7 +609,7 @@ body, button, input { font-family: var(--body-font); }
         padding: 0;
         margin-left: 0;
         margin-right: auto;
-        transform: translateY(24%);
+        transform: translateY(32%);
     }
     .hero h1 {
         font-size: clamp(20px, 5.2vw, 30px);
@@ -623,7 +631,7 @@ body, button, input { font-family: var(--body-font); }
 }
 
 @media (max-width: 430px) {
-    .hero-copy { width: 53%; transform: translateY(22%); }
+    .hero-copy { width: 53%; transform: translateY(29%); }
     .hero h1 { font-size: 19px; }
     .hero p { font-size: 11px; }
     .hero-button { min-height: 34px; font-size: 13px; min-width: 112px; }
