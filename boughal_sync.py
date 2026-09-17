@@ -872,6 +872,17 @@ def scrape_product_details(
         page.wait_for_timeout(2500)
 
         # ====================================================
+        # SKIP UNAVAILABLE PRODUCTS
+        # ====================================================
+        # المنتج غير المتوفر يتم التعرف عليه من الـ HTML نفسه
+        # عبر عبارة: "غير متوفر حاليا"
+        page_source = page.content()
+
+        if re.search(r"غير\s*متوفر\s*حاليا", page_source, re.IGNORECASE):
+            print("   ⏭️ غير متوفر حاليا - تم تخطي المنتج")
+            return None
+
+        # ====================================================
         # Scroll to load ALL lazy content
         # ====================================================
 
@@ -1522,12 +1533,19 @@ def main():
             start=1
         ):
 
-            scrape_product_details(
+            result = scrape_product_details(
                 context,
                 product,
                 index,
                 total
             )
+
+            # إذا كان المنتج غير متوفر، scrape_product_details يرجع None
+            # نحذف المنتج من القائمة حتى لا يدخل products.json
+            if result is None:
+                products.remove(product)
+                save_products(products)
+                continue
 
             product["id"] = (
                 f"shadhw_{index}"
