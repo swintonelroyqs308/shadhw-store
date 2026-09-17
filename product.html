@@ -1,62 +1,45 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>SHADHW JEWELS</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتج | SHADHW JEWELS</title>
+    <meta name="description" content="تفاصيل المنتج | SHADHW JEWELS">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
-
 <body>
-
 <header class="site-header">
-
     <div class="header-inner">
-
-        <a href="index.html" class="logo">
-
-            <span class="logo-ar">شَذْو</span>
-
-            <span class="logo-en">
-                SHADHW JEWELS
-            </span>
-
+        <a href="index.html" class="brand" aria-label="SHADHW JEWELS">
+            <img src="assets/logo-shadhw.png" alt="شَذْو للمجوهرات" class="brand-logo">
         </a>
-
-        <a href="index.html" class="back-button">
-            ← المنتجات
-        </a>
-
+        <div class="header-actions">
+            <a href="index.html" class="back-button">المنتجات</a>
+            <button class="cart-button" id="cartButton" type="button">
+                <span class="cart-icon">🛒</span>
+                <span>السلة</span>
+                <b id="cartCount">0</b>
+            </button>
+        </div>
     </div>
-
 </header>
 
-
 <main>
-
     <section id="productPage" class="product-page">
-
-        <div class="loading">
-            جاري تحميل المنتج...
-        </div>
-
+        <div class="loading">جاري تحميل المنتج...</div>
     </section>
-
 </main>
 
+<div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <button id="lightboxClose" class="lightbox-close" type="button" aria-label="إغلاق">×</button>
+    <button id="lightboxPrev" class="lightbox-arrow lightbox-prev" type="button" aria-label="الصورة السابقة">‹</button>
+    <div class="lightbox-media-wrap">
+        <img id="lightboxImage" class="lightbox-image" src="" alt="">
+        <video id="lightboxVideo" class="lightbox-video hidden" controls playsinline></video>
+    </div>
+    <button id="lightboxNext" class="lightbox-arrow lightbox-next" type="button" aria-label="الصورة التالية">›</button>
+</div>
 
 <script src="js/product.js"></script>
-
 </body>
-
 </html>

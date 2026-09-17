@@ -1,540 +1,177 @@
+const WHATSAPP_NUMBER = '212600000000'; // بدّل هذا الرقم برقم واتساب ديالك
+const CART_KEY = 'shadhw_cart';
 let products = [];
-let cart = JSON.parse(localStorage.getItem("shadhw_cart") || "[]");
 
-const productsGrid = document.getElementById("productsGrid");
-const searchInput = document.getElementById("searchInput");
-const productsCount = document.getElementById("productsCount");
-const emptyMessage = document.getElementById("emptyMessage");
-
-const cartButton = document.getElementById("cartButton");
-const cartOverlay = document.getElementById("cartOverlay");
-const closeCart = document.getElementById("closeCart");
-
-const cartItems = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
-const cartCount = document.getElementById("cartCount");
-
-const whatsappOrder = document.getElementById("whatsappOrder");
-
-
-/* =========================
-   LOAD PRODUCTS
-========================= */
-
-async function loadProducts() {
-
-    try {
-
-        const response = await fetch("products.json", {
-            cache: "no-store"
-        });
-
-        if (!response.ok) {
-            throw new Error("products.json not found");
-        }
-
-        products = await response.json();
-
-        renderProducts(products);
-
-        updateCart();
-
-    } catch (error) {
-
-        console.error(error);
-
-        productsGrid.innerHTML = `
-            <div class="loading">
-                وقع مشكل في تحميل المنتجات.
-                <br>
-                تأكد أن ملف products.json موجود.
-            </div>
-        `;
-
-    }
-
-}
-
-
-/* =========================
-   IMAGE
-========================= */
-
-function getProductImage(product) {
-
-    const images = Array.isArray(product.images)
-        ? product.images
-        : [];
-
-    const validImages = images.filter(url => {
-        if (!url) return false;
-
-        const lower = url.toLowerCase();
-
-        return !lower.includes("logo.png")
-            && !lower.includes("urlanding-icon");
-    });
-
-    if (validImages.length) {
-        return validImages[0];
-    }
-
-    if (product.image && !product.image.includes("logo.png")) {
-        return product.image;
-    }
-
-    return "";
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-function renderProducts(list) {
-
-    productsGrid.innerHTML = "";
-
-    productsCount.textContent =
-        `${list.length} منتج`;
-
-    if (!list.length) {
-
-        emptyMessage.classList.remove("hidden");
-
-        return;
-    }
-
-    emptyMessage.classList.add("hidden");
-
-
-    list.forEach(product => {
-
-        const card = document.createElement("article");
-
-        card.className = "product-card";
-
-
-        const image = getProductImage(product);
-
-
-        card.innerHTML = `
-
-            <a href="product.html?id=${encodeURIComponent(product.id)}">
-
-                <div class="product-image">
-
-                    ${
-                        image
-                        ?
-                        `<img
-                            src="${escapeHtml(image)}"
-                            alt="${escapeHtml(product.title || "منتج")}"
-                            loading="lazy"
-                        >`
-                        :
-                        `<div class="loading">
-                            لا توجد صورة
-                        </div>`
-                    }
-
-                </div>
-
-            </a>
-
-
-            <div class="product-content">
-
-                <h3 class="product-title">
-                    ${escapeHtml(product.title || "منتج")}
-                </h3>
-
-
-                <div class="price-row">
-
-                    <strong class="price">
-                        ${escapeHtml(product.price || "")}
-                    </strong>
-
-                    ${
-                        product.original_price
-                        ?
-                        `<span class="old-price">
-                            ${escapeHtml(product.original_price)}
-                        </span>`
-                        :
-                        ""
-                    }
-
-                </div>
-
-
-                <a
-                    class="product-link"
-                    href="product.html?id=${encodeURIComponent(product.id)}"
-                >
-                    عرض المنتج
-                </a>
-
-            </div>
-
-        `;
-
-
-        productsGrid.appendChild(card);
-
-    });
-
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-searchInput.addEventListener("input", function () {
-
-    const query = this.value
-        .trim()
-        .toLowerCase();
-
-
-    if (!query) {
-
-        renderProducts(products);
-
-        return;
-    }
-
-
-    const filtered = products.filter(product => {
-
-        const title =
-            String(product.title || "").toLowerCase();
-
-        const description =
-            String(product.description || "").toLowerCase();
-
-        return title.includes(query)
-            || description.includes(query);
-
-    });
-
-
-    renderProducts(filtered);
-
-});
-
-
-/* =========================
-   CART
-========================= */
-
-function addToCart(productId) {
-
-    const product = products.find(
-        p => p.id === productId
-    );
-
-    if (!product) return;
-
-
-    const existing = cart.find(
-        item => item.id === productId
-    );
-
-
-    if (existing) {
-
-        existing.quantity += 1;
-
-    } else {
-
-        cart.push({
-            id: product.id,
-            title: product.title,
-            price: product.price,
-            image: getProductImage(product),
-            quantity: 1
-        });
-
-    }
-
-
-    saveCart();
-
-    updateCart();
-
-    openCart();
-
-}
-
-
-function removeFromCart(productId) {
-
-    cart = cart.filter(
-        item => item.id !== productId
-    );
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-function saveCart() {
-
-    localStorage.setItem(
-        "shadhw_cart",
-        JSON.stringify(cart)
-    );
-
-}
-
-
-function parsePrice(value) {
-
-    if (typeof value === "number") {
-        return value;
-    }
-
-    const number =
-        String(value || "")
-            .replace(",", ".")
-            .match(/[\d.]+/);
-
-    return number
-        ? parseFloat(number[0])
-        : 0;
-
-}
-
-
-function updateCart() {
-
-    cartItems.innerHTML = "";
-
-    let total = 0;
-
-    let count = 0;
-
-
-    if (!cart.length) {
-
-        cartItems.innerHTML = `
-            <div class="loading">
-                السلة خاوية.
-            </div>
-        `;
-
-    }
-
-
-    cart.forEach(item => {
-
-        const quantity =
-            Number(item.quantity) || 1;
-
-        const price =
-            parsePrice(item.price);
-
-        total += price * quantity;
-
-        count += quantity;
-
-
-        const div =
-            document.createElement("div");
-
-        div.className = "cart-item";
-
-
-        div.innerHTML = `
-
-            ${
-                item.image
-                ?
-                `<img
-                    class="cart-item-image"
-                    src="${escapeHtml(item.image)}"
-                    alt=""
-                >`
-                :
-                ""
-            }
-
-
-            <div class="cart-item-info">
-
-                <div class="cart-item-title">
-                    ${escapeHtml(item.title || "منتج")}
-                </div>
-
-                <div class="cart-item-price">
-                    ${escapeHtml(item.price || "")}
-                    × ${quantity}
-                </div>
-
-            </div>
-
-
-            <button
-                class="remove-cart-item"
-                data-id="${escapeHtml(item.id)}"
-            >
-                حذف
-            </button>
-
-        `;
-
-
-        cartItems.appendChild(div);
-
-    });
-
-
-    cartTotal.textContent =
-        `${total.toFixed(0)} DH`;
-
-    cartCount.textContent =
-        count;
-
-
-    document
-        .querySelectorAll(".remove-cart-item")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    removeFromCart(
-                        button.dataset.id
-                    );
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================
-   CART OPEN / CLOSE
-========================= */
-
-function openCart() {
-
-    cartOverlay.classList.remove("hidden");
-
-}
-
-function closeCartPanel() {
-
-    cartOverlay.classList.add("hidden");
-
-}
-
-
-cartButton.addEventListener(
-    "click",
-    openCart
-);
-
-closeCart.addEventListener(
-    "click",
-    closeCartPanel
-);
-
-
-cartOverlay.addEventListener(
-    "click",
-    event => {
-
-        if (event.target === cartOverlay) {
-            closeCartPanel();
-        }
-
-    }
-);
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-whatsappOrder.addEventListener(
-    "click",
-    function () {
-
-        if (!cart.length) {
-
-            alert("السلة خاوية.");
-
-            return;
-        }
-
-
-        let message =
-            "السلام عليكم، بغيت نطلب:%0A%0A";
-
-
-        cart.forEach(item => {
-
-            message +=
-                `• ${encodeURIComponent(item.title)}`
-                +
-                ` × ${item.quantity}`
-                +
-                `%0A`;
-
-        });
-
-
-        message +=
-            `%0Aالمجموع: ${encodeURIComponent(cartTotal.textContent)}`;
-
-
-        /*
-          بدّل الرقم من بعد برقم واتساب ديال المتجر.
-          مثال:
-          2126XXXXXXXX
-        */
-
-        const phone =
-            "212600000000";
-
-
-        const url =
-            `https://wa.me/${phone}?text=${message}`;
-
-
-        window.open(url, "_blank");
-
-    }
-);
-
-
-/* =========================
-   SECURITY / TEXT
-========================= */
+const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value) {
-
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
+    return String(value ?? '').replace(/[&<>'"]/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;'
+    }[char]));
 }
 
+function getProductImage(product) {
+    const images = Array.isArray(product.images) ? product.images : [];
+    const valid = images.filter(src => src && !/logo\.png|urlanding-icon/i.test(src));
+    return valid[0] || '';
+}
 
-/* =========================
-   START
-========================= */
+function getCart() {
+    try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+    catch { return []; }
+}
+function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateCartCount();
+}
+function updateCartCount() {
+    const count = getCart().reduce((sum, item) => sum + Number(item.quantity || 1), 0);
+    const el = $('#cartCount');
+    if (el) el.textContent = count;
+}
+function parsePrice(value) {
+    const match = String(value ?? '').replace(',', '.').match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? Number(match[0]) : 0;
+}
+function formatPrice(value) { return `${parsePrice(value)} DH`; }
 
-loadProducts();
+function renderProducts(list) {
+    const grid = $('#productsGrid');
+    const empty = $('#emptyMessage');
+    $('#productsCount').textContent = `${list.length} قطعة`;
+
+    if (!list.length) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+    }
+    empty.classList.add('hidden');
+
+    grid.innerHTML = list.map(product => {
+        const image = getProductImage(product);
+        const imageHtml = image
+            ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(product.title)}" loading="lazy">`
+            : `<div class="loading">لا توجد صورة</div>`;
+        return `
+            <article class="product-card">
+                <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-image" aria-label="عرض ${escapeHtml(product.title)}">
+                    ${imageHtml}
+                </a>
+                <div class="product-card-body">
+                    <h3 class="product-card-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h3>
+                    <div class="product-card-price">${formatPrice(product.price)}</div>
+                    <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-link">عرض التفاصيل</a>
+                </div>
+            </article>`;
+    }).join('');
+}
+
+function openCart() {
+    const overlay = $('#cartOverlay');
+    overlay.classList.remove('hidden');
+    overlay.setAttribute('aria-hidden', 'false');
+    renderCart();
+    document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+    const overlay = $('#cartOverlay');
+    overlay.classList.add('hidden');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+function renderCart() {
+    const container = $('#cartItems');
+    const cart = getCart();
+    if (!cart.length) {
+        container.innerHTML = '<div class="cart-empty">السلة خاوية حالياً ✨<br>اختاري قطعة باش تبداي.</div>';
+        $('#cartTotal').textContent = '0 DH';
+        return;
+    }
+
+    let total = 0;
+    container.innerHTML = cart.map((item, index) => {
+        const product = products.find(p => p.id === item.id);
+        if (!product) return '';
+        const quantity = Number(item.quantity || 1);
+        const price = parsePrice(product.price);
+        total += price * quantity;
+        const sizeText = item.size ? `المقاس: ${escapeHtml(item.size)}` : 'بدون مقاس';
+        return `
+            <div class="cart-item">
+                ${getProductImage(product) ? `<img src="${escapeHtml(getProductImage(product))}" alt="">` : '<div></div>'}
+                <div>
+                    <p class="cart-item-title">${escapeHtml(product.title)}</p>
+                    <div class="cart-item-meta">${sizeText} · الكمية: ${quantity}</div>
+                    <button class="cart-remove" type="button" data-index="${index}">حذف</button>
+                </div>
+                <div class="cart-item-price">${formatPrice(price * quantity)}</div>
+            </div>`;
+    }).join('');
+    $('#cartTotal').textContent = `${total} DH`;
+
+    container.querySelectorAll('.cart-remove').forEach(button => {
+        button.addEventListener('click', () => {
+            const current = getCart();
+            current.splice(Number(button.dataset.index), 1);
+            saveCart(current);
+            renderCart();
+        });
+    });
+}
+
+function orderViaWhatsApp() {
+    const cart = getCart();
+    if (!cart.length) return;
+    let total = 0;
+    const lines = ['السلام عليكم، بغيت نطلب من SHADHW JEWELS:', ''];
+    cart.forEach((item, i) => {
+        const product = products.find(p => p.id === item.id);
+        if (!product) return;
+        const qty = Number(item.quantity || 1);
+        const price = parsePrice(product.price) * qty;
+        total += price;
+        lines.push(`${i + 1}. ${product.title}`);
+        if (item.size) lines.push(`المقاس: ${item.size}`);
+        lines.push(`الكمية: ${qty}`);
+        lines.push(`الثمن: ${price} DH`);
+        lines.push('');
+    });
+    lines.push(`المجموع: ${total} DH`);
+    lines.push('', 'الاسم:', 'المدينة:', 'العنوان:', 'الهاتف:');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+}
+
+async function loadProducts() {
+    try {
+        const response = await fetch('products.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Failed to load products');
+        products = await response.json();
+        renderProducts(products);
+        updateCartCount();
+    } catch (error) {
+        $('#productsGrid').innerHTML = '<div class="loading">وقع مشكل في تحميل المنتجات. عاودي المحاولة.</div>';
+        $('#productsCount').textContent = '';
+    }
+}
+
+$('#searchInput')?.addEventListener('input', event => {
+    const query = event.target.value.trim().toLowerCase();
+    const filtered = products.filter(product => {
+        const text = `${product.title || ''} ${product.description || ''}`.toLowerCase();
+        return text.includes(query);
+    });
+    renderProducts(filtered);
+});
+$('#cartButton')?.addEventListener('click', openCart);
+$('#closeCart')?.addEventListener('click', closeCart);
+$('#cartBackdrop')?.addEventListener('click', closeCart);
+$('#whatsappOrder')?.addEventListener('click', orderViaWhatsApp);
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeCart();
+});
+
+loadProducts().then(() => {
+    if (new URLSearchParams(location.search).get('cart') === '1') openCart();
+});

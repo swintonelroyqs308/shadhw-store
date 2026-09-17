@@ -1,651 +1,276 @@
+const WHATSAPP_NUMBER = '212600000000'; // بدّل هذا الرقم برقم واتساب ديالك
+const CART_KEY = 'shadhw_cart';
 let products = [];
 let currentProduct = null;
+let mediaItems = [];
+let activeMediaIndex = 0;
 
-const productPage = document.getElementById("productPage");
-
-
-/* =========================
-   LOAD PRODUCTS
-========================= */
-
-async function loadProduct() {
-
-    try {
-
-        const response = await fetch("products.json", {
-            cache: "no-store"
-        });
-
-        if (!response.ok) {
-            throw new Error("products.json not found");
-        }
-
-        products = await response.json();
-
-        const params = new URLSearchParams(
-            window.location.search
-        );
-
-        const productId = params.get("id");
-
-        currentProduct = products.find(
-            product => String(product.id) === String(productId)
-        );
-
-
-        if (!currentProduct) {
-
-            showNotFound();
-
-            return;
-        }
-
-
-        renderProduct(currentProduct);
-
-    } catch (error) {
-
-        console.error(error);
-
-        productPage.innerHTML = `
-            <div class="loading">
-                وقع مشكل في تحميل المنتج.
-            </div>
-        `;
-
-    }
-
-}
-
-
-/* =========================
-   PRODUCT
-========================= */
-
-function renderProduct(product) {
-
-    const images = getImages(product);
-
-    const videos = Array.isArray(product.videos)
-        ? product.videos.filter(Boolean)
-        : [];
-
-
-    const firstImage =
-        images.length
-            ? images[0]
-            : "";
-
-
-    productPage.innerHTML = `
-
-        <div class="product-detail">
-
-
-            <!-- MEDIA -->
-
-            <div class="product-media-section">
-
-                <div
-                    class="main-media"
-                    id="mainMedia"
-                >
-
-                    ${
-                        firstImage
-                        ?
-                        `
-                        <img
-                            src="${escapeHtml(firstImage)}"
-                            alt="${escapeHtml(product.title || "منتج")}"
-                        >
-                        `
-                        :
-                        `
-                        <div class="loading">
-                            لا توجد صورة
-                        </div>
-                        `
-                    }
-
-                </div>
-
-
-                <div class="gallery" id="gallery">
-
-                    ${renderImageButtons(images)}
-
-                    ${renderVideoButtons(videos)}
-
-                </div>
-
-            </div>
-
-
-            <!-- INFO -->
-
-            <div class="product-info">
-
-                <h1>
-                    ${escapeHtml(product.title || "منتج")}
-                </h1>
-
-
-                <div class="price-row">
-
-                    <strong class="detail-price">
-                        ${escapeHtml(product.price || "")}
-                    </strong>
-
-                    ${
-                        product.original_price
-                        ?
-                        `
-                        <span class="detail-old-price">
-                            ${escapeHtml(product.original_price)}
-                        </span>
-                        `
-                        :
-                        ""
-                    }
-
-                </div>
-
-
-                ${
-                    product.description
-                    ?
-                    `
-                    <div class="product-description">
-                        ${escapeHtml(product.description)}
-                    </div>
-                    `
-                    :
-                    ""
-                }
-
-
-                ${
-                    Array.isArray(product.sizes)
-                    && product.sizes.length
-                    ?
-                    `
-                    <div class="sizes">
-
-                        <h3>
-                            المقاسات المتوفرة
-                        </h3>
-
-                        <div class="size-list">
-
-                            ${
-                                product.sizes
-                                    .map(size =>
-                                        `
-                                        <span class="size">
-                                            ${escapeHtml(size)}
-                                        </span>
-                                        `
-                                    )
-                                    .join("")
-                            }
-
-                        </div>
-
-                    </div>
-                    `
-                    :
-                    ""
-                }
-
-
-                ${
-                    product.status
-                    ?
-                    `
-                    <p>
-                        ${escapeHtml(product.status)}
-                    </p>
-                    `
-                    :
-                    ""
-                }
-
-
-                <button
-                    class="add-cart-button"
-                    id="addToCartButton"
-                >
-                    🛒 أضف إلى السلة
-                </button>
-
-
-                <button
-                    class="whatsapp-button"
-                    id="directWhatsapp"
-                >
-                    طلب هذا المنتج عبر واتساب
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    setupGallery(images, videos);
-
-
-    document
-        .getElementById("addToCartButton")
-        .addEventListener(
-            "click",
-            () => addToCart(product)
-        );
-
-
-    document
-        .getElementById("directWhatsapp")
-        .addEventListener(
-            "click",
-            () => orderDirectly(product)
-        );
-
-}
-
-
-/* =========================
-   IMAGES
-========================= */
-
-function getImages(product) {
-
-    const images =
-        Array.isArray(product.images)
-            ? product.images
-            : [];
-
-
-    return images.filter(url => {
-
-        if (!url) return false;
-
-        const lower =
-            String(url).toLowerCase();
-
-        /*
-         * كنحيدو الصور العامة ديال Boughal
-         * ونخليو غير صور المنتج.
-         */
-
-        return !lower.includes("logo.png")
-            && !lower.includes("urlanding-icon");
-
-    });
-
-}
-
-
-/* =========================
-   IMAGE BUTTONS
-========================= */
-
-function renderImageButtons(images) {
-
-    return images
-        .map((image, index) => {
-
-            return `
-
-                <button
-                    type="button"
-                    class="media-thumb"
-                    data-type="image"
-                    data-index="${index}"
-                >
-
-                    <img
-                        src="${escapeHtml(image)}"
-                        alt=""
-                        loading="lazy"
-                    >
-
-                </button>
-
-            `;
-
-        })
-        .join("");
-
-}
-
-
-/* =========================
-   VIDEO BUTTONS
-========================= */
-
-function renderVideoButtons(videos) {
-
-    return videos
-        .map((video, index) => {
-
-            return `
-
-                <button
-                    type="button"
-                    class="media-thumb"
-                    data-type="video"
-                    data-index="${index}"
-                >
-
-                    <div
-                        style="
-                            width:100%;
-                            height:100%;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            font-size:24px;
-                        "
-                    >
-                        ▶️
-                    </div>
-
-                </button>
-
-            `;
-
-        })
-        .join("");
-
-}
-
-
-/* =========================
-   GALLERY
-========================= */
-
-function setupGallery(images, videos) {
-
-    const buttons =
-        document.querySelectorAll(
-            ".media-thumb"
-        );
-
-
-    buttons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const type =
-                    button.dataset.type;
-
-                const index =
-                    Number(button.dataset.index);
-
-
-                if (type === "image") {
-
-                    showImage(
-                        images[index]
-                    );
-
-                }
-
-
-                if (type === "video") {
-
-                    showVideo(
-                        videos[index]
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================
-   SHOW IMAGE
-========================= */
-
-function showImage(url) {
-
-    const mainMedia =
-        document.getElementById("mainMedia");
-
-
-    mainMedia.innerHTML = `
-
-        <img
-            src="${escapeHtml(url)}"
-            alt="${escapeHtml(currentProduct.title || "منتج")}"
-        >
-
-    `;
-
-}
-
-
-/* =========================
-   SHOW VIDEO
-========================= */
-
-function showVideo(url) {
-
-    const mainMedia =
-        document.getElementById("mainMedia");
-
-
-    mainMedia.innerHTML = `
-
-        <video
-            src="${escapeHtml(url)}"
-            controls
-            autoplay
-            playsinline
-        >
-            المتصفح ديالك ما كيدعمش تشغيل الفيديو.
-        </video>
-
-    `;
-
-}
-
-
-/* =========================
-   ADD TO CART
-========================= */
-
-function addToCart(product) {
-
-    let cart =
-        JSON.parse(
-            localStorage.getItem("shadhw_cart") || "[]"
-        );
-
-
-    const existing =
-        cart.find(
-            item => item.id === product.id
-        );
-
-
-    if (existing) {
-
-        existing.quantity += 1;
-
-    } else {
-
-        cart.push({
-
-            id: product.id,
-
-            title: product.title,
-
-            price: product.price,
-
-            image: getProductImage(product),
-
-            quantity: 1
-
-        });
-
-    }
-
-
-    localStorage.setItem(
-        "shadhw_cart",
-        JSON.stringify(cart)
-    );
-
-
-    alert("تمت إضافة المنتج إلى السلة 🛒");
-
-}
-
-
-/* =========================
-   DIRECT WHATSAPP
-========================= */
-
-function orderDirectly(product) {
-
-    /*
-     * بدّل الرقم من بعد برقم واتساب
-     * ديال SHADHW JEWELS.
-     */
-
-    const phone =
-        "212600000000";
-
-
-    const message =
-        "السلام عليكم، بغيت نطلب هاد المنتج:%0A%0A"
-        +
-        `المنتج: ${encodeURIComponent(product.title || "")}%0A`
-        +
-        `الثمن: ${encodeURIComponent(product.price || "")}`;
-
-
-    const url =
-        `https://wa.me/${phone}?text=${message}`;
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
-}
-
-
-/* =========================
-   PRODUCT IMAGE
-========================= */
-
-function getProductImage(product) {
-
-    const images =
-        Array.isArray(product.images)
-            ? product.images
-            : [];
-
-
-    const valid =
-        images.filter(url => {
-
-            if (!url) return false;
-
-            const lower =
-                String(url).toLowerCase();
-
-            return !lower.includes("logo.png")
-                && !lower.includes("urlanding-icon");
-
-        });
-
-
-    if (valid.length) {
-        return valid[0];
-    }
-
-
-    if (
-        product.image
-        &&
-        !product.image.includes("logo.png")
-    ) {
-
-        return product.image;
-
-    }
-
-
-    return "";
-
-}
-
-
-/* =========================
-   NOT FOUND
-========================= */
-
-function showNotFound() {
-
-    productPage.innerHTML = `
-
-        <div class="empty-message">
-
-            <h2>
-                المنتج غير موجود
-            </h2>
-
-            <p>
-                يمكن أن يكون المنتج تحيد أو الرابط غير صحيح.
-            </p>
-
-            <br>
-
-            <a
-                href="index.html"
-                class="product-link"
-            >
-                العودة للمنتجات
-            </a>
-
-        </div>
-
-    `;
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
+const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value) {
-
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
+    return String(value ?? '').replace(/[&<>'"]/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;'
+    }[char]));
+}
+function parsePrice(value) {
+    const match = String(value ?? '').replace(',', '.').match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? Number(match[0]) : 0;
+}
+function formatPrice(value) { return `${parsePrice(value)} DH`; }
+function getImages(product) {
+    return (Array.isArray(product.images) ? product.images : []).filter(src => src && !/logo\.png|urlanding-icon/i.test(src));
+}
+function getVideos(product) { return Array.isArray(product.videos) ? product.videos.filter(Boolean) : []; }
+function getCart() {
+    try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch { return []; }
+}
+function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateCartCount();
+}
+function updateCartCount() {
+    const count = getCart().reduce((sum, item) => sum + Number(item.quantity || 1), 0);
+    const el = $('#cartCount');
+    if (el) el.textContent = count;
 }
 
+function addToCart(size) {
+    const sizes = Array.isArray(currentProduct.sizes) ? currentProduct.sizes.filter(Boolean) : [];
+    if (sizes.length && !size) {
+        $('#selectionError')?.classList.add('show');
+        document.querySelector('.sizes')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+    }
+    const cart = getCart();
+    const existing = cart.find(item => item.id === currentProduct.id && String(item.size || '') === String(size || ''));
+    if (existing) existing.quantity = Number(existing.quantity || 1) + 1;
+    else cart.push({ id: currentProduct.id, size: size || '', quantity: 1 });
+    saveCart(cart);
+    return true;
+}
 
-/* =========================
-   START
-========================= */
+function renderMainMedia(index) {
+    activeMediaIndex = index;
+    const item = mediaItems[index];
+    const wrap = $('#mainMedia');
+    if (!item || !wrap) return;
+    const content = item.type === 'video'
+        ? `<video src="${escapeHtml(item.src)}" controls playsinline preload="metadata"></video>`
+        : `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(currentProduct.title)}">`;
+    wrap.querySelector('.main-media-content').innerHTML = content;
+    wrap.querySelectorAll('.gallery-thumb').forEach((thumb, i) => thumb.classList.toggle('active', i === index));
+}
 
-loadProduct();
+function openLightbox(index = activeMediaIndex) {
+    if (!mediaItems.length) return;
+    activeMediaIndex = index;
+    const lightbox = $('#lightbox');
+    lightbox.classList.remove('hidden');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    renderLightbox();
+}
+function closeLightbox() {
+    const lightbox = $('#lightbox');
+    lightbox.classList.add('hidden');
+    lightbox.setAttribute('aria-hidden', 'true');
+    const video = $('#lightboxVideo');
+    video.pause();
+    video.removeAttribute('src');
+    document.body.style.overflow = '';
+}
+function renderLightbox() {
+    const item = mediaItems[activeMediaIndex];
+    const img = $('#lightboxImage');
+    const video = $('#lightboxVideo');
+    if (!item) return;
+    if (item.type === 'video') {
+        img.classList.add('hidden');
+        video.classList.remove('hidden');
+        video.src = item.src;
+        video.play().catch(() => {});
+    } else {
+        video.pause();
+        video.classList.add('hidden');
+        video.removeAttribute('src');
+        img.classList.remove('hidden');
+        img.src = item.src;
+        img.alt = currentProduct.title || '';
+    }
+}
+function moveLightbox(step) {
+    if (!mediaItems.length) return;
+    activeMediaIndex = (activeMediaIndex + step + mediaItems.length) % mediaItems.length;
+    renderLightbox();
+    renderMainMedia(activeMediaIndex);
+}
+
+function renderGallery(product) {
+    const images = getImages(product);
+    const videos = getVideos(product);
+    mediaItems = [
+        ...images.map(src => ({ type: 'image', src })),
+        ...videos.map(src => ({ type: 'video', src }))
+    ];
+
+    const gallery = $('#gallery');
+    if (!mediaItems.length) {
+        gallery.innerHTML = '<div class="main-media"><div class="loading">لا توجد صور أو فيديوهات لهذا المنتج</div></div>';
+        return;
+    }
+
+    gallery.innerHTML = `
+        <div class="main-media" id="mainMedia">
+            <div class="main-media-content" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"></div>
+            <button class="zoom-hint" id="zoomButton" type="button">تكبير الصورة ⤢</button>
+        </div>
+        <div class="gallery-thumbs">
+            ${mediaItems.map((item, index) => item.type === 'image'
+                ? `<button class="gallery-thumb ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الصورة ${index + 1}"><img src="${escapeHtml(item.src)}" alt=""></button>`
+                : `<button class="gallery-thumb ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الفيديو ${index + 1}"><span class="gallery-video-thumb">▶<small>VIDEO</small></span></button>`
+            ).join('')}
+        </div>`;
+
+    gallery.querySelectorAll('.gallery-thumb').forEach(button => {
+        button.addEventListener('click', () => renderMainMedia(Number(button.dataset.index)));
+    });
+    $('#zoomButton').addEventListener('click', () => openLightbox(activeMediaIndex));
+    renderMainMedia(0);
+}
+
+function renderUpsell() {
+    const others = products.filter(p => p.id !== currentProduct.id).sort(() => Math.random() - .5).slice(0, 4);
+    const section = $('#upsell');
+    if (!others.length) { section.classList.add('hidden'); return; }
+    $('#upsellGrid').innerHTML = others.map(product => {
+        const image = getImages(product)[0];
+        return `
+            <article class="product-card">
+                <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-image">
+                    ${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(product.title)}" loading="lazy">` : '<div class="loading">لا توجد صورة</div>'}
+                </a>
+                <div class="product-card-body">
+                    <h3 class="product-card-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h3>
+                    <div class="product-card-price">${formatPrice(product.price)}</div>
+                    <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-link">عرض التفاصيل</a>
+                </div>
+            </article>`;
+    }).join('');
+}
+
+function renderProduct(product) {
+    currentProduct = product;
+    document.title = `${product.title || 'المنتج'} | SHADHW JEWELS`;
+    const sizes = Array.isArray(product.sizes) ? product.sizes.filter(Boolean) : [];
+    const description = product.description ? escapeHtml(product.description) : 'لا توجد تفاصيل إضافية لهذا المنتج حالياً.';
+
+    $('#productPage').innerHTML = `
+        <div class="product-detail-grid">
+            <div class="gallery" id="gallery"></div>
+            <div class="product-info">
+                <span class="section-kicker">SHADHW JEWELS</span>
+                <h1 class="product-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h1>
+                <div class="product-price">${formatPrice(product.price)}</div>
+                <div class="product-description">${description}</div>
+                ${sizes.length ? `
+                    <div class="option-block">
+                        <div class="option-label">
+                            <span>اختاري المقاس</span>
+                            <span class="option-required">ضروري</span>
+                        </div>
+                        <div class="sizes" id="sizes">
+                            ${sizes.map(size => `<button class="size-button" type="button" data-size="${escapeHtml(size)}">${escapeHtml(size)}</button>`).join('')}
+                        </div>
+                        <div id="selectionError" class="selection-error">اختاري المقاس أولاً باش نضيفو القطعة للسلة.</div>
+                    </div>` : ''}
+                <div class="product-actions">
+                    <button id="addCart" class="add-cart-button" type="button">أضيفي للسلة</button>
+                    <button id="directWhatsApp" class="product-whatsapp" type="button">الطلب مباشرة عبر واتساب</button>
+                </div>
+            </div>
+        </div>
+        <section id="upsell" class="upsell-section">
+            <div class="upsell-heading">
+                <span class="section-kicker">MAYBE YOU'LL LIKE</span>
+                <h2>قد تعجبك أيضاً ✨</h2>
+            </div>
+            <div id="upsellGrid" class="upsell-grid"></div>
+        </section>`;
+
+    renderGallery(product);
+
+    let selectedSize = '';
+    document.querySelectorAll('.size-button').forEach(button => {
+        button.addEventListener('click', () => {
+            selectedSize = button.dataset.size;
+            document.querySelectorAll('.size-button').forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+            $('#selectionError')?.classList.remove('show');
+        });
+    });
+
+    $('#addCart').addEventListener('click', () => {
+        if (addToCart(selectedSize)) {
+            $('#addCart').textContent = 'تمت الإضافة ✓';
+            setTimeout(() => { $('#addCart').textContent = 'أضيفي للسلة'; }, 1400);
+        }
+    });
+
+    $('#directWhatsApp').addEventListener('click', () => {
+        const sizesList = sizes;
+        if (sizesList.length && !selectedSize) {
+            $('#selectionError').classList.add('show');
+            document.querySelector('.sizes').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+        const lines = [
+            'السلام عليكم، بغيت نطلب هاد القطعة من SHADHW JEWELS:',
+            `المنتج: ${product.title}`,
+            `الثمن: ${formatPrice(product.price)}`,
+            selectedSize ? `المقاس: ${selectedSize}` : '',
+            '', 'الاسم:', 'المدينة:', 'العنوان:', 'الهاتف:'
+        ].filter(Boolean);
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    });
+
+    renderUpsell();
+}
+
+async function init() {
+    updateCartCount();
+    const id = new URLSearchParams(location.search).get('id');
+    if (!id) {
+        $('#productPage').innerHTML = '<div class="empty-message"><h3>المنتج غير موجود</h3><p><a href="index.html">العودة للمنتجات</a></p></div>';
+        return;
+    }
+    try {
+        const response = await fetch('products.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Failed');
+        products = await response.json();
+        const product = products.find(p => String(p.id) === String(id));
+        if (!product) throw new Error('Not found');
+        renderProduct(product);
+    } catch {
+        $('#productPage').innerHTML = '<div class="empty-message"><h3>ما قدرناش نحمّلو هاد المنتج</h3><p><a href="index.html">العودة للمنتجات</a></p></div>';
+    }
+}
+
+$('#lightboxClose').addEventListener('click', closeLightbox);
+$('#lightboxPrev').addEventListener('click', () => moveLightbox(-1));
+$('#lightboxNext').addEventListener('click', () => moveLightbox(1));
+$('#lightbox').addEventListener('click', event => {
+    if (event.target.id === 'lightbox') closeLightbox();
+});
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeLightbox();
+    if (!$('#lightbox').classList.contains('hidden')) {
+        if (event.key === 'ArrowLeft') moveLightbox(1);
+        if (event.key === 'ArrowRight') moveLightbox(-1);
+    }
+});
+$('#cartButton')?.addEventListener('click', () => {
+    // في صفحة المنتج نكتفي بالرجوع للسلة المخزنة؛ السلة الكاملة موجودة في الصفحة الرئيسية.
+    location.href = 'index.html?cart=1#products';
+});
+
+init();
