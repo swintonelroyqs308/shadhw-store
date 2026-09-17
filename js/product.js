@@ -741,7 +741,7 @@ function renderUpsell() {
              * في كل زيارة.
              */
 
-            score =
+            score :
                 similarity * 100 +
                 Math.random() * 35
 
