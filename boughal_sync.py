@@ -3,7 +3,6 @@ import json
 import time
 import re
 from urllib.parse import urljoin
-
 from playwright.sync_api import sync_playwright
 
 
@@ -27,7 +26,7 @@ SOURCE_FILE = "source.html"
 
 
 # =========================================================
-# BASIC HELPERS
+# HELPERS
 # =========================================================
 
 def clean_text(value):
@@ -35,7 +34,6 @@ def clean_text(value):
         return ""
 
     value = str(value)
-
     value = value.replace("\xa0", " ")
     value = re.sub(r"\s+", " ", value)
 
@@ -103,8 +101,7 @@ def extract_price(text):
             value = match.group(1)
 
             try:
-                value = value.replace(",", ".")
-                return float(value)
+                return float(value.replace(",", "."))
             except Exception:
                 pass
 
@@ -180,13 +177,9 @@ def get_inner_text(locator):
 # =========================================================
 
 def extract_real_image_url(img):
-    """
-    يحاول استخراج الصورة الحقيقية حتى إذا كانت lazy-loaded.
-    """
-
     candidates = []
 
-    # currentSrc مهم جداً مع الصور responsive/lazy
+    # currentSrc
     try:
         current_src = img.evaluate(
             "(el) => el.currentSrc || ''"
@@ -194,9 +187,11 @@ def extract_real_image_url(img):
 
         if current_src:
             candidates.append(current_src)
+
     except Exception:
         pass
 
+    # normal/lazy attributes
     attributes = [
         "src",
         "data-src",
@@ -232,7 +227,6 @@ def extract_real_image_url(img):
             if url:
                 parts.append(url)
 
-        # نأخذ آخر/أكبر صورة غالباً
         candidates.extend(reversed(parts))
 
     bad_words = [
@@ -291,11 +285,13 @@ def extract_product_page_images(page):
         print(f"⚠️ خطأ في استخراج img: {e}")
 
     # -----------------------------------------------------
-    # CSS background-image
+    # background-image
     # -----------------------------------------------------
 
     try:
-        elements = page.locator("[style*='background-image']").all()
+        elements = page.locator(
+            "[style*='background-image']"
+        ).all()
 
         for element in elements:
 
@@ -325,7 +321,7 @@ def extract_product_page_images(page):
         pass
 
     # -----------------------------------------------------
-    # Links pointing to images
+    # image links
     # -----------------------------------------------------
 
     try:
@@ -366,7 +362,6 @@ def extract_product_page_images(page):
 def extract_videos(page):
     videos = []
 
-    # video src
     try:
         video_locators = page.locator("video").all()
 
@@ -385,7 +380,9 @@ def extract_videos(page):
                     src = get_attr(source, "src")
 
                     if src:
-                        videos.append(absolute_url(src))
+                        videos.append(
+                            absolute_url(src)
+                        )
 
             except Exception:
                 pass
@@ -393,7 +390,6 @@ def extract_videos(page):
     except Exception:
         pass
 
-    # أي رابط mp4
     try:
         links = page.locator("a[href]").all()
 
@@ -402,7 +398,9 @@ def extract_videos(page):
             href = get_attr(link, "href")
 
             if href and ".mp4" in href.lower():
-                videos.append(absolute_url(href))
+                videos.append(
+                    absolute_url(href)
+                )
 
     except Exception:
         pass
@@ -438,23 +436,31 @@ def extract_description(page):
         except Exception:
             continue
 
-    # البحث عن heading فيه Description
     try:
-        headings = page.locator("h1, h2, h3, h4, h5").all()
+        headings = page.locator(
+            "h1, h2, h3, h4, h5"
+        ).all()
 
         for heading in headings:
 
-            heading_text = get_inner_text(heading)
+            heading_text = get_inner_text(
+                heading
+            )
 
             if "description" not in heading_text.lower():
                 continue
 
             try:
-                parent = heading.locator("xpath=..")
+                parent = heading.locator(
+                    "xpath=.."
+                )
 
                 text = get_inner_text(parent)
 
-                if text and len(text) > len(heading_text):
+                if (
+                    text
+                    and len(text) > len(heading_text)
+                ):
                     return text
 
             except Exception:
@@ -486,42 +492,70 @@ def extract_sizes(page):
     for selector in selectors:
 
         try:
-            locators = page.locator(selector).all()
+            locators = page.locator(
+                selector
+            ).all()
 
             for locator in locators:
 
-                value = (
-                    get_attr(locator, "data-size")
-                    or get_attr(locator, "value")
-                    or get_inner_text(locator)
-                )
+                try:
+                    value = (
+                        get_attr(
+                            locator,
+                            "data-size"
+                        )
+                        or get_attr(
+                            locator,
+                            "value"
+                        )
+                        or get_inner_text(
+                            locator
+                        )
+                    )
 
-                value = clean_text(value)
+                    value = clean_text(value)
 
-                if value:
-                    sizes.append(value)
+                    if value:
+                        sizes.append(value)
+
+                except Exception:
+                    continue
 
         except Exception:
             continue
 
-    # select options
+    # -----------------------------------------------------
+    # SELECT OPTIONS
+    # -----------------------------------------------------
+
     try:
         selects = page.locator("select").all()
 
         for select in selects:
 
             try:
-                options = select.locator("option").all()
+                options = select.locator(
+                    "option"
+                ).all()
 
                 for option in options:
 
-                    value = get_inner_text(option)
+                    try:
+                        value = get_inner_text(
+                            option
+                        )
 
-                    if value:
-                        sizes.append(value)
+                        if value:
+                            sizes.append(value)
+
+                    except Exception:
+                        continue
 
             except Exception:
-                pass
+                continue
+
+    except Exception:
+        pass
 
     return unique_list(sizes)
 
@@ -532,7 +566,9 @@ def extract_sizes(page):
 
 def extract_status(page):
     try:
-        text = get_inner_text(page.locator("body"))
+        text = get_inner_text(
+            page.locator("body")
+        )
     except Exception:
         return ""
 
@@ -572,11 +608,6 @@ def extract_status(page):
 # =========================================================
 
 def extract_title(page, fallback=""):
-    """
-    مهم:
-    لا نعتمد على أول h1 مباشرة لأن الموقع قد يحتوي على
-    h1 بعنوان Tableau de bord حتى عندما تكون الصفحة منتجاً.
-    """
 
     bad_titles = {
         "tableau de bord",
@@ -586,10 +617,7 @@ def extract_title(page, fallback=""):
         "لوحة التحكم",
     }
 
-    # -----------------------------------------------------
-    # أولاً: selectors خاصة بالمنتج
-    # -----------------------------------------------------
-
+    # product-specific selectors FIRST
     selectors = [
         ".product-title",
         "[class*='product-title']",
@@ -602,11 +630,15 @@ def extract_title(page, fallback=""):
     for selector in selectors:
 
         try:
-            locators = page.locator(selector).all()
+            locators = page.locator(
+                selector
+            ).all()
 
             for locator in locators:
 
-                text = get_inner_text(locator)
+                text = get_inner_text(
+                    locator
+                )
 
                 if not text:
                     continue
@@ -620,16 +652,17 @@ def extract_title(page, fallback=""):
         except Exception:
             continue
 
-    # -----------------------------------------------------
-    # بعد ذلك h1/h2
-    # -----------------------------------------------------
-
+    # h1 / h2
     try:
-        locators = page.locator("h1, h2").all()
+        locators = page.locator(
+            "h1, h2"
+        ).all()
 
         for locator in locators:
 
-            text = get_inner_text(locator)
+            text = get_inner_text(
+                locator
+            )
 
             if not text:
                 continue
@@ -643,20 +676,19 @@ def extract_title(page, fallback=""):
     except Exception:
         pass
 
-    # -----------------------------------------------------
-    # fallback
-    # -----------------------------------------------------
-
     fallback = clean_text(fallback)
 
-    if fallback and fallback.lower() not in bad_titles:
+    if (
+        fallback
+        and fallback.lower() not in bad_titles
+    ):
         return fallback
 
     return ""
 
 
 # =========================================================
-# CARD PRODUCT EXTRACTION
+# CARD PRODUCT
 # =========================================================
 
 def extract_card_product(card, index):
@@ -668,7 +700,10 @@ def extract_card_product(card, index):
     # -----------------------------------------------------
 
     try:
-        title = get_attr(card, "data-name")
+        title = get_attr(
+            card,
+            "data-name"
+        )
     except Exception:
         pass
 
@@ -683,9 +718,13 @@ def extract_card_product(card, index):
         ]:
 
             try:
-                locator = card.locator(selector).first
+                locator = card.locator(
+                    selector
+                ).first
 
-                text = get_inner_text(locator)
+                text = get_inner_text(
+                    locator
+                )
 
                 if text:
                     title = text
@@ -698,16 +737,24 @@ def extract_card_product(card, index):
     # link
     # -----------------------------------------------------
 
-    original_link = get_attr(card, "data-url")
+    original_link = get_attr(
+        card,
+        "data-url"
+    )
 
     if not original_link:
 
         try:
-            links = card.locator("a[href]").all()
+            links = card.locator(
+                "a[href]"
+            ).all()
 
             for link in links:
 
-                href = get_attr(link, "href")
+                href = get_attr(
+                    link,
+                    "href"
+                )
 
                 if href:
                     original_link = href
@@ -716,13 +763,18 @@ def extract_card_product(card, index):
         except Exception:
             pass
 
-    original_link = absolute_url(original_link)
+    original_link = absolute_url(
+        original_link
+    )
 
     # -----------------------------------------------------
     # source ID
     # -----------------------------------------------------
 
-    source_id = get_attr(card, "data-id")
+    source_id = get_attr(
+        card,
+        "data-id"
+    )
 
     # -----------------------------------------------------
     # card text
@@ -734,17 +786,24 @@ def extract_card_product(card, index):
     # revendeur price
     # -----------------------------------------------------
 
-    original_price_value = extract_revendeur_price(card_text)
+    original_price_value = (
+        extract_revendeur_price(
+            card_text
+        )
+    )
 
-    # fallback: البحث داخل عناصر فيها revendeur
     if original_price_value is None:
 
         try:
-            elements = card.locator("p, span, div").all()
+            elements = card.locator(
+                "p, span, div"
+            ).all()
 
             for element in elements:
 
-                text = get_inner_text(element)
+                text = get_inner_text(
+                    element
+                )
 
                 if "revendeur" not in text.lower():
                     continue
@@ -785,32 +844,30 @@ def extract_card_product(card, index):
         status = "In Stock"
 
     # -----------------------------------------------------
-    # product object
+    # product
     # -----------------------------------------------------
 
     product = {
         "id": f"shadhw_{index}",
         "source_id": source_id,
-
         "title": clean_text(title),
-
         "image": "",
         "images": [],
         "videos": [],
-
         "description": "",
         "sizes": [],
-
         "price": (
-            format_price(original_price_value + PROFIT_MARGIN)
+            format_price(
+                original_price_value
+                + PROFIT_MARGIN
+            )
             if original_price_value is not None
             else ""
         ),
-
-        "original_price": format_price(original_price_value),
-
+        "original_price": format_price(
+            original_price_value
+        ),
         "original_link": original_link,
-
         "status": status,
     }
 
@@ -818,23 +875,38 @@ def extract_card_product(card, index):
 
 
 # =========================================================
-# SCRAPE PRODUCT DETAILS
+# PRODUCT DETAILS
 # =========================================================
 
-def scrape_product_details(context, product, index, total):
+def scrape_product_details(
+    context,
+    product,
+    index,
+    total
+):
 
-    url = product.get("original_link", "")
+    url = product.get(
+        "original_link",
+        ""
+    )
 
     if not url:
-        print(f"⚠️ [{index}/{total}] لا يوجد رابط للمنتج")
+
+        print(
+            f"⚠️ [{index}/{total}] "
+            f"لا يوجد رابط للمنتج"
+        )
+
         return product
 
     print(
-        f"\n🔎 [{index}/{total}] استخراج التفاصيل:"
-        f" {product.get('title', '')}"
+        f"\n🔎 [{index}/{total}] "
+        f"{product.get('title', '')}"
     )
 
-    print(f"🔗 {url}")
+    print(
+        f"🔗 {url}"
+    )
 
     page = None
 
@@ -843,7 +915,7 @@ def scrape_product_details(context, product, index, total):
         page = context.new_page()
 
         # -------------------------------------------------
-        # فتح المنتج
+        # فتح صفحة المنتج
         # -------------------------------------------------
 
         page.goto(
@@ -853,51 +925,64 @@ def scrape_product_details(context, product, index, total):
         )
 
         try:
+
             page.wait_for_load_state(
                 "networkidle",
                 timeout=15000
             )
+
         except Exception:
             pass
 
         page.wait_for_timeout(2500)
 
-        print(f"🌐 URL النهائي: {page.url}")
+        print(
+            f"🌐 URL النهائي: {page.url}"
+        )
 
         # -------------------------------------------------
-        # إذا أعاد الموقع التوجيه إلى dashboard
+        # إذا حدث redirect إلى dashboard
         # -------------------------------------------------
 
         final_url = page.url.lower()
 
         if (
-            "/affiliate/dashboard" in final_url
-            or final_url.rstrip("/").endswith("/dashboard")
+            "/affiliate/dashboard"
+            in final_url
         ):
 
             print(
-                "⛔ الموقع أعاد هذا المنتج إلى dashboard."
-                " سيتم الاحتفاظ بالبيانات الأصلية وعدم اعتبار"
-                " dashboard صفحة المنتج."
+                "⛔ تم تحويل المنتج إلى dashboard."
+                " لن نأخذ dashboard كصفحة المنتج."
             )
 
             return product
 
         # -------------------------------------------------
-        # scroll لتحميل lazy images
+        # lazy loading
         # -------------------------------------------------
 
         try:
 
             for _ in range(6):
 
-                page.mouse.wheel(0, 1200)
+                page.mouse.wheel(
+                    0,
+                    1200
+                )
 
-                page.wait_for_timeout(500)
+                page.wait_for_timeout(
+                    500
+                )
 
-            page.mouse.wheel(0, -800)
+            page.mouse.wheel(
+                0,
+                -800
+            )
 
-            page.wait_for_timeout(1000)
+            page.wait_for_timeout(
+                1000
+            )
 
         except Exception:
             pass
@@ -908,18 +993,25 @@ def scrape_product_details(context, product, index, total):
 
         extracted_title = extract_title(
             page,
-            product.get("title", "")
+            product.get(
+                "title",
+                ""
+            )
         )
 
         if extracted_title:
 
-            product["title"] = extracted_title
+            product["title"] = (
+                extracted_title
+            )
 
         # -------------------------------------------------
         # images
         # -------------------------------------------------
 
-        images = extract_product_page_images(page)
+        images = extract_product_page_images(
+            page
+        )
 
         if images:
 
@@ -927,48 +1019,62 @@ def scrape_product_details(context, product, index, total):
             product["image"] = images[0]
 
             print(
-                f"🖼️ تم العثور على {len(images)} صورة"
+                f"🖼️ الصور: {len(images)}"
             )
 
         else:
 
-            print("⚠️ لم يتم العثور على صور")
+            print(
+                "⚠️ لم يتم العثور على صور"
+            )
 
         # -------------------------------------------------
         # videos
         # -------------------------------------------------
 
-        videos = extract_videos(page)
+        videos = extract_videos(
+            page
+        )
 
         if videos:
 
             product["videos"] = videos
 
             print(
-                f"🎥 تم العثور على {len(videos)} فيديو"
+                f"🎥 الفيديوهات: {len(videos)}"
             )
 
         # -------------------------------------------------
         # description
         # -------------------------------------------------
 
-        description = extract_description(page)
+        description = extract_description(
+            page
+        )
 
         if description:
 
-            product["description"] = description
+            product["description"] = (
+                description
+            )
 
-            print("📝 تم استخراج الوصف")
+            print(
+                "📝 تم استخراج الوصف"
+            )
 
         else:
 
-            print("⚠️ لم يتم العثور على الوصف")
+            print(
+                "⚠️ لم يتم العثور على الوصف"
+            )
 
         # -------------------------------------------------
         # sizes
         # -------------------------------------------------
 
-        sizes = extract_sizes(page)
+        sizes = extract_sizes(
+            page
+        )
 
         if sizes:
 
@@ -982,32 +1088,40 @@ def scrape_product_details(context, product, index, total):
         # status
         # -------------------------------------------------
 
-        status = extract_status(page)
+        status = extract_status(
+            page
+        )
 
         if status:
-
             product["status"] = status
 
         # -------------------------------------------------
-        # السعر من صفحة المنتج
+        # revendeur price
         # -------------------------------------------------
 
         page_text = get_inner_text(
             page.locator("body")
         )
 
-        original_price_value = extract_revendeur_price(
-            page_text
+        original_price_value = (
+            extract_revendeur_price(
+                page_text
+            )
         )
 
         if original_price_value is not None:
 
-            product["original_price"] = format_price(
-                original_price_value
+            product["original_price"] = (
+                format_price(
+                    original_price_value
+                )
             )
 
-            product["price"] = format_price(
-                original_price_value + PROFIT_MARGIN
+            product["price"] = (
+                format_price(
+                    original_price_value
+                    + PROFIT_MARGIN
+                )
             )
 
             print(
@@ -1016,12 +1130,12 @@ def scrape_product_details(context, product, index, total):
             )
 
             print(
-                f"💰 Prix vente: "
+                f"💰 Prix البيع: "
                 f"{product['price']}"
             )
 
         # -------------------------------------------------
-        # Debug HTML
+        # debug
         # -------------------------------------------------
 
         try:
@@ -1032,12 +1146,15 @@ def scrape_product_details(context, product, index, total):
                 encoding="utf-8"
             ) as f:
 
-                f.write(page.content())
+                f.write(
+                    page.content()
+                )
 
         except Exception as e:
 
             print(
-                f"⚠️ تعذر حفظ product_debug.html: {e}"
+                f"⚠️ تعذر حفظ "
+                f"product_debug.html: {e}"
             )
 
         return product
@@ -1045,7 +1162,7 @@ def scrape_product_details(context, product, index, total):
     except Exception as e:
 
         print(
-            f"❌ خطأ في استخراج المنتج "
+            f"❌ خطأ في المنتج "
             f"{product.get('title', '')}: {e}"
         )
 
@@ -1062,7 +1179,7 @@ def scrape_product_details(context, product, index, total):
 
 
 # =========================================================
-# SAVE PRODUCTS
+# SAVE
 # =========================================================
 
 def save_products(products):
@@ -1083,7 +1200,8 @@ def save_products(products):
             )
 
         print(
-            f"💾 تم حفظ {len(products)} منتج في {OUTPUT_FILE}"
+            f"💾 تم حفظ {len(products)} "
+            f"منتج في {OUTPUT_FILE}"
         )
 
     except Exception as e:
@@ -1099,40 +1217,29 @@ def save_products(products):
 
 def login(page):
 
-    print("\n🔐 محاولة تسجيل الدخول...")
+    print("🔐 تسجيل الدخول...")
 
-    try:
+    page.goto(
+        BASE_URL,
+        wait_until="domcontentloaded",
+        timeout=60000
+    )
 
-        page.goto(
-            BASE_URL,
-            wait_until="domcontentloaded",
-            timeout=60000
-        )
-
-    except Exception as e:
-
-        print(
-            f"⚠️ خطأ عند فتح الموقع: {e}"
-        )
-
-    # -----------------------------------------------------
-    # إذا لم نكن في login، نحاول العثور على رابط الدخول
-    # -----------------------------------------------------
-
+    # إذا لم نكن في صفحة login
     if "/login" not in page.url.lower():
 
         login_link = None
 
-        selectors = [
+        for selector in [
             "a[href*='login']",
-            "a[href*='connexion']",
-        ]
-
-        for selector in selectors:
+            "a[href*='connexion']"
+        ]:
 
             try:
 
-                locator = page.locator(selector).first
+                locator = page.locator(
+                    selector
+                ).first
 
                 if locator.count() > 0:
 
@@ -1140,7 +1247,7 @@ def login(page):
                     break
 
             except Exception:
-                continue
+                pass
 
         if login_link:
 
@@ -1157,29 +1264,22 @@ def login(page):
                 pass
 
     # -----------------------------------------------------
-    # إذا لم نجد صفحة login ربما نحن مسجلون بالفعل
+    # email
     # -----------------------------------------------------
 
-    email_selectors = [
+    email_input = None
+
+    for selector in [
         "input[type='email']",
         "input[name='email']",
-        "input[name='username']",
-        "input[placeholder*='email' i]",
-    ]
-
-    password_selectors = [
-        "input[type='password']",
-        "input[name='password']",
-    ]
-
-    email_input = None
-    password_input = None
-
-    for selector in email_selectors:
+        "input[name='username']"
+    ]:
 
         try:
 
-            locator = page.locator(selector).first
+            locator = page.locator(
+                selector
+            ).first
 
             if locator.count() > 0:
 
@@ -1187,13 +1287,24 @@ def login(page):
                 break
 
         except Exception:
-            continue
+            pass
 
-    for selector in password_selectors:
+    # -----------------------------------------------------
+    # password
+    # -----------------------------------------------------
+
+    password_input = None
+
+    for selector in [
+        "input[type='password']",
+        "input[name='password']"
+    ]:
 
         try:
 
-            locator = page.locator(selector).first
+            locator = page.locator(
+                selector
+            ).first
 
             if locator.count() > 0:
 
@@ -1201,10 +1312,10 @@ def login(page):
                 break
 
         except Exception:
-            continue
+            pass
 
     # -----------------------------------------------------
-    # لا توجد حقول login
+    # إذا كانت الجلسة مسجلة بالفعل
     # -----------------------------------------------------
 
     if not email_input or not password_input:
@@ -1212,7 +1323,7 @@ def login(page):
         if "/login" not in page.url.lower():
 
             print(
-                "✅ يبدو أن الجلسة مسجلة الدخول بالفعل."
+                "✅ الجلسة مسجلة الدخول بالفعل."
             )
 
             return True
@@ -1223,14 +1334,11 @@ def login(page):
 
         return False
 
-    # -----------------------------------------------------
-    # التأكد من credentials
-    # -----------------------------------------------------
-
     if not EMAIL or not PASSWORD:
 
         print(
-            "❌ BOUGHAL_EMAIL أو BOUGHAL_PASSWORD غير موجودين."
+            "❌ BOUGHAL_EMAIL أو "
+            "BOUGHAL_PASSWORD غير موجودين."
         )
 
         return False
@@ -1239,18 +1347,13 @@ def login(page):
     # fill
     # -----------------------------------------------------
 
-    try:
+    email_input.fill(
+        EMAIL
+    )
 
-        email_input.fill(EMAIL)
-        password_input.fill(PASSWORD)
-
-    except Exception as e:
-
-        print(
-            f"❌ خطأ أثناء ملء بيانات الدخول: {e}"
-        )
-
-        return False
+    password_input.fill(
+        PASSWORD
+    )
 
     # -----------------------------------------------------
     # submit
@@ -1258,19 +1361,16 @@ def login(page):
 
     submitted = False
 
-    button_selectors = [
+    for selector in [
         "button[type='submit']",
-        "input[type='submit']",
-        "button:has-text('Login')",
-        "button:has-text('Connexion')",
-        "button:has-text('تسجيل الدخول')",
-    ]
-
-    for selector in button_selectors:
+        "input[type='submit']"
+    ]:
 
         try:
 
-            button = page.locator(selector).first
+            button = page.locator(
+                selector
+            ).first
 
             if button.count() > 0:
 
@@ -1280,13 +1380,15 @@ def login(page):
                 break
 
         except Exception:
-            continue
+            pass
 
     if not submitted:
 
         try:
 
-            password_input.press("Enter")
+            password_input.press(
+                "Enter"
+            )
 
             submitted = True
 
@@ -1294,7 +1396,7 @@ def login(page):
             pass
 
     # -----------------------------------------------------
-    # انتظار
+    # wait
     # -----------------------------------------------------
 
     if submitted:
@@ -1319,34 +1421,38 @@ def login(page):
         except Exception:
             pass
 
-        page.wait_for_timeout(3000)
+        page.wait_for_timeout(
+            3000
+        )
 
     print(
-        f"🌐 URL بعد تسجيل الدخول: {page.url}"
+        f"🌐 URL بعد تسجيل الدخول: "
+        f"{page.url}"
     )
-
-    # -----------------------------------------------------
-    # تحقق
-    # -----------------------------------------------------
 
     if "/login" in page.url.lower():
 
         print(
-            "❌ ما زلنا في صفحة تسجيل الدخول."
+            "❌ فشل تسجيل الدخول."
         )
 
         return False
 
-    print("✅ تسجيل الدخول ناجح.")
+    print(
+        "✅ تم تسجيل الدخول بنجاح."
+    )
 
     return True
 
 
 # =========================================================
-# SCRAPE CURRENT PRODUCTS PAGE
+# SCRAPE CURRENT PAGE
 # =========================================================
 
-def scrape_current_page(page, products):
+def scrape_current_page(
+    page,
+    products
+):
 
     print(
         f"\n🔎 استخراج المنتجات من:"
@@ -1354,7 +1460,7 @@ def scrape_current_page(page, products):
     )
 
     # -----------------------------------------------------
-    # حفظ source.html
+    # source.html
     # -----------------------------------------------------
 
     try:
@@ -1365,11 +1471,9 @@ def scrape_current_page(page, products):
             encoding="utf-8"
         ) as f:
 
-            f.write(page.content())
-
-        print(
-            f"💾 تم حفظ مصدر الصفحة في {SOURCE_FILE}"
-        )
+            f.write(
+                page.content()
+            )
 
     except Exception as e:
 
@@ -1378,7 +1482,7 @@ def scrape_current_page(page, products):
         )
 
     # -----------------------------------------------------
-    # جميع product cards
+    # cards
     # -----------------------------------------------------
 
     try:
@@ -1390,18 +1494,16 @@ def scrape_current_page(page, products):
     except Exception as e:
 
         print(
-            f"❌ خطأ في العثور على المنتجات: {e}"
+            f"❌ خطأ في العثور على "
+            f"product cards: {e}"
         )
 
         return 0
 
     print(
-        f"📦 عدد المنتجات في الصفحة: {len(cards)}"
+        f"📦 عدد المنتجات في الصفحة: "
+        f"{len(cards)}"
     )
-
-    # -----------------------------------------------------
-    # روابط موجودة مسبقاً
-    # -----------------------------------------------------
 
     existing_links = {
         p.get("original_link")
@@ -1413,13 +1515,16 @@ def scrape_current_page(page, products):
     skipped = 0
 
     # =====================================================
-    # LOOP PRODUCTS
+    # LOOP
     # =====================================================
 
-    for index, card in enumerate(cards, start=1):
+    for index, card in enumerate(
+        cards,
+        start=1
+    ):
 
         # -------------------------------------------------
-        # نحصل على نص البطاقة
+        # النص الكامل للبطاقة
         # -------------------------------------------------
 
         try:
@@ -1433,25 +1538,31 @@ def scrape_current_page(page, products):
             card_text = ""
 
         # =================================================
-        # IMPORTANT:
-        # فحص "غير متوفر حاليا" داخل نفس البطاقة
-        # قبل فتح رابط المنتج
+        # أهم تعديل:
+        # نفحص "غير متوفر حاليا" داخل البطاقة
+        # قبل فتح الرابط
         # =================================================
 
         if "غير متوفر حاليا" in card_text:
 
-            # نحاول معرفة الاسم فقط للعرض في log
             title_preview = ""
 
             try:
 
                 title_preview = (
-                    get_attr(card, "data-name")
-                    or get_inner_text(
-                        card.locator("h4").first
+                    get_attr(
+                        card,
+                        "data-name"
                     )
                     or get_inner_text(
-                        card.locator("h3").first
+                        card.locator(
+                            "h4"
+                        ).first
+                    )
+                    or get_inner_text(
+                        card.locator(
+                            "h3"
+                        ).first
                     )
                 )
 
@@ -1464,17 +1575,18 @@ def scrape_current_page(page, products):
 
             print(
                 f"⏭️ [{index}/{len(cards)}] "
-                f"تخطي غير متوفر حاليا: "
-                f"{title_preview}"
+                f"تخطي: غير متوفر حاليا"
+                f" | {title_preview}"
             )
 
             skipped += 1
 
-            # لا نفتح الرابط إطلاقاً
+            # مهم جداً:
+            # لا نفتح original_link
             continue
 
         # -------------------------------------------------
-        # استخراج البطاقة
+        # استخراج المنتج
         # -------------------------------------------------
 
         product = extract_card_product(
@@ -1502,20 +1614,20 @@ def scrape_current_page(page, products):
         )
 
         # -------------------------------------------------
-        # لا يوجد رابط
+        # بدون رابط
         # -------------------------------------------------
 
         if not link:
 
             print(
                 f"⚠️ [{index}] "
-                f"المنتج بدون رابط: {title}"
+                f"لا يوجد رابط: {title}"
             )
 
             continue
 
         # -------------------------------------------------
-        # تكرار
+        # duplicate
         # -------------------------------------------------
 
         if link in existing_links:
@@ -1528,39 +1640,38 @@ def scrape_current_page(page, products):
             continue
 
         # -------------------------------------------------
-        # المنتج متوفر
+        # متوفر
         # -------------------------------------------------
 
         print(
             f"✅ [{index}/{len(cards)}] "
-            f"منتج متوفر: {title}"
+            f"متوفر: {title}"
         )
 
         print(
             f"🔗 {link}"
         )
 
-        products.append(product)
+        products.append(
+            product
+        )
 
-        existing_links.add(link)
+        existing_links.add(
+            link
+        )
 
         added += 1
 
-    # -----------------------------------------------------
-    # النتيجة
-    # -----------------------------------------------------
-
     print(
-        f"\n📊 تمت إضافة {added} منتج."
+        f"\n📊 تمت إضافة: {added}"
     )
 
     print(
-        f"⏭️ تم تخطي {skipped} منتج غير متوفر."
+        f"⏭️ تم تخطي غير المتوفر: {skipped}"
     )
 
     print(
-        f"📦 إجمالي المنتجات حاليا: "
-        f"{len(products)}"
+        f"📦 الإجمالي: {len(products)}"
     )
 
     return added
@@ -1573,7 +1684,9 @@ def scrape_current_page(page, products):
 def main():
 
     print("=" * 70)
-    print("🚀 BOUGHAL AFFILIATE PRODUCT SYNC")
+    print(
+        "🚀 BOUGHAL AFFILIATE PRODUCT SYNC"
+    )
     print("=" * 70)
 
     products = []
@@ -1618,24 +1731,11 @@ def main():
             # PRODUCTS PAGE
             # -------------------------------------------------
 
-            print(
-                f"\n📦 فتح صفحة المنتجات:"
-                f" {BASE_PRODUCTS_URL}"
+            page.goto(
+                BASE_PRODUCTS_URL,
+                wait_until="domcontentloaded",
+                timeout=60000
             )
-
-            try:
-
-                page.goto(
-                    BASE_PRODUCTS_URL,
-                    wait_until="domcontentloaded",
-                    timeout=60000
-                )
-
-            except Exception as e:
-
-                print(
-                    f"⚠️ خطأ عند فتح صفحة المنتجات: {e}"
-                )
 
             try:
 
@@ -1647,7 +1747,9 @@ def main():
             except Exception:
                 pass
 
-            page.wait_for_timeout(2500)
+            page.wait_for_timeout(
+                2500
+            )
 
             # -------------------------------------------------
             # PAGINATION
@@ -1683,8 +1785,8 @@ def main():
                 except Exception as e:
 
                     print(
-                        f"⚠️ خطأ عند فتح الصفحة "
-                        f"{page_number}: {e}"
+                        f"⚠️ خطأ عند فتح "
+                        f"الصفحة {page_number}: {e}"
                     )
 
                     continue
@@ -1699,10 +1801,12 @@ def main():
                 except Exception:
                     pass
 
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(
+                    2000
+                )
 
                 # -------------------------------------------------
-                # تحقق من وجود product cards
+                # cards count
                 # -------------------------------------------------
 
                 try:
@@ -1720,7 +1824,7 @@ def main():
                 )
 
                 # -------------------------------------------------
-                # إذا الصفحة فارغة
+                # empty page
                 # -------------------------------------------------
 
                 if card_count == 0:
@@ -1728,15 +1832,19 @@ def main():
                     empty_pages += 1
 
                     print(
-                        f"⚠️ الصفحة فارغة "
-                        f"({empty_pages}/{MAX_EMPTY_PAGES})"
+                        f"⚠️ صفحة فارغة "
+                        f"({empty_pages}/"
+                        f"{MAX_EMPTY_PAGES})"
                     )
 
-                    if empty_pages >= MAX_EMPTY_PAGES:
+                    if (
+                        empty_pages
+                        >= MAX_EMPTY_PAGES
+                    ):
 
                         print(
-                            "🛑 تم الوصول إلى عدد "
-                            "الصفحات الفارغة المسموح."
+                            "🛑 تم الوصول إلى "
+                            "الحد الأقصى للصفحات الفارغة."
                         )
 
                         break
@@ -1746,31 +1854,37 @@ def main():
                 empty_pages = 0
 
                 # -------------------------------------------------
-                # استخراج المنتجات
+                # extract
                 # -------------------------------------------------
 
-                before_count = len(products)
+                before_count = len(
+                    products
+                )
 
                 scrape_current_page(
                     page,
                     products
                 )
 
-                after_count = len(products)
+                after_count = len(
+                    products
+                )
 
                 print(
-                    f"📊 المنتجات الجديدة: "
+                    f"📊 منتجات جديدة: "
                     f"{after_count - before_count}"
                 )
 
                 # -------------------------------------------------
-                # حفظ مباشر
+                # save
                 # -------------------------------------------------
 
-                save_products(products)
+                save_products(
+                    products
+                )
 
             # =====================================================
-            # DETAILS
+            # PRODUCT DETAILS
             # =====================================================
 
             print("\n")
@@ -1781,7 +1895,9 @@ def main():
             )
             print("=" * 70)
 
-            total_products = len(products)
+            total_products = len(
+                products
+            )
 
             for index, product in enumerate(
                 products,
@@ -1795,36 +1911,34 @@ def main():
                     total_products
                 )
 
-                # -------------------------------------------------
-                # ID
-                # -------------------------------------------------
-
                 product["id"] = (
                     f"shadhw_{index}"
                 )
 
-                # -------------------------------------------------
-                # حفظ بعد كل منتج
-                # -------------------------------------------------
-
-                save_products(products)
+                save_products(
+                    products
+                )
 
                 print(
-                    f"💾 تم حفظ المنتج "
+                    f"💾 تم حفظ "
                     f"{index}/{total_products}"
                 )
 
                 time.sleep(0.5)
 
-            # =====================================================
-            # FINAL SAVE
-            # =====================================================
+            # -------------------------------------------------
+            # final save
+            # -------------------------------------------------
 
-            save_products(products)
+            save_products(
+                products
+            )
 
             print("\n")
             print("=" * 70)
-            print("✅ انتهى الاستخراج بنجاح")
+            print(
+                "✅ انتهى الاستخراج"
+            )
             print(
                 f"📦 إجمالي المنتجات: "
                 f"{len(products)}"
@@ -1837,9 +1951,10 @@ def main():
                 f"\n❌ خطأ عام: {e}"
             )
 
-            # محاولة حفظ ما تم جمعه
             try:
-                save_products(products)
+                save_products(
+                    products
+                )
             except Exception:
                 pass
 
