@@ -3,239 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شَذْو للمجوهرات | SHADHW JEWELS</title>
-    <!-- استدعاء أحدث مكتبة Tailwind CSS للتصميم الملكي -->
-    <script src="https://tailwindcss.com"></script>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #060606; color: #f3f4f6; }
-        .gold-text { color: #d4af37; }
-        .gold-bg { background-color: #d4af37; }
-        .gold-border { border-color: #d4af37; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
-    </style>
+
+    <title>SHADHW JEWELS | شَذْو للمجوهرات</title>
+
+    <meta name="description" content="شَذْو للمجوهرات | SHADHW JEWELS">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="selection:bg-amber-500/20 selection:text-amber-200">
 
-    <!-- الهيدر الاحترافي المتناسق مع اللوغو -->
-    <header class="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md py-8 text-center sticky top-0 z-50 shadow-2xl">
-        <h1 class="text-4xl font-extrabold tracking-widest gold-text">شَذْو</h1>
-        <p class="text-[10px] uppercase tracking-widest text-zinc-400 mt-1">SHADHW JEWELS</p>
-        <p class="text-xs text-zinc-500 mt-3 font-light">⚜️ حلي عصرية بلمسة الذهب الحقيقي (Plaqué or / Nichelage) ⚜️</p>
-    </header>
+<body>
 
-    <!-- المعرض الرئيسي للمنتجات الحقيقية -->
-    <main class="max-w-7xl mx-auto px-4 py-16">
-        <div class="text-center mb-16">
-            <h2 class="text-2xl font-bold tracking-wide">المجموعة المتوفرة حالياً</h2>
-            <p class="text-sm text-zinc-400 mt-2">قطع فاخرة ومصقولة بعناية، مقاومة تماماً للماء والرطوبة (ما كيكحالش) 💧</p>
-        </div>
+<header class="site-header">
 
-        <!-- شبكة عرض المنتجات التي تغذيها قاعدة البيانات تلقائياً -->
-        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="col-span-full text-center text-zinc-500 py-24 animate-pulse">
-                جاري تحميل تشكيلة شَذْو الفاخرة مباشرة من المخزون...
-            </div>
-        </div>
-    </main>
+    <div class="header-inner">
 
-    <!-- نافذة تفاصيل المنتج وتأكيد الطلب السريع المنبثقة (Modal) -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-900 w-full max-w-xl rounded-2xl max-h-[90vh] overflow-y-auto custom-scrollbar p-6 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 left-4 text-zinc-500 hover:text-white text-2xl transition">&times;</button>
-            
-            <div class="text-center mb-6">
-                <h3 class="text-xl font-bold gold-text">تأكيد طلبكِ</h3>
-                <p class="text-xs text-zinc-400 mt-1">المرجو ملء المعلومات بدقة لإرسال طلبيتكِ في الحين</p>
-            </div>
+        <a href="index.html" class="logo">
+            <span class="logo-ar">شَذْو</span>
+            <span class="logo-en">SHADHW JEWELS</span>
+        </a>
 
-            <!-- معلومات السلعة الديناميكية (الصور المتعددة والأوصاف) -->
-            <div id="modal-product-info" class="bg-zinc-900 p-4 rounded-xl border border-zinc-800/60 mb-6 space-y-4">
-                <!-- يتم حقن لقطات وصور السلعة هنا -->
-            </div>
+        <button class="cart-button" id="cartButton">
+            🛒
+            <span>السلة</span>
+            <b id="cartCount">0</b>
+        </button>
 
-            <!-- استمارة الطلب المصممة للمستهلك المغربي COD -->
-            <form id="order-form" onsubmit="submitOrder(event)" class="space-y-4">
-                <input type="hidden" id="form-product-title">
-                <input type="hidden" id="form-product-price">
-                <input type="hidden" id="form-product-size">
-                
-                <div>
-                    <label class="block text-xs text-zinc-400 mb-1.5 font-medium">الاسم الكامل *</label>
-                    <input type="text" id="client-name" required placeholder="مثال: أمينة العلمي" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500 text-white transition">
-                </div>
-                <div>
-                    <label class="block text-xs text-zinc-400 mb-1.5 font-medium">رقم الهاتف (المغرب) *</label>
-                    <input type="tel" id="client-phone" required placeholder="مثال: 0612345678" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500 text-white text-left transition" dir="ltr">
-                </div>
-                <div>
-                    <label class="block text-xs text-zinc-400 mb-1.5 font-medium">المدينة *</label>
-                    <input type="text" id="client-city" required placeholder="مثال: الدار البيضاء، طنجة، مراكش..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500 text-white transition">
-                </div>
-                
-                <button type="submit" class="w-full gold-bg text-black font-bold py-4 rounded-xl text-sm hover:bg-amber-400 transition-all duration-300 shadow-xl mt-6 tracking-wide">
-                    اضغطي هنا للطلب والدفع عند الاستلام 🛍️
-                </button>
-                <p class="text-[10px] text-center text-zinc-500 mt-3">🚛 التوصيل متوفر لجميع المدن المغربية والدفع عند الشحن والمعاينة</p>
-            </form>
-        </div>
     </div>
 
-    <footer class="border-t border-zinc-950 bg-black py-8 text-center text-xs text-zinc-600 tracking-wide">
-        <p>© 2026 شَذْو للمجوهرات. جميع الحقوق محفوظة لشركتكم.</p>
-    </footer>
-    <!-- سكريبت الجافاسكريبت السحري لربط وقراءة قاعدة البيانات وإرسال الطلبات -->
-    <script>
-        // رقم الواتساب الخاص بك مدمجاً بكود المغرب الدولي تلقائياً
-        const WHATSAPP_NUMBER = "212630000552";
+</header>
 
-        // قراءة وتغذية المتجر من ملف المنتجات المؤتمت
-        fetch('products.json')
-            .then(response => response.json())
-            .then(products => {
-                const grid = document.getElementById('products-grid');
-                grid.innerHTML = ''; // إزالة رسالة التحميل الإفتراضية
 
-                if (products.length === 0) {
-                    grid.innerHTML = '<div class="col-span-full text-center text-zinc-500 py-12">المجموعة غير متوفرة حالياً في المخزون، المرجو العودة لاحقاً.</div>';
-                    return;
-                }
+<main>
 
-                products.forEach(product => {
-                    // التحقق من حالة المنتج؛ إذا كان نافداً نتخطاه أو نظهر شارة "غير متوفر"
-                    const isOutOfStock = product.status === "Out of Stock";
-                    const displayImage = product.image || (product.images && product.images[0]) || "https://unsplash.com";
-                    
-                    const card = document.createElement('div');
-                    card.className = `bg-zinc-900/40 border border-zinc-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col group transition-all duration-300 ${isOutOfStock ? 'opacity-60' : 'hover:border-amber-500/20'}`;
-                    
-                    card.innerHTML = `
-                        <div class="relative overflow-hidden aspect-square bg-zinc-950 flex items-center justify-center">
-                            <img src="${displayImage}" alt="${product.title}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-[10px] ${isOutOfStock ? 'text-red-400' : 'gold-text'} px-2.5 py-1 rounded-md font-semibold tracking-wider">
-                                ${isOutOfStock ? 'نفدت الكمية' : 'متوفر بالمخزون'}
-                            </span>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow text-center">
-                            <h3 class="text-sm font-semibold text-zinc-200 line-clamp-2 min-h-[40px] mb-4">${product.title}</h3>
-                            <div class="mt-auto">
-                                <span class="block text-xl font-extrabold gold-text mb-5">${product.price || 'ثمن خاص'}</span>
-                                <button ${isOutOfStock ? 'disabled' : ''} onclick="openModal(${JSON.stringify(product).replace(/"/g, '&quot;')})" class="w-full ${isOutOfStock ? 'bg-zinc-800 text-zinc-500 border-transparent cursor-not-allowed' : 'bg-zinc-950 hover:gold-bg hover:text-black text-zinc-300 border-zinc-800 hover:border-transparent'} font-semibold border py-3 px-4 rounded-xl text-xs transition-all duration-300 tracking-wide">
-                                    ${isOutOfStock ? 'غير متوفر حالياً' : 'اضغطي هنا للطلب السريع'}
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-            })
-            .catch(err => {
-                console.error("Error loading products:", err);
-                document.getElementById('products-grid').innerHTML = '<div class="col-span-full text-center text-red-500 py-12">حدث خطأ أثناء تحميل الكتالوج الرقمي. المرجو المحاولة لاحقاً.</div>';
-            });
+    <section class="hero">
 
-        // دالة فتح نافذة الطلب وتجهيز كافة تفاصيل السلعة المفتوحة
-        function openModal(product) {
-            document.getElementById('form-product-title').value = product.title;
-            document.getElementById('form-product-price').value = product.price;
-            document.getElementById('form-product-size').value = ""; // تصفير المقاس إفتراضياً
+        <div class="hero-content">
 
-            const infoBox = document.getElementById('modal-product-info');
-            
-            // تجهيز معرض الصور المصغر داخل نافذة المنتج (إذا كانت هناك صور متعددة في السكريبت)
-            let imagesHtml = '';
-            if (product.images && product.images.length > 0) {
-                imagesHtml = `<div class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">`;
-                product.images.slice(0, 4).forEach((img, i) => {
-                    imagesHtml += `<img src="${img}" onclick="changeModalMainImage('${img}')" class="w-14 h-14 object-cover rounded-lg border border-zinc-800 cursor-pointer hover:border-amber-500 transition">`;
-                });
-                imagesHtml += `</div>`;
-            }
+            <p class="hero-small">SHADHW JEWELS</p>
 
-            // تجهيز خيارات المقاسات إذا قام السكريبت بسحبها
-            let sizesHtml = '';
-            if (product.sizes && product.sizes.length > 0) {
-                sizesHtml = `
-                    <div class="mt-3">
-                        <label class="block text-xs text-zinc-400 mb-1.5 font-medium">المقاس المتوفر *</label>
-                        <div class="flex gap-2 flex-wrap">
-                `;
-                product.sizes.forEach(size => {
-                    sizesHtml += `<button type="button" onclick="selectSize(this, '${size}')" class="bg-zinc-950 border border-zinc-800 hover:border-amber-500 text-zinc-300 text-xs px-3 py-1.5 rounded-lg transition size-option-btn">${size}</button>`;
-                });
-                sizesHtml += `
-                        </div>
-                    </div>
-                `;
-            }
+            <h1>اختاري القطعة اللي كتشبه ليك ✨</h1>
 
-            const mainImage = product.image || (product.images && product.images[0]) || "https://unsplash.com";
+            <p>
+                اكتشفي تشكيلتنا واختاري القطعة المناسبة لذوقك.
+            </p>
 
-            infoBox.innerHTML = `
-                <div class="flex gap-4 items-start text-right">
-                    <img id="modal-main-img" src="${mainImage}" class="w-20 h-20 object-cover rounded-xl border border-zinc-800 shadow-lg">
-                    <div class="flex-grow">
-                        <h4 class="text-sm font-bold text-zinc-100 line-clamp-2">${product.title}</h4>
-                        <span class="text-base font-extrabold gold-text mt-1.5 block">${product.price}</span>
-                    </div>
-                </div>
-                ${imagesHtml}
-                ${product.description ? `<p class="text-xs text-zinc-400 font-light leading-relaxed max-h-24 overflow-y-auto custom-scrollbar border-t border-zinc-800/40 pt-2 mt-2">\${product.description}</p>` : ''}
-                ${sizesHtml}
-            `;
-            
-            document.getElementById('checkout-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // منع السكرول في الخلفية
-        }
+            <a href="#products" class="hero-button">
+                اكتشفي المنتجات
+            </a>
 
-        // دالة تغيير الصورة الكبيرة عند الضغط على الصور المصغرة
-        function changeModalMainImage(src) {
-            document.getElementById('modal-main-img').src = src;
-        }
+        </div>
 
-        // دالة اختيار المقاس المفضل
-        function selectSize(btn, size) {
-            document.querySelectorAll('.size-option-btn').forEach(b => b.classList.remove('border-amber-500', 'gold-text'));
-            btn.classList.add('border-amber-500', 'gold-text');
-            document.getElementById('form-product-size').value = size;
-        }
+    </section>
 
-        function closeModal() {
-            document.getElementById('checkout-modal').classList.add('hidden');
-            document.getElementById('order-form').reset();
-            document.body.style.overflow = ''; // إعادة السكرول الطبيعي للصحفة
-        }
 
-        // دالة إرسال الطلبية المنظمة مباشرة لحساب الواتساب
-        function submitOrder(e) {
-            e.preventDefault();
-            const title = document.getElementById('form-product-title').value;
-            const price = document.getElementById('form-product-price').value;
-            const size = document.getElementById('form-product-size').value;
-            const name = document.getElementById('client-name').value;
-            const phone = document.getElementById('client-phone').value;
-            const city = document.getElementById('client-city').value;
+    <section class="products-section" id="products">
 
-            // بناء الرسالة التسويقية الفاخرة التي ستصلك في هاتفك لتأكيد البيعة
-            let message = `🌟 طلب جديد - متجر شَذْو للمجوهرات 🌟\n\n` +
-                          `🛍️ المنتج: ${title}\n` +
-                          `💰 الثمن الإجمالي: ${price}\n`;
-            
-            if(size) { message += `📏 المقاس المختار: ${size}\n`; }
-            
-            message += `\n👤 معلومات الزبونة:\n` +
-                       `▪️ الاسم الكامل: ${name}\n` +
-                       `▪️ رقم الهاتف: ${phone}\n` +
-                       `▪️ المدينة: ${city}\n\n` +
-                       `🚛 المرجو تأكيد الطلبية للشحن السريع والدفع عند الاستلام.`;
+        <div class="section-heading">
 
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me{WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
-            closeModal();
-        }
-    </script>
+            <div>
+                <span>SHADHW JEWELS</span>
+                <h2>منتجاتنا</h2>
+            </div>
+
+            <div class="products-info">
+                <span id="productsCount">جاري تحميل المنتجات...</span>
+            </div>
+
+        </div>
+
+
+        <div class="store-controls">
+
+            <div class="search-box">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="قلب على منتج..."
+                    autocomplete="off"
+                >
+
+                <span>⌕</span>
+
+            </div>
+
+        </div>
+
+
+        <div id="productsGrid" class="products-grid">
+
+            <div class="loading">
+                جاري تحميل المنتجات...
+            </div>
+
+        </div>
+
+
+        <div id="emptyMessage" class="empty-message hidden">
+
+            <h3>ما لقيناش هاد المنتج</h3>
+
+            <p>
+                جرب كلمة أخرى في البحث.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- CART -->
+
+<div id="cartOverlay" class="cart-overlay hidden">
+
+    <div class="cart">
+
+        <div class="cart-header">
+
+            <h2>السلة</h2>
+
+            <button id="closeCart">×</button>
+
+        </div>
+
+
+        <div id="cartItems" class="cart-items"></div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>المجموع</span>
+
+                <strong id="cartTotal">0 DH</strong>
+
+            </div>
+
+            <button id="whatsappOrder" class="whatsapp-button">
+                الطلب عبر واتساب
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/store.js"></script>
+
 </body>
 </html>
