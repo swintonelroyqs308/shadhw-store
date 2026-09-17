@@ -58,7 +58,7 @@ function renderProducts(list) {
                     ${imageHtml}
                 </a>
                 <div class="product-card-body">
-                    <h3 class="product-card-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h3>
+                    <h3 class="product-card-title">${escapeHtml(product.title || 'القطعة')}</h3>
                     <div class="product-card-price">${formatPrice(product.price)}</div>
                     <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-link">عرض التفاصيل</a>
                 </div>
@@ -124,7 +124,7 @@ function orderViaWhatsApp() {
     const cart = getCart();
     if (!cart.length) return;
     let total = 0;
-    const lines = ['السلام عليكم، بغيت نطلب من شَذْو للمجوهرات:', ''];
+    const lines = ['السلام عليكم، بغيت نطلب من المتجر:', ''];
     cart.forEach((item, i) => {
         const product = products.find(p => p.id === item.id);
         if (!product) return;

@@ -127,7 +127,7 @@ function renderGallery(product) {
         <div class="gallery-thumbs">
             ${mediaItems.map((item, index) => item.type === 'image'
                 ? `<button class="gallery-thumb ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الصورة ${index + 1}"><img src="${escapeHtml(item.src)}" alt=""></button>`
-                : `<button class="gallery-thumb ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الفيديو ${index + 1}"><span class="gallery-video-thumb">▶<small>VIDEO</small></span></button>`
+                : `<button class="gallery-thumb gallery-video-button ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="الفيديو ${index + 1}"><span class="gallery-video-thumb"><video src="${escapeHtml(item.src)}" muted playsinline preload="metadata"></video><i>▶</i></span></button>`
             ).join('')}
         </div>`;
 
@@ -154,7 +154,7 @@ function renderUpsell() {
                     ${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(product.title)}" loading="lazy">` : '<div class="loading">لا توجد صورة</div>'}
                 </a>
                 <div class="product-card-body">
-                    <h3 class="product-card-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h3>
+                    <h3 class="product-card-title">${escapeHtml(product.title || 'القطعة')}</h3>
                     <div class="product-card-price">${formatPrice(product.price)}</div>
                     <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-link">عرض التفاصيل</a>
                 </div>
@@ -164,7 +164,7 @@ function renderUpsell() {
 
 function renderProduct(product) {
     currentProduct = product;
-    document.title = `${product.title || 'المنتج'} | شَذْو للمجوهرات`;
+    document.title = product.title || 'المنتج';
     const sizes = Array.isArray(product.sizes) ? product.sizes.filter(Boolean) : [];
     const description = product.description ? escapeHtml(product.description) : 'لا توجد تفاصيل إضافية لهذا المنتج حالياً.';
 
@@ -172,8 +172,7 @@ function renderProduct(product) {
         <div class="product-detail-grid">
             <div class="gallery" id="gallery"></div>
             <div class="product-info">
-                <span class="section-kicker">شَذْو للمجوهرات</span>
-                <h1 class="product-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h1>
+                <h1 class="product-title">${escapeHtml(product.title || 'القطعة')}</h1>
                 <div class="product-price">${formatPrice(product.price)}</div>
                 <div class="product-description">${description}</div>
                 ${sizes.length ? `
@@ -195,7 +194,6 @@ function renderProduct(product) {
         </div>
         <section id="upsell" class="upsell-section">
             <div class="upsell-heading">
-                <span class="section-kicker">شَذْو للمجوهرات</span>
                 <h2>قد تعجبك أيضاً ✨</h2>
             </div>
             <div id="upsellGrid" class="upsell-grid"></div>
@@ -228,7 +226,7 @@ function renderProduct(product) {
             return;
         }
         const lines = [
-            'السلام عليكم، بغيت نطلب هاد القطعة من شَذْو للمجوهرات:',
+            'السلام عليكم، بغيت نطلب هاد القطعة من المتجر:',
             `المنتج: ${product.title}`,
             `الثمن: ${formatPrice(product.price)}`,
             selectedSize ? `المقاس: ${selectedSize}` : '',
