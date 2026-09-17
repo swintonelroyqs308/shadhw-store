@@ -124,7 +124,7 @@ function orderViaWhatsApp() {
     const cart = getCart();
     if (!cart.length) return;
     let total = 0;
-    const lines = ['السلام عليكم، بغيت نطلب من SHADHW JEWELS:', ''];
+    const lines = ['السلام عليكم، بغيت نطلب من شَذْو للمجوهرات:', ''];
     cart.forEach((item, i) => {
         const product = products.find(p => p.id === item.id);
         if (!product) return;

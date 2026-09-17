@@ -139,7 +139,11 @@ function renderGallery(product) {
 }
 
 function renderUpsell() {
-    const others = products.filter(p => p.id !== currentProduct.id).sort(() => Math.random() - .5).slice(0, 4);
+    const others = products
+        .filter(p => p.id !== currentProduct.id)
+        .slice()
+        .reverse()
+        .slice(0, 10);
     const section = $('#upsell');
     if (!others.length) { section.classList.add('hidden'); return; }
     $('#upsellGrid').innerHTML = others.map(product => {
@@ -160,7 +164,7 @@ function renderUpsell() {
 
 function renderProduct(product) {
     currentProduct = product;
-    document.title = `${product.title || 'المنتج'} | SHADHW JEWELS`;
+    document.title = `${product.title || 'المنتج'} | شَذْو للمجوهرات`;
     const sizes = Array.isArray(product.sizes) ? product.sizes.filter(Boolean) : [];
     const description = product.description ? escapeHtml(product.description) : 'لا توجد تفاصيل إضافية لهذا المنتج حالياً.';
 
@@ -168,7 +172,7 @@ function renderProduct(product) {
         <div class="product-detail-grid">
             <div class="gallery" id="gallery"></div>
             <div class="product-info">
-                <span class="section-kicker">SHADHW JEWELS</span>
+                <span class="section-kicker">شَذْو للمجوهرات</span>
                 <h1 class="product-title">${escapeHtml(product.title || 'قطعة من شَذْو')}</h1>
                 <div class="product-price">${formatPrice(product.price)}</div>
                 <div class="product-description">${description}</div>
@@ -191,7 +195,7 @@ function renderProduct(product) {
         </div>
         <section id="upsell" class="upsell-section">
             <div class="upsell-heading">
-                <span class="section-kicker">MAYBE YOU'LL LIKE</span>
+                <span class="section-kicker">شَذْو للمجوهرات</span>
                 <h2>قد تعجبك أيضاً ✨</h2>
             </div>
             <div id="upsellGrid" class="upsell-grid"></div>
@@ -224,7 +228,7 @@ function renderProduct(product) {
             return;
         }
         const lines = [
-            'السلام عليكم، بغيت نطلب هاد القطعة من SHADHW JEWELS:',
+            'السلام عليكم، بغيت نطلب هاد القطعة من شَذْو للمجوهرات:',
             `المنتج: ${product.title}`,
             `الثمن: ${formatPrice(product.price)}`,
             selectedSize ? `المقاس: ${selectedSize}` : '',
