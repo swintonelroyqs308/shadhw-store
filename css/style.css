@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap');
 
 :root {
     --ink: #1b1510;
@@ -11,8 +11,8 @@
     --line: rgba(71, 49, 25, .12);
     --shadow: 0 18px 55px rgba(42, 28, 12, .11);
     --radius: 22px;
-    --brand-font: 'El Messiri', sans-serif;
-    --body-font: 'El Messiri', sans-serif;
+    --brand-font: 'Noto Kufi Arabic', sans-serif;
+    --body-font: 'Noto Kufi Arabic', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -96,7 +96,7 @@ a { color: inherit; text-decoration: none; }
     border-radius: 999px;
     background: var(--ink);
     color: #fff;
-    font-family: 'El Messiri', sans-serif;
+    font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: 12px;
 }
 .cart-icon { font-size: 15px; }
@@ -319,7 +319,7 @@ a { color: inherit; text-decoration: none; }
 .gallery-thumb.active { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(181,138,98,.12); }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-video-thumb { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1d1915; color: #fff; font-size: 20px; }
-.gallery-video-thumb small { position: absolute; bottom: 4px; font-family: 'El Messiri', sans-serif; font-size: 8px; opacity: .85; }
+.gallery-video-thumb small { position: absolute; bottom: 4px; font-family: 'Noto Kufi Arabic', sans-serif; font-size: 8px; opacity: .85; }
 .zoom-hint {
     position: absolute;
     left: 14px;
@@ -468,8 +468,8 @@ a { color: inherit; text-decoration: none; }
     --gold: #B58A62;
     --gold-light: #d2b18e;
     --gold-dark: #B58A62;
-    --brand-font: 'El Messiri', sans-serif;
-    --body-font: 'El Messiri', sans-serif;
+    --brand-font: 'Noto Kufi Arabic', sans-serif;
+    --body-font: 'Noto Kufi Arabic', sans-serif;
 }
 
 body, button, input { font-family: var(--body-font); }
