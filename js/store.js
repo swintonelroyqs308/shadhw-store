@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '212600000000'; // بدّل هذا الرقم برقم واتساب ديالك
+const WHATSAPP_NUMBER = '212630000552'; // بدّل هذا الرقم برقم واتساب ديالك
 const CART_KEY = 'shadhw_cart';
 let products = [];
 
