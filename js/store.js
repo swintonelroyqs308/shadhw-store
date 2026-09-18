@@ -92,7 +92,7 @@ function renderCart() {
     const cart = getCart();
     if (!cart.length) {
         container.innerHTML = '<div class="cart-empty">السلة خاوية حالياً.<br>اختاري قطعة باش تبداي.</div>';
-        $('#cartTotal').textContent = '0 DH';
+        $('#cartTotal').innerHTML = formatPrice(0);
         return;
     }
 
@@ -115,7 +115,7 @@ function renderCart() {
                 <div class="cart-item-price">${formatPrice(price * quantity)}</div>
             </div>`;
     }).join('');
-    $('#cartTotal').textContent = `${total} DH`;
+    $('#cartTotal').innerHTML = formatPrice(total);
 
     container.querySelectorAll('.cart-remove').forEach(button => {
         button.addEventListener('click', () => {
