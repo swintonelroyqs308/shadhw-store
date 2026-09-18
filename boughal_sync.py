@@ -492,25 +492,15 @@ def extract_sizes(page):
     for selector in selectors:
 
         try:
-            locators = page.locator(
-                selector
-            ).all()
+            locators = page.locator(selector).all()
 
             for locator in locators:
 
                 try:
                     value = (
-                        get_attr(
-                            locator,
-                            "data-size"
-                        )
-                        or get_attr(
-                            locator,
-                            "value"
-                        )
-                        or get_inner_text(
-                            locator
-                        )
+                        get_attr(locator, "data-size")
+                        or get_attr(locator, "value")
+                        or get_inner_text(locator)
                     )
 
                     value = clean_text(value)
@@ -524,26 +514,38 @@ def extract_sizes(page):
         except Exception:
             continue
 
-    # -----------------------------------------------------
-    # SELECT OPTIONS
-    # -----------------------------------------------------
-
+    # SELECT OPTIONS — المقاسات فقط
     try:
         selects = page.locator("select").all()
 
         for select in selects:
 
             try:
-                options = select.locator(
-                    "option"
-                ).all()
+                metadata = " ".join([
+                    get_attr(select, "name"),
+                    get_attr(select, "id"),
+                    get_attr(select, "class"),
+                    get_attr(select, "data-size"),
+                ]).lower()
+
+                if (
+                    "size" not in metadata
+                    and "taille" not in metadata
+                    and "مقاس" not in metadata
+                ):
+                    continue
+
+                options = select.locator("option").all()
 
                 for option in options:
 
                     try:
-                        value = get_inner_text(
-                            option
+                        value = (
+                            get_attr(option, "value")
+                            or get_inner_text(option)
                         )
+
+                        value = clean_text(value)
 
                         if value:
                             sizes.append(value)
