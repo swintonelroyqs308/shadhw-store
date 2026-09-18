@@ -27,7 +27,7 @@ function parsePrice(value) {
 }
 
 function formatPrice(value) {
-    return `درهم ${parsePrice(value)}`;
+    return `<span dir="ltr"><span dir="rtl">درهم</span> ${parsePrice(value)}</span>`;
 }
 
 function getImages(product) {
@@ -143,7 +143,7 @@ function renderCart() {
         `;
 
         if ($('#cartTotal')) {
-            $('#cartTotal').textContent = 'درهم 0';
+            $('#cartTotal').innerHTML = formatPrice(0);
         }
 
         return;
@@ -175,7 +175,10 @@ function renderCart() {
 
                 ${
                     image
-                        ? `<img src="${escapeHtml(image)}" alt="">`
+                        ? `<img
+                            src="${escapeHtml(image)}"
+                            alt=""
+                        >`
                         : '<div></div>'
                 }
 
@@ -206,7 +209,7 @@ function renderCart() {
     }).join('');
 
     if ($('#cartTotal')) {
-        $('#cartTotal').textContent = `درهم ${total}`;
+        $('#cartTotal').innerHTML = formatPrice(total);
     }
 
     container.querySelectorAll('.cart-remove').forEach(button => {
@@ -298,7 +301,7 @@ function renderProduct(product) {
     }
 
     if (price) {
-        price.textContent = formatPrice(product.price);
+        price.innerHTML = formatPrice(product.price);
     }
 
     renderGallery(product);
@@ -458,9 +461,7 @@ async function loadProducts() {
 }
 
 $('#cartButton')?.addEventListener('click', openCart);
-
 $('#closeCart')?.addEventListener('click', closeCart);
-
 $('#cartBackdrop')?.addEventListener('click', closeCart);
 
 document.addEventListener('keydown', event => {
