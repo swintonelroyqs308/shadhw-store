@@ -27,7 +27,8 @@ function parsePrice(value) {
 }
 
 function formatPrice(value) {
-    return `<span dir="ltr"><span dir="rtl">درهم</span> ${parsePrice(value)}</span>`;
+    const number = parsePrice(value);
+    return `<span class="price-display" dir="ltr">درهم&nbsp;${number}</span>`;
 }
 
 function getImages(product) {
