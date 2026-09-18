@@ -34,7 +34,7 @@ function parsePrice(value) {
     return match ? Number(match[0]) : 0;
 }
 function formatPrice(value) {
-    return `<span class="price-display" dir="ltr">درهم&nbsp;${parsePrice(value)}</span>`;
+    return `<span class="price-display" dir="ltr">${parsePrice(value)}&nbsp;درهم</span>`;
 }
 
 function renderProducts(list) {
