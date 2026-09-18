@@ -141,10 +141,10 @@ function orderViaWhatsApp() {
         lines.push(`${i + 1}. ${product.title}`);
         if (item.size) lines.push(`المقاس: ${item.size}`);
         lines.push(`الكمية: ${qty}`);
-        lines.push(`الثمن: ${price} DH`);
+        lines.push(`الثمن: درهم ${price}`);
         lines.push('');
     });
-    lines.push(`المجموع: ${total} DH`);
+    lines.push(`المجموع: درهم ${total}`);
     lines.push('', 'الاسم:', 'المدينة:', 'العنوان:', 'الهاتف:');
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
 }
