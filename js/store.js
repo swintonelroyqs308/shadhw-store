@@ -6,7 +6,11 @@ const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>'"]/g, char => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;'
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#039;',
+        '"': '&quot;'
     }[char]));
 }
 
@@ -44,7 +48,7 @@ function parsePrice(value) {
 }
 
 function formatPrice(value) {
-    return `درهم ${parsePrice(value)}`;
+    return `<span dir="ltr"><span dir="rtl">درهم</span> ${parsePrice(value)}</span>`;
 }
 
 function renderProducts(list) {
@@ -106,7 +110,6 @@ function openCart() {
     overlay.setAttribute('aria-hidden', 'false');
 
     renderCart();
-
     document.body.style.overflow = 'hidden';
 }
 
@@ -131,8 +134,7 @@ function renderCart() {
             </div>
         `;
 
-        $('#cartTotal').textContent = 'درهم 0';
-
+        $('#cartTotal').innerHTML = formatPrice(0);
         return;
     }
 
@@ -145,8 +147,9 @@ function renderCart() {
 
         const quantity = Number(item.quantity || 1);
         const price = parsePrice(product.price);
+        const itemTotal = price * quantity;
 
-        total += price * quantity;
+        total += itemTotal;
 
         const sizeText = item.size
             ? `المقاس: ${escapeHtml(item.size)}`
@@ -154,7 +157,6 @@ function renderCart() {
 
         return `
             <div class="cart-item">
-
                 ${
                     getProductImage(product)
                         ? `<img
@@ -183,14 +185,13 @@ function renderCart() {
                 </div>
 
                 <div class="cart-item-price">
-                    ${formatPrice(price * quantity)}
+                    ${formatPrice(itemTotal)}
                 </div>
-
             </div>
         `;
     }).join('');
 
-    $('#cartTotal').textContent = `درهم ${total}`;
+    $('#cartTotal').innerHTML = formatPrice(total);
 
     container.querySelectorAll('.cart-remove').forEach(button => {
         button.addEventListener('click', () => {
@@ -295,11 +296,8 @@ $('#searchInput')?.addEventListener('input', event => {
 });
 
 $('#cartButton')?.addEventListener('click', openCart);
-
 $('#closeCart')?.addEventListener('click', closeCart);
-
 $('#cartBackdrop')?.addEventListener('click', closeCart);
-
 $('#whatsappOrder')?.addEventListener('click', orderViaWhatsApp);
 
 document.addEventListener('keydown', event => {
