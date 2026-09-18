@@ -130,23 +130,46 @@ function renderCart() {
 function orderViaWhatsApp() {
     const cart = getCart();
     if (!cart.length) return;
+
     let total = 0;
-    const lines = ['السلام عليكم، بغيت نطلب من المتجر:', ''];
+
+    const lines = [
+        'السلام عليكم، بغيت نطلب هاد القطعة من المتجر:',
+        ''
+    ];
+
     cart.forEach((item, i) => {
         const product = products.find(p => p.id === item.id);
+
         if (!product) return;
+
         const qty = Number(item.quantity || 1);
         const price = parsePrice(product.price) * qty;
+
         total += price;
+
         lines.push(`${i + 1}. ${product.title}`);
-        if (item.size) lines.push(`المقاس: ${item.size}`);
+
+        if (item.size) {
+            lines.push(`المقاس: ${item.size}`);
+        }
+
         lines.push(`الكمية: ${qty}`);
         lines.push(`الثمن: درهم ${price}`);
         lines.push('');
     });
+
     lines.push(`المجموع: درهم ${total}`);
-    lines.push('', 'الاسم:', 'المدينة:', 'العنوان:', 'الهاتف:');
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    lines.push('');
+    lines.push('الاسم:');
+    lines.push('المدينة:');
+    lines.push('العنوان:');
+    lines.push('الهاتف:');
+
+    window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
+        '_blank'
+    );
 }
 
 async function loadProducts() {
