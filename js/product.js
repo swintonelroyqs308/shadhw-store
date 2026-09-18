@@ -1133,7 +1133,7 @@ function renderProduct(product) {
 
                 `المنتج: ${product.title}`,
 
-                `الثمن: ${formatPrice(product.price)}`,
+                `الثمن: درهم ${parsePrice(product.price)}`,
 
                 selectedSize
                     ? `المقاس: ${selectedSize}`
