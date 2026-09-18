@@ -33,7 +33,9 @@ function parsePrice(value) {
     const match = String(value ?? '').replace(',', '.').match(/[0-9]+(?:\.[0-9]+)?/);
     return match ? Number(match[0]) : 0;
 }
-function formatPrice(value) { return `${parsePrice(value)} DH`; }
+function formatPrice(value) {
+    return `<span class="price-display" dir="ltr">درهم&nbsp;${parsePrice(value)}</span>`;
+}
 
 function renderProducts(list) {
     const grid = $('#productsGrid');
