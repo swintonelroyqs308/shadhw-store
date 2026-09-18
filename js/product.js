@@ -32,21 +32,17 @@ function formatPrice(value) {
 }
 
 function getImages(product) {
-    if (!Array.isArray(product?.images)) {
-        return [];
-    }
-
-    return product.images.filter(
-        src => src && !/logo\.png|urlanding-icon/i.test(src)
-    );
+    return Array.isArray(product?.images)
+        ? product.images.filter(
+            src => src && !/logo\.png|urlanding-icon/i.test(src)
+        )
+        : [];
 }
 
 function getVideos(product) {
-    if (!Array.isArray(product?.videos)) {
-        return [];
-    }
-
-    return product.videos.filter(Boolean);
+    return Array.isArray(product?.videos)
+        ? product.videos.filter(Boolean)
+        : [];
 }
 
 function getCart() {
@@ -76,19 +72,25 @@ function updateCartCount() {
 }
 
 function getProductId() {
-    return new URLSearchParams(location.search).get('id');
+    return new URLSearchParams(window.location.search).get('id');
 }
 
 function findProduct(id) {
-    return products.find(product => String(product.id) === String(id));
+    if (id == null) return null;
+
+    const wantedId = String(id);
+
+    return products.find(
+        product => String(product?.id ?? '') === wantedId
+    ) || null;
 }
 
 function addToCart(product, size = '') {
     const cart = getCart();
 
     const existing = cart.find(item =>
-        String(item.id) === String(product.id) &&
-        String(item.size || '') === String(size || '')
+        String(item.id ?? '') === String(product.id ?? '') &&
+        String(item.size ?? '') === String(size ?? '')
     );
 
     if (existing) {
@@ -154,7 +156,7 @@ function renderCart() {
 
     container.innerHTML = cart.map((item, index) => {
         const product = products.find(
-            p => String(p.id) === String(item.id)
+            p => String(p?.id ?? '') === String(item?.id ?? '')
         );
 
         if (!product) return '';
@@ -283,99 +285,6 @@ function renderGallery(product) {
     }).join('');
 }
 
-function renderProduct(product) {
-    currentProduct = product;
-
-    const title = $('#productTitle');
-    const description = $('#productDescription');
-    const price = $('#productPrice');
-    const sizesContainer = $('#sizes');
-
-    if (title) {
-        title.textContent = product.title || 'القطعة';
-    }
-
-    if (description) {
-        description.innerHTML = escapeHtml(
-            product.description || ''
-        ).replace(/\n/g, '<br>');
-    }
-
-    if (price) {
-        price.innerHTML = formatPrice(product.price);
-    }
-
-    renderGallery(product);
-
-    const sizes =
-        Array.isArray(product.sizes)
-            ? product.sizes.filter(Boolean)
-            : [];
-
-    if (sizesContainer) {
-        sizesContainer.innerHTML = sizes.length
-            ? sizes.map(size => `
-                <button
-                    class="size-button"
-                    type="button"
-                    data-size="${escapeHtml(size)}"
-                >
-                    ${escapeHtml(size)}
-                </button>
-            `).join('')
-            : '';
-    }
-
-    const optionBlock = sizesContainer?.closest('.option-block');
-
-    if (optionBlock) {
-        optionBlock.classList.toggle(
-            'hidden',
-            sizes.length === 0
-        );
-    }
-
-    const addButton = $('#addToCart');
-
-    if (addButton) {
-        addButton.onclick = () => {
-            let selectedSize = '';
-
-            const selected = document.querySelector(
-                '.size-button.selected'
-            );
-
-            if (sizes.length && !selected) {
-                alert('اختاري المقاس أولاً');
-                return;
-            }
-
-            if (selected) {
-                selectedSize = selected.dataset.size || '';
-            }
-
-            addToCart(product, selectedSize);
-
-            openCart();
-        };
-    }
-
-    sizesContainer?.querySelectorAll('.size-button')
-        .forEach(button => {
-            button.addEventListener('click', () => {
-                sizesContainer
-                    .querySelectorAll('.size-button')
-                    .forEach(item => {
-                        item.classList.remove('selected');
-                    });
-
-                button.classList.add('selected');
-            });
-        });
-
-    renderUpsell(product);
-}
-
 function renderUpsell(product) {
     const container = $('#upsellProducts');
 
@@ -420,7 +329,107 @@ function renderUpsell(product) {
     }).join('');
 }
 
+function renderProduct(product) {
+    currentProduct = product;
+
+    const title = $('#productTitle');
+    const description = $('#productDescription');
+    const price = $('#productPrice');
+    const sizesContainer = $('#sizes');
+
+    if (title) {
+        title.textContent = product.title || 'القطعة';
+    }
+
+    if (description) {
+        description.innerHTML = escapeHtml(
+            product.description || ''
+        ).replace(/\n/g, '<br>');
+    }
+
+    if (price) {
+        price.innerHTML = formatPrice(product.price);
+    }
+
+    renderGallery(product);
+
+    const sizes = Array.isArray(product.sizes)
+        ? product.sizes.filter(Boolean)
+        : [];
+
+    if (sizesContainer) {
+        sizesContainer.innerHTML = sizes.length
+            ? sizes.map(size => `
+                <button
+                    class="size-button"
+                    type="button"
+                    data-size="${escapeHtml(size)}"
+                >
+                    ${escapeHtml(size)}
+                </button>
+            `).join('')
+            : '';
+    }
+
+    const optionBlock =
+        sizesContainer?.closest('.option-block');
+
+    if (optionBlock) {
+        optionBlock.classList.toggle(
+            'hidden',
+            sizes.length === 0
+        );
+    }
+
+    const addButton = $('#addToCart');
+
+    if (addButton) {
+        addButton.onclick = () => {
+            let selectedSize = '';
+
+            const selected = document.querySelector(
+                '.size-button.selected'
+            );
+
+            if (sizes.length && !selected) {
+                alert('اختاري المقاس أولاً');
+                return;
+            }
+
+            if (selected) {
+                selectedSize = selected.dataset.size || '';
+            }
+
+            addToCart(product, selectedSize);
+            openCart();
+        };
+    }
+
+    if (sizesContainer) {
+        sizesContainer
+            .querySelectorAll('.size-button')
+            .forEach(button => {
+                button.addEventListener('click', () => {
+                    sizesContainer
+                        .querySelectorAll('.size-button')
+                        .forEach(item => {
+                            item.classList.remove('selected');
+                        });
+
+                    button.classList.add('selected');
+                });
+            });
+    }
+
+    renderUpsell(product);
+}
+
 async function loadProducts() {
+    const target =
+        $('#productPage') ||
+        $('#productContent') ||
+        document.body;
+
     try {
         const response = await fetch(
             'products.json',
@@ -428,15 +437,24 @@ async function loadProducts() {
         );
 
         if (!response.ok) {
-            throw new Error('Failed to load products');
+            throw new Error(
+                `products.json: HTTP ${response.status}`
+            );
         }
 
-        products = await response.json();
+        const data = await response.json();
 
-        const product = findProduct(getProductId());
+        if (!Array.isArray(data)) {
+            throw new Error('products.json is not an array');
+        }
+
+        products = data;
+
+        const productId = getProductId();
+        const product = findProduct(productId);
 
         if (!product) {
-            document.body.innerHTML = `
+            target.innerHTML = `
                 <main class="loading">
                     المنتج غير موجود.
                 </main>
@@ -448,10 +466,7 @@ async function loadProducts() {
         updateCartCount();
 
     } catch (error) {
-        const target =
-            $('#productPage') ||
-            $('#productContent') ||
-            document.body;
+        console.error('Product loading error:', error);
 
         target.innerHTML = `
             <div class="loading">
@@ -461,14 +476,16 @@ async function loadProducts() {
     }
 }
 
-$('#cartButton')?.addEventListener('click', openCart);
-$('#closeCart')?.addEventListener('click', closeCart);
-$('#cartBackdrop')?.addEventListener('click', closeCart);
+document.addEventListener('DOMContentLoaded', () => {
+    $('#cartButton')?.addEventListener('click', openCart);
+    $('#closeCart')?.addEventListener('click', closeCart);
+    $('#cartBackdrop')?.addEventListener('click', closeCart);
 
-document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-        closeCart();
-    }
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeCart();
+        }
+    });
+
+    loadProducts();
 });
-
-loadProducts();
