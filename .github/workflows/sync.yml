@@ -1,9 +1,9 @@
 name: Boughal Affiliate Diagnostic Run
 
 on:
-  workflow_dispatch: # هادي كتعطينا زر "Play" يدوّي باش نجربو السكريبت وقتما بغينا!
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # هادي كتقول لجيت هاب يخدم السكريبت بوحدو كل 6 د الساعات فابور
+    - cron: '0 12 * * *'
 
 jobs:
   run-script:
@@ -36,4 +36,3 @@ jobs:
         git add page_preview.png source.html products.json
         git commit -m "Saved layout diagnostic data from Boughal" || exit 0
         git push
-
