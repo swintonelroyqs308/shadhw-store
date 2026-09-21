@@ -1214,6 +1214,144 @@ def save_products(products):
 
 
 # =========================================================
+# DELETE PRODUCTS BY SOURCE_ID
+# =========================================================
+
+SOURCE_IDS_TO_DELETE = {
+    "190",
+    "146",
+    "117",
+    "163",
+    "294",
+    "151",
+    "290",
+    "292",
+    "202",
+    "130",
+    "90",
+    "71",
+    "72",
+    "70",
+}
+
+
+def delete_products_by_source_id():
+
+    try:
+
+        # -------------------------------------------------
+        # قراءة products.json
+        # -------------------------------------------------
+
+        with open(
+            OUTPUT_FILE,
+            "r",
+            encoding="utf-8"
+        ) as f:
+
+            products = json.load(f)
+
+        if not isinstance(products, list):
+
+            print(
+                "⚠️ products.json لا يحتوي على قائمة منتجات."
+            )
+
+            return
+
+        original_count = len(products)
+
+        # -------------------------------------------------
+        # حذف المنتجات التي source_id ديالها مطابق
+        # -------------------------------------------------
+
+        filtered_products = []
+
+        deleted = []
+
+        for product in products:
+
+            source_id = str(
+                product.get("source_id", "")
+            ).strip()
+
+            if source_id in SOURCE_IDS_TO_DELETE:
+
+                deleted.append(source_id)
+
+                print(
+                    f"🗑️ حذف المنتج: "
+                    f"{product.get('title', '')} "
+                    f"| source_id: {source_id}"
+                )
+
+            else:
+
+                filtered_products.append(product)
+
+        # -------------------------------------------------
+        # حفظ الملف
+        # -------------------------------------------------
+
+        with open(
+            OUTPUT_FILE,
+            "w",
+            encoding="utf-8"
+        ) as f:
+
+            json.dump(
+                filtered_products,
+                f,
+                ensure_ascii=False,
+                indent=2
+            )
+
+        print(
+            f"🗑️ تم حذف {len(deleted)} منتج."
+        )
+
+        print(
+            f"📦 قبل الحذف: {original_count}"
+        )
+
+        print(
+            f"📦 بعد الحذف: {len(filtered_products)}"
+        )
+
+        # -------------------------------------------------
+        # source_id غير الموجودة
+        # -------------------------------------------------
+
+        found_ids = set(deleted)
+
+        not_found = (
+            SOURCE_IDS_TO_DELETE
+            - found_ids
+        )
+
+        if not_found:
+
+            print(
+                "ℹ️ source_id غير الموجودة "
+                "ولم يتم حذف أي منتج بها:"
+            )
+
+            for source_id in sorted(
+                not_found,
+                key=lambda x: int(x)
+            ):
+
+                print(
+                    f"   - {source_id}"
+                )
+
+    except Exception as e:
+
+        print(
+            f"❌ خطأ أثناء حذف المنتجات: {e}"
+        )
+
+# =========================================================
 # LOGIN
 # =========================================================
 
@@ -1936,15 +2074,26 @@ def main():
                 products
             )
 
+            # =====================================================
+            # DELETE SPECIFIED PRODUCTS AFTER COMPLETE EXTRACTION
+            # =====================================================
+            
+            delete_products_by_source_id()
+
             print("\n")
             print("=" * 70)
             print(
                 "✅ انتهى الاستخراج"
             )
+            
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                final_products = json.load(f)
+            
             print(
                 f"📦 إجمالي المنتجات: "
-                f"{len(products)}"
+                f"{len(final_products)}"
             )
+            
             print("=" * 70)
 
         except Exception as e:
