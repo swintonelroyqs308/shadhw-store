@@ -1,5 +1,4 @@
 {
-  
   "shadhw_2_video_1": {
     "product_id": "shadhw_2",
     "video_index": 1,
@@ -126,6 +125,14 @@
     "price": "195",
     "filename": "shadhw_17-195.mp4",
     "drive_id": "1DvfJLa3Z9EZL7zWVU5zGG5-rWgUOd-6q",
+    "status": "completed"
+  },
+  "shadhw_1_video_1": {
+    "product_id": "shadhw_1",
+    "video_index": 1,
+    "price": "185",
+    "filename": "shadhw_1-185.mp4",
+    "drive_id": "1crj0-oa84vwnIIFx_UQVieCN9h-OAT8c",
     "status": "completed"
   }
 }
