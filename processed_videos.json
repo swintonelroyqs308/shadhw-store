@@ -134,5 +134,21 @@
     "filename": "shadhw_1-185.mp4",
     "drive_id": "1crj0-oa84vwnIIFx_UQVieCN9h-OAT8c",
     "status": "completed"
+  },
+  "shadhw_18_video_1": {
+    "product_id": "shadhw_18",
+    "video_index": 1,
+    "price": "210",
+    "filename": "shadhw_18-210-1.mp4",
+    "drive_id": "1j0pqV4W6r_vsmFXnb9v9NvKdc1Wek3HJ",
+    "status": "completed"
+  },
+  "shadhw_18_video_2": {
+    "product_id": "shadhw_18",
+    "video_index": 2,
+    "price": "210",
+    "filename": "shadhw_18-210-2.mp4",
+    "drive_id": "1T6-aZLx3HSq31DRIcvfFK4UqMMzmTen7",
+    "status": "completed"
   }
 }
