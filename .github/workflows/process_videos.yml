@@ -1,7 +1,12 @@
+```yaml
 name: SHADHW Video Processor
 
 on:
   workflow_dispatch:
+
+  push:
+    paths:
+      - "products.json"
 
 permissions:
   contents: write
@@ -47,3 +52,4 @@ jobs:
           git add processed_videos.json
           git diff --cached --quiet || git commit -m "Update processed video state"
           git push
+```
