@@ -45,4 +45,3 @@ jobs:
           git add processed_videos.json
           git commit -m "Update processed video state"
           git push
-```
