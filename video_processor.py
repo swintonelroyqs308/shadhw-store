@@ -15,7 +15,10 @@ from test_drive import get_drive_service
 INSTAGRAM = "@shadhw.jewels"
 PHONE = "0630000552"
 
-FFMPEG = r"C:\Users\العسل\Downloads\ffmpeg-9.0.2-essentials_build\bin\ffmpeg.exe"
+FFMPEG = os.environ.get(
+    "FFMPEG_PATH",
+    r"C:\Users\العسل\Downloads\ffmpeg-9.0.2-essentials_build\bin\ffmpeg.exe"
+)
 
 PRODUCTS_FILE = "products.json"
 STATE_FILE = "processed_videos.json"
