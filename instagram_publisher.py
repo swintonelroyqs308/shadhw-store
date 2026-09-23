@@ -392,11 +392,11 @@ for video_key, data in processed.items():
     if data.get("status") != "completed":
         continue
 
-    if video_key in published:
-        continue
-
-   # if video_key in published and published[video_key].get("status") == "published":
+   # if video_key in published:
    #     continue
+
+    if video_key in published and published[video_key].get("status") == "published":
+        continue
 
     drive_id = data.get("drive_id")
 
