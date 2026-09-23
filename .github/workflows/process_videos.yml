@@ -38,10 +38,18 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: python -X utf8 video_processor.py
 
-      - name: Save processing state
+      - name: Publish videos to Instagram
+        env:
+          GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
+          POSTFILE_API_KEY: ${{ secrets.POSTFILE_API_KEY }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          PYTHONIOENCODING: utf-8
+        run: python -X utf8 instagram_publisher.py
+
+      - name: Save processing and publishing state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add processed_videos.json
-          git commit -m "Update processed video state"
+          git add processed_videos.json published_videos.json
+          git diff --cached --quiet || git commit -m "Update video processing and publishing state"
           git push
