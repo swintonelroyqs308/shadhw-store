@@ -363,6 +363,8 @@ def publish_container(creation_id):
 
 def make_caption(product):
 
+    source_id = product.get("source_id", "")
+    
     return (
         f"رقم المنتج: {source_id}\n\n"
         "✨ شَذْو للمجوهرات ✨\n\n"
