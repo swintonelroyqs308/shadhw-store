@@ -363,11 +363,10 @@ def publish_container(creation_id):
 
 def make_caption(product):
 
-    title = product.get("title") or "SHADHW JEWELS"
-
     return (
-        f"{title}\n\n"
-        "✨ شَذْو للمجوهرات\n"
+        "✨ شَذْو للمجوهرات ✨\n\n"
+        "🛍️ اكتشفي المجموعة كاملة من الرابط في Bio\n"
+        "📲 للطلب والاستفسار عبر WhatsApp: 0630000552\n\n"
         "🚚 التوصيل لجميع المدن المغربية\n"
         "💵 الدفع عند الاستلام"
     )
