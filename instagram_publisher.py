@@ -366,7 +366,7 @@ def make_caption(product):
     source_id = product.get("source_id", "")
     
     return (
-        f"رقم المنتج: {source_id}\n\n"
+        f"{source_id}\n\n"
         "✨ شَذْو للمجوهرات ✨\n\n"
         "🛍️ اكتشفي المجموعة كاملة من الرابط في Bio\n"
         "📲 للطلب والاستفسار عبر وتساب: 0630000552\n\n"
