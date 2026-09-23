@@ -364,6 +364,7 @@ def publish_container(creation_id):
 def make_caption(product):
 
     return (
+        f"رقم المنتج: {source_id}\n\n"
         "✨ شَذْو للمجوهرات ✨\n\n"
         "🛍️ اكتشفي المجموعة كاملة من الرابط في Bio\n"
         "📲 للطلب والاستفسار عبر وتساب: 0630000552\n\n"
@@ -388,8 +389,11 @@ for video_key, data in processed.items():
     if data.get("status") != "completed":
         continue
 
-    if video_key in published and published[video_key].get("status") == "published":
+    if video_key in published:
         continue
+
+   # if video_key in published and published[video_key].get("status") == "published":
+   #     continue
 
     drive_id = data.get("drive_id")
 
