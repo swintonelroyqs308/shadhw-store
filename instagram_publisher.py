@@ -361,15 +361,16 @@ def publish_container(creation_id):
 # CAPTION
 # =========================================================
 
-def make_caption(product):
+def make_caption(data):
 
-    source_id = product.get("source_id", "")
+    source_id = data.get("source_id", "")
     
     return (
         f"{source_id}\n\n"
         "✨ شَذْو للمجوهرات ✨\n\n"
         "🛍️ اكتشفي المجموعة كاملة من الرابط في Bio\n"
-        "📲 للطلب والاستفسار عبر وتساب: 0630 000 552\n\n"
+        "📲 للطلب والاستفسار عبر وتساب:\n\n"
+        "0630 000 552\n\n"
         "🚚 التوصيل لجميع المدن المغربية\n"
         "💵 والدفع عند الاستلام"
     )
@@ -468,7 +469,7 @@ for video_key, data in candidates:
         # -------------------------------------
 
         caption = make_caption(
-            product
+            data
         )
 
         creation_id = create_instagram_container(
