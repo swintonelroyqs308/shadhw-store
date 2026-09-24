@@ -3,6 +3,10 @@ import os
 import subprocess
 import time
 import requests
+import zlib
+import struct
+import math
+import re
 
 from googleapiclient.http import MediaFileUpload
 from test_drive import get_drive_service
@@ -25,20 +29,16 @@ STATE_FILE = "processed_videos.json"
 
 DRIVE_FOLDER_NAME = "shadhw"
 
-FONT = "C\\:/Windows/Fonts/arial.ttf"
+# الخط المستعمل في النسخة التجريبية الناجحة
+FONT = "C\\:/Windows/Fonts/tradbdo.ttf"
 
 # جودة الفيديو
 CRF = "18"
 PRESET = "slow"
 
-# لون الكتابة
-TEXT_OPACITY = "0.78"
-
-# حجم الكتابة
-FONT_SIZE = "h*0.040"
-
-# المسافة بين "درهم" والثمن
-PRICE_GAP = 5
+# شفافية اللوغو و WhatsApp
+LOGO_ALPHA = 0.65
+WHATSAPP_ALPHA = 0.35
 
 
 # =========================================================
@@ -69,6 +69,7 @@ print(f"الفيديوهات المسجلة كمكتملة: {len(processed)}")
 # =========================================================
 
 def save_state():
+
     temp_file = STATE_FILE + ".tmp"
 
     with open(temp_file, "w", encoding="utf-8") as f:
@@ -79,7 +80,10 @@ def save_state():
             indent=2
         )
 
-    os.replace(temp_file, STATE_FILE)
+    os.replace(
+        temp_file,
+        STATE_FILE
+    )
 
 
 # =========================================================
@@ -104,7 +108,11 @@ def get_shadhw_folder(service):
     folders = results.get("files", [])
 
     if folders:
-        print(f"\nمجلد Drive موجود: {DRIVE_FOLDER_NAME}")
+
+        print(
+            f"\nمجلد Drive موجود: {DRIVE_FOLDER_NAME}"
+        )
+
         return folders[0]["id"]
 
     metadata = {
@@ -117,7 +125,9 @@ def get_shadhw_folder(service):
         fields="id,name"
     ).execute()
 
-    print(f"\nتم إنشاء مجلد Drive: {DRIVE_FOLDER_NAME}")
+    print(
+        f"\nتم إنشاء مجلد Drive: {DRIVE_FOLDER_NAME}"
+    )
 
     return folder["id"]
 
@@ -139,7 +149,11 @@ def download_video(url, filename):
     response.raise_for_status()
 
     with open(filename, "wb") as f:
-        for chunk in response.iter_content(chunk_size=1024 * 1024):
+
+        for chunk in response.iter_content(
+            chunk_size=1024 * 1024
+        ):
+
             if chunk:
                 f.write(chunk)
 
@@ -147,92 +161,579 @@ def download_video(url, filename):
 
 
 # =========================================================
-# WATERMARK
+# PNG WRITER
 # =========================================================
 
-def process_video(input_file, output_file, price):
+def save_png(filename, width, height, pixels):
 
-    print("Processing video...")
+    raw = bytearray()
 
-    # كلمة درهم مستقلة حتى تبقى على يسار الرقم
-    # ونرفعها قليلاً حتى تكون بمحاذاة الرقم
-    filter_complex = (
-        # درهم
-        "drawtext="
-        f"fontfile='{FONT}':"
-        "text='درهم':"
-        "text_shaping=1:"
-        f"fontcolor=white@{TEXT_OPACITY}:"
-        f"fontsize={FONT_SIZE}:"
-        "x=(w/2)-text_w-5:"
-        "y=(h-text_h)/2-54,"
+    for y in range(height):
 
-        # الرقم
-        "drawtext="
-        f"fontfile='{FONT}':"
-        f"text='{price}':"
-        f"fontcolor=white@{TEXT_OPACITY}:"
-        f"fontsize={FONT_SIZE}:"
-        "x=(w/2)+5:"
-        "y=(h-text_h)/2-60,"
+        raw.append(0)
 
-        # Instagram
-        "drawtext="
-        f"fontfile='{FONT}':"
-        f"text='{INSTAGRAM}':"
-        f"fontcolor=white@{TEXT_OPACITY}:"
-        f"fontsize={FONT_SIZE}:"
-        "x=(w-text_w)/2:"
-        "y=(h-text_h)/2,"
+        for x in range(width):
 
-        # Phone
-        "drawtext="
-        f"fontfile='{FONT}':"
-        f"text='{PHONE}':"
-        f"fontcolor=white@{TEXT_OPACITY}:"
-        f"fontsize={FONT_SIZE}:"
-        "x=(w-text_w)/2:"
-        "y=(h-text_h)/2+60"
+            r, g, b, a = pixels[
+                y * width + x
+            ]
+
+            raw.extend([
+                r & 255,
+                g & 255,
+                b & 255,
+                a & 255
+            ])
+
+    def chunk(chunk_type, data):
+
+        return (
+            struct.pack(
+                ">I",
+                len(data)
+            )
+            + chunk_type
+            + data
+            + struct.pack(
+                ">I",
+                zlib.crc32(
+                    chunk_type + data
+                ) & 0xffffffff
+            )
+        )
+
+    png = b"\x89PNG\r\n\x1a\n"
+
+    png += chunk(
+        b"IHDR",
+        struct.pack(
+            ">IIBBBBB",
+            width,
+            height,
+            8,
+            6,
+            0,
+            0,
+            0
+        )
     )
+
+    png += chunk(
+        b"IDAT",
+        zlib.compress(
+            bytes(raw),
+            9
+        )
+    )
+
+    png += chunk(
+        b"IEND",
+        b""
+    )
+
+    with open(
+        filename,
+        "wb"
+    ) as f:
+
+        f.write(png)
+
+
+# =========================================================
+# CREATE YELLOW SALE BURST
+# =========================================================
+
+def create_boom_frame(filename):
+
+    width = 235
+    height = 250
+
+    cx = width / 2
+    cy = height / 2
+
+    YELLOW = (255, 215, 0)
+
+    # عدد الأشواك
+    spikes = 16
+
+    # الغلاف الخارجي البيضاوي
+    outer_x = 108
+    outer_y = 92
+
+    # المركز الداخلي الواسع
+    inner_x = 76
+    inner_y = 63
+
+    polygon = []
+
+    for i in range(spikes * 2):
+
+        angle = (
+            -math.pi / 2
+            + (i * math.pi / spikes)
+        )
+
+        if i % 2 == 0:
+
+            radius_x = outer_x
+            radius_y = outer_y
+
+        else:
+
+            radius_x = inner_x
+            radius_y = inner_y
+
+        x = (
+            cx
+            + math.cos(angle) * radius_x
+        )
+
+        y = (
+            cy
+            + math.sin(angle) * radius_y
+        )
+
+        polygon.append(
+            (x, y)
+        )
+
+    def point_in_polygon(
+        px,
+        py,
+        points
+    ):
+
+        inside = False
+        j = len(points) - 1
+
+        for i in range(len(points)):
+
+            xi, yi = points[i]
+            xj, yj = points[j]
+
+            if ((yi > py) != (yj > py)):
+
+                intersection = (
+                    (xj - xi)
+                    * (py - yi)
+                    / ((yj - yi) + 1e-12)
+                    + xi
+                )
+
+                if px < intersection:
+
+                    inside = not inside
+
+            j = i
+
+        return inside
+
+    pixels = []
+
+    for y in range(height):
+
+        for x in range(width):
+
+            if point_in_polygon(
+                x + 0.5,
+                y + 0.5,
+                polygon
+            ):
+
+                pixels.append((
+                    YELLOW[0],
+                    YELLOW[1],
+                    YELLOW[2],
+                    255
+                ))
+
+            else:
+
+                pixels.append(
+                    (0, 0, 0, 0)
+                )
+
+    save_png(
+        filename,
+        width,
+        height,
+        pixels
+    )
+
+
+# =========================================================
+# GET VIDEO DURATION
+# =========================================================
+
+def get_video_duration(input_file):
 
     command = [
         FFMPEG,
-        "-y",
-        "-i", input_file,
-
-        "-vf", filter_complex,
-
-        "-c:v", "libx264",
-        "-preset", PRESET,
-        "-crf", CRF,
-
-        "-c:a", "aac",
-        "-b:a", "192k",
-
-        "-movflags", "+faststart",
-
-        output_file
+        "-i",
+        input_file
     ]
 
-    subprocess.run(
+    result = subprocess.run(
         command,
-        check=True
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        encoding="utf-8",
+        errors="ignore"
     )
 
-    print("Processing complete.")
+    output = result.stderr
+
+    match = re.search(
+        r"Duration:\s*(\d+):(\d+):([\d.]+)",
+        output
+    )
+
+    if not match:
+
+        raise RuntimeError(
+            "Could not determine video duration."
+        )
+
+    hours = int(
+        match.group(1)
+    )
+
+    minutes = int(
+        match.group(2)
+    )
+
+    seconds = float(
+        match.group(3)
+    )
+
+    return (
+        hours * 3600
+        + minutes * 60
+        + seconds
+    )
+
+
+# =========================================================
+# WATERMARK / OVERLAY
+# =========================================================
+
+def process_video(
+    input_file,
+    output_file,
+    price
+):
+
+    print("Processing video...")
+
+    burst_file = (
+        f"temp_sale_burst_{os.getpid()}.png"
+    )
+
+    try:
+
+        # -------------------------------------------------
+        # CREATE BURST
+        # -------------------------------------------------
+
+        create_boom_frame(
+            burst_file
+        )
+
+        # -------------------------------------------------
+        # VIDEO DURATION
+        # -------------------------------------------------
+
+        duration = get_video_duration(
+            input_file
+        )
+
+        print(
+            f"Video duration: {duration:.2f} seconds"
+        )
+
+        # -------------------------------------------------
+        # LOGO
+        # -------------------------------------------------
+
+        logo_filter = (
+            "[1:v]"
+            "scale=105:-1,"
+            "format=rgba,"
+            f"colorchannelmixer=aa={LOGO_ALPHA}"
+            "[logo]"
+        )
+
+        # -------------------------------------------------
+        # WHATSAPP
+        # -------------------------------------------------
+
+        whatsapp_filter = (
+            "[2:v]"
+            "scale=38:38,"
+            "format=rgba,"
+            f"colorchannelmixer=aa={WHATSAPP_ALPHA}"
+            "[wa]"
+        )
+
+        # -------------------------------------------------
+        # BURST
+        # -------------------------------------------------
+
+        burst_filter = (
+            "[3:v]"
+            "scale=200:200"
+            "[burst]"
+        )
+
+        # -------------------------------------------------
+        # LOGO TOP RIGHT
+        # -------------------------------------------------
+
+        logo_overlay = (
+            "[0:v][logo]"
+            "overlay=x=W-w:y=0"
+            "[v1]"
+        )
+
+        # -------------------------------------------------
+        # BURST TOP LEFT
+        # -------------------------------------------------
+
+        burst_overlay = (
+            "[v1][burst]"
+            "overlay=x=5:y=-10"
+            "[v2]"
+        )
+
+        # -------------------------------------------------
+        # SALE TEXT
+        # -------------------------------------------------
+
+        sale_text = (
+            "drawtext="
+            f"fontfile='{FONT}':"
+            "text='عرض خاص':"
+            "fontcolor=red:"
+            "bordercolor=red:"
+            "borderw=1:"
+            "fontsize=25:"
+            "x=40+(130-text_w)/2:"
+            "y=52"
+        )
+
+        # -------------------------------------------------
+        # SECOND LINE
+        # -------------------------------------------------
+
+        second_text = (
+            "drawtext="
+            f"fontfile='{FONT}':"
+            "text='فقط بـ':"
+            "fontcolor=red:"
+            "bordercolor=red:"
+            "borderw=1:"
+            "fontsize=24:"
+            "x=40+(130-text_w)/2:"
+            "y=80"
+        )
+
+        # -------------------------------------------------
+        # PRICE
+        # -------------------------------------------------
+
+        price_number = (
+            "drawtext="
+            f"fontfile='{FONT}':"
+            f"text='{price}':"
+            "fontcolor=red:"
+            "bordercolor=red:"
+            "borderw=1:"
+            "fontsize=30:"
+            "x=110:"
+            "y=105"
+        )
+
+        # -------------------------------------------------
+        # CURRENCY
+        # -------------------------------------------------
+
+        currency_text = (
+            "drawtext="
+            f"fontfile='{FONT}':"
+            "text='درهم':"
+            "fontcolor=red:"
+            "bordercolor=red:"
+            "borderw=1:"
+            "fontsize=25:"
+            "x=65:"
+            "y=110"
+        )
+
+        # -------------------------------------------------
+        # INSTAGRAM
+        # -------------------------------------------------
+
+        instagram_text = (
+            "drawtext="
+            f"fontfile='{FONT}':"
+            f"text='{INSTAGRAM}':"
+            "fontcolor=white:"
+            "fontsize=28:"
+            "x=(w-text_w)/2:"
+            "y=(h-text_h)/2"
+        )
+
+        # -------------------------------------------------
+        # PHONE
+        # -------------------------------------------------
+
+        phone_text = (
+            "drawtext="
+            f"fontfile='{FONT}':"
+            f"text='{PHONE}':"
+            "fontcolor=white:"
+            "fontsize=28:"
+            "x=(w-text_w)/2+25:"
+            "y=(h-text_h)/2+60"
+        )
+
+        # -------------------------------------------------
+        # FILTER GRAPH
+        # -------------------------------------------------
+
+        filter_complex = ";".join([
+
+            logo_filter,
+
+            whatsapp_filter,
+
+            burst_filter,
+
+            logo_overlay,
+
+            burst_overlay,
+
+            "[v2]"
+            + sale_text
+            + ","
+            + second_text
+            + ","
+            + price_number
+            + ","
+            + currency_text
+            + "[v3]",
+
+            "[v3]"
+            + instagram_text
+            + ","
+            + phone_text
+            + "[v4]",
+
+            "[v4][wa]"
+            "overlay=x=(W-w)/2-92:y=(H-h)/2"
+            "[vout]"
+        ])
+
+        # -------------------------------------------------
+        # FFMPEG COMMAND
+        # -------------------------------------------------
+
+        command = [
+
+            FFMPEG,
+
+            "-y",
+
+            "-i",
+            input_file,
+
+            "-i",
+            LOGO,
+
+            "-i",
+            WHATSAPP,
+
+            "-loop",
+            "1",
+
+            "-i",
+            burst_file,
+
+            "-filter_complex",
+            filter_complex,
+
+            "-map",
+            "[vout]",
+
+            "-map",
+            "0:a?",
+
+            "-t",
+            str(duration),
+
+            "-c:v",
+            "libx264",
+
+            "-preset",
+            PRESET,
+
+            "-crf",
+            CRF,
+
+            "-pix_fmt",
+            "yuv420p",
+
+            "-c:a",
+            "aac",
+
+            "-b:a",
+            "192k",
+
+            "-movflags",
+            "+faststart",
+
+            output_file
+        ]
+
+        subprocess.run(
+            command,
+            check=True
+        )
+
+        print(
+            "Processing complete."
+        )
+
+    finally:
+
+        # حذف burst المؤقت
+        delete_file(
+            burst_file
+        )
 
 
 # =========================================================
 # UPLOAD
 # =========================================================
 
-def upload_video(service, folder_id, output_file):
+def upload_video(
+    service,
+    folder_id,
+    output_file
+):
 
-    print("Uploading to Google Drive...")
+    print(
+        "Uploading to Google Drive..."
+    )
 
     metadata = {
-        "name": os.path.basename(output_file),
-        "parents": [folder_id]
+        "name": os.path.basename(
+            output_file
+        ),
+        "parents": [
+            folder_id
+        ]
     }
 
     media = MediaFileUpload(
@@ -249,7 +750,9 @@ def upload_video(service, folder_id, output_file):
 
     del media
 
-    print(f"Uploaded: {uploaded['name']}")
+    print(
+        f"Uploaded: {uploaded['name']}"
+    )
 
     return uploaded
 
@@ -266,15 +769,20 @@ def delete_file(filename):
     for attempt in range(5):
 
         try:
+
             os.remove(filename)
+
             return
 
         except PermissionError:
 
             if attempt < 4:
+
                 time.sleep(2)
 
-    print(f"Warning: لم يتم حذف الملف المؤقت: {filename}")
+    print(
+        f"Warning: لم يتم حذف الملف المؤقت: {filename}"
+    )
 
 
 # =========================================================
@@ -283,9 +791,12 @@ def delete_file(filename):
 
 service = get_drive_service()
 
-folder_id = get_shadhw_folder(service)
+folder_id = get_shadhw_folder(
+    service
+)
 
-print("\n========================================")
+print()
+print("========================================")
 print("SHADHW VIDEO PROCESSOR")
 print("========================================")
 
@@ -307,62 +818,116 @@ for product in products:
         continue
 
     if not source_id:
-        print(f"SKIP: {product_id} — لا يوجد source_id")
+
+        print(
+            f"SKIP: {product_id} — لا يوجد source_id"
+        )
+
         continue
 
     if not videos:
         continue
 
-    print("\n----------------------------------------")
+    print()
+    print("----------------------------------------")
     print(f"Product: {product_id}")
     print(f"Source ID: {source_id}")
     print(f"Price: {price}")
     print(f"Videos: {len(videos)}")
     print("----------------------------------------")
 
-    for video_index, video_url in enumerate(videos, start=1):
+    for video_index, video_url in enumerate(
+        videos,
+        start=1
+    ):
 
         total_videos += 1
 
-        # كل فيديو له ID خاص باستعمال source_id
-        video_key = f"{source_id}_video_{video_index}"
+        # ---------------------------------------------
+        # VIDEO KEY
+        # ---------------------------------------------
 
-        # اسم الملف النهائي باستعمال source_id
+        video_key = (
+            f"{source_id}_video_{video_index}"
+        )
+
+        # ---------------------------------------------
+        # OUTPUT NAME
+        # ---------------------------------------------
+
         if len(videos) == 1:
-            output_name = f"{source_id}-{price}.mp4"
-        else:
-            output_name = f"{source_id}-{price}-{video_index}.mp4"
 
-        input_file = f"temp_{video_key}.mp4"
+            output_name = (
+                f"{source_id}-{price}.mp4"
+            )
+
+        else:
+
+            output_name = (
+                f"{source_id}-{price}-{video_index}.mp4"
+            )
+
+        input_file = (
+            f"temp_{video_key}.mp4"
+        )
+
         output_file = output_name
 
-        # -----------------------------------------
+        # ---------------------------------------------
         # SKIP COMPLETED
-        # -----------------------------------------
+        # ---------------------------------------------
 
-        if processed.get(video_key, {}).get("status") == "completed":
+        if (
+            processed
+            .get(video_key, {})
+            .get("status")
+            == "completed"
+        ):
 
-            print(f"\nSKIP: {video_key}")
-            print("هذا الفيديو تمت معالجته سابقًا.")
+            print()
+            print(
+                f"SKIP: {video_key}"
+            )
+
+            print(
+                "هذا الفيديو تمت معالجته سابقًا."
+            )
 
             skipped += 1
+
             continue
 
-        print(f"\nProcessing: {video_key}")
-        print(f"URL: {video_url}")
+        print()
+        print(
+            f"Processing: {video_key}"
+        )
+
+        print(
+            f"URL: {video_url}"
+        )
 
         try:
 
-            # -------------------------------------
+            # -----------------------------------------
             # DOWNLOAD
-            # -------------------------------------
+            # -----------------------------------------
 
             processed[video_key] = {
-                "product_id": product_id,
-                "source_id": source_id,
-                "video_index": video_index,
-                "price": price,
-                "status": "processing"
+
+                "product_id":
+                    product_id,
+
+                "source_id":
+                    source_id,
+
+                "video_index":
+                    video_index,
+
+                "price":
+                    price,
+
+                "status":
+                    "processing"
             }
 
             save_state()
@@ -372,9 +937,9 @@ for product in products:
                 input_file
             )
 
-            # -------------------------------------
+            # -----------------------------------------
             # PROCESS
-            # -------------------------------------
+            # -----------------------------------------
 
             process_video(
                 input_file,
@@ -382,9 +947,9 @@ for product in products:
                 price
             )
 
-            # -------------------------------------
+            # -----------------------------------------
             # UPLOAD
-            # -------------------------------------
+            # -----------------------------------------
 
             uploaded = upload_video(
                 service,
@@ -392,71 +957,138 @@ for product in products:
                 output_file
             )
 
-            # -------------------------------------
+            # -----------------------------------------
             # MARK COMPLETED
-            # -------------------------------------
+            # -----------------------------------------
 
             processed[video_key] = {
-                "product_id": product_id,
-                "source_id": source_id,
-                "video_index": video_index,
-                "price": price,
-                "filename": output_name,
-                "drive_id": uploaded["id"],
-                "status": "completed"
+
+                "product_id":
+                    product_id,
+
+                "source_id":
+                    source_id,
+
+                "video_index":
+                    video_index,
+
+                "price":
+                    price,
+
+                "filename":
+                    output_name,
+
+                "drive_id":
+                    uploaded["id"],
+
+                "status":
+                    "completed"
             }
 
             save_state()
 
             completed_now += 1
 
-            print("SUCCESS")
+            print(
+                "SUCCESS"
+            )
 
         except Exception as e:
 
             failed += 1
 
             processed[video_key] = {
-                "product_id": product_id,
-                "source_id": source_id,
-                "video_index": video_index,
-                "price": price,
-                "filename": output_name,
-                "status": "failed",
-                "error": str(e)
+
+                "product_id":
+                    product_id,
+
+                "source_id":
+                    source_id,
+
+                "video_index":
+                    video_index,
+
+                "price":
+                    price,
+
+                "filename":
+                    output_name,
+
+                "status":
+                    "failed",
+
+                "error":
+                    str(e)
             }
 
             save_state()
 
-            print("\nERROR")
-            print(str(e))
+            print()
+            print(
+                "ERROR"
+            )
+
+            print(
+                str(e)
+            )
 
         finally:
 
             # حذف الأصل المؤقت
-            delete_file(input_file)
+            delete_file(
+                input_file
+            )
 
-            # حذف الفيديو النهائي المحلي بعد الرفع
-            delete_file(output_file)
+            # حذف الفيديو النهائي المحلي
+            # بعد الرفع
+            delete_file(
+                output_file
+            )
 
 
 # =========================================================
 # FINAL REPORT
 # =========================================================
 
-print("\n========================================")
+print()
+print("========================================")
 print("FINISHED")
 print("========================================")
 
-print(f"إجمالي الفيديوهات: {total_videos}")
-print(f"تمت معالجتها الآن: {completed_now}")
-print(f"تم تخطيها: {skipped}")
-print(f"فشلت: {failed}")
+print(
+    f"إجمالي الفيديوهات: {total_videos}"
+)
 
-print("\nالملفات النهائية موجودة في Google Drive:")
-print("shadhw")
+print(
+    f"تمت معالجتها الآن: {completed_now}"
+)
 
-print("\nحالة المعالجة محفوظة في:")
-print("processed_videos.json")
+print(
+    f"تم تخطيها: {skipped}"
+)
 
-print("========================================")
+print(
+    f"فشلت: {failed}"
+)
+
+print()
+print(
+    "الملفات النهائية موجودة في Google Drive:"
+)
+
+print(
+    "shadhw"
+)
+
+print()
+print(
+    "حالة المعالجة محفوظة في:"
+)
+
+print(
+    "processed_videos.json"
+)
+
+print(
+    "========================================"
+)
