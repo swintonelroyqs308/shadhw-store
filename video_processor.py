@@ -294,7 +294,7 @@ def create_boom_frame(
     filename
 ):
 
-    width = 250
+    width = 280
     height = 250
 
     cx = width / 2
