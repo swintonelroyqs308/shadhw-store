@@ -701,7 +701,7 @@ def process_video(
             # WhatsApp + PHONE في نفس السطر
             "[v4][wa]"
             "overlay="
-            "x=(W-w)/2-75:"
+            "x=(W-w)/2-95:"
             "y=(H-h)/2-1"
             "[vout]"
         ])
