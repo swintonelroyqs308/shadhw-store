@@ -16,7 +16,6 @@ from test_drive import get_drive_service
 # CONFIG
 # =========================================================
 
-# INSTAGRAM = "@shadhw.jewels"
 PHONE = "0630 000 552"
 
 FFMPEG = os.environ.get(
@@ -562,7 +561,7 @@ def process_video(
 
 
         # =================================================
-        # LOGO
+        # LOGO OVERLAY
         # =================================================
 
         logo_overlay = (
@@ -573,7 +572,7 @@ def process_video(
 
 
         # =================================================
-        # BURST
+        # BURST OVERLAY
         # =================================================
 
         burst_overlay = (
@@ -655,21 +654,6 @@ def process_video(
 
 
         # =================================================
-        # INSTAGRAM
-        # =================================================
-
-        #instagram_text = (
-         #   "drawtext="
-          #  f"fontfile='{FONT}':"
-           # f"text='{INSTAGRAM}':"
-            #"fontcolor=white:"
-            #"fontsize=28:"
-            #"x=(w-text_w)/2+20:"
-            #"y=(h-text_h)/2-20"
-        #)
-
-
-        # =================================================
         # PHONE
         # =================================================
 
@@ -711,8 +695,6 @@ def process_video(
             + "[v3]",
 
             "[v3]"
-            + instagram_text
-            + ","
             + phone_text
             + "[v4]",
 
