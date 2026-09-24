@@ -895,7 +895,7 @@ failed = 0
 # TEST MODE
 # =========================================================
 
-TEST_MODE = True
+TEST_MODE = False
 TEST_SOURCE_ID = "288"
 
 
