@@ -17,11 +17,11 @@ from test_drive import get_drive_service
 # =========================================================
 
 INSTAGRAM = "@shadhw.jewels"
-PHONE = "0630000552"
+PHONE = "0630 000 552"
 
 FFMPEG = os.environ.get(
     "FFMPEG_PATH",
-    r"C:\Users\العسل\Downloads\ffmpeg-9.0.2-essentials_build\bin\ffmpeg.exe"
+    r"C:\Users\العسل\Downloads\ffmpeg-9.0.2-essentials_build\ffmpeg.exe"
 )
 
 PRODUCTS_FILE = "products.json"
@@ -32,8 +32,8 @@ DRIVE_FOLDER_NAME = "shadhw"
 LOGO = "logo.png"
 WHATSAPP = "whatsapp.png"
 
-# الخط المستعمل في النسخة التجريبية الناجحة
-FONT = "C\\:/Windows/Fonts/tradbdo.ttf"
+# خط يدعم العربية
+FONT = "C\\:/Windows/Fonts/arial.ttf"
 
 # جودة الفيديو
 CRF = "18"
@@ -48,10 +48,17 @@ WHATSAPP_ALPHA = 0.35
 # LOAD PRODUCTS
 # =========================================================
 
-with open(PRODUCTS_FILE, "r", encoding="utf-8") as f:
+with open(
+    PRODUCTS_FILE,
+    "r",
+    encoding="utf-8"
+) as f:
+
     products = json.load(f)
 
-print(f"\nعدد المنتجات: {len(products)}")
+print(
+    f"\nعدد المنتجات: {len(products)}"
+)
 
 
 # =========================================================
@@ -59,12 +66,22 @@ print(f"\nعدد المنتجات: {len(products)}")
 # =========================================================
 
 if os.path.exists(STATE_FILE):
-    with open(STATE_FILE, "r", encoding="utf-8") as f:
+
+    with open(
+        STATE_FILE,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
         processed = json.load(f)
+
 else:
+
     processed = {}
 
-print(f"الفيديوهات المسجلة كمكتملة: {len(processed)}")
+print(
+    f"الفيديوهات المسجلة كمكتملة: {len(processed)}"
+)
 
 
 # =========================================================
@@ -75,7 +92,12 @@ def save_state():
 
     temp_file = STATE_FILE + ".tmp"
 
-    with open(temp_file, "w", encoding="utf-8") as f:
+    with open(
+        temp_file,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
         json.dump(
             processed,
             f,
@@ -108,7 +130,10 @@ def get_shadhw_folder(service):
         pageSize=10
     ).execute()
 
-    folders = results.get("files", [])
+    folders = results.get(
+        "files",
+        []
+    )
 
     if folders:
 
@@ -139,9 +164,14 @@ def get_shadhw_folder(service):
 # DOWNLOAD
 # =========================================================
 
-def download_video(url, filename):
+def download_video(
+    url,
+    filename
+):
 
-    print("Downloading...")
+    print(
+        "Downloading..."
+    )
 
     response = requests.get(
         url,
@@ -151,7 +181,10 @@ def download_video(url, filename):
 
     response.raise_for_status()
 
-    with open(filename, "wb") as f:
+    with open(
+        filename,
+        "wb"
+    ) as f:
 
         for chunk in response.iter_content(
             chunk_size=1024 * 1024
@@ -160,14 +193,21 @@ def download_video(url, filename):
             if chunk:
                 f.write(chunk)
 
-    print("Download complete.")
+    print(
+        "Download complete."
+    )
 
 
 # =========================================================
 # PNG WRITER
 # =========================================================
 
-def save_png(filename, width, height, pixels):
+def save_png(
+    filename,
+    width,
+    height,
+    pixels
+):
 
     raw = bytearray()
 
@@ -188,7 +228,10 @@ def save_png(filename, width, height, pixels):
                 a & 255
             ])
 
-    def chunk(chunk_type, data):
+    def chunk(
+        chunk_type,
+        data
+    ):
 
         return (
             struct.pack(
@@ -205,7 +248,9 @@ def save_png(filename, width, height, pixels):
             )
         )
 
-    png = b"\x89PNG\r\n\x1a\n"
+    png = (
+        b"\x89PNG\r\n\x1a\n"
+    )
 
     png += chunk(
         b"IHDR",
@@ -246,7 +291,9 @@ def save_png(filename, width, height, pixels):
 # CREATE YELLOW SALE BURST
 # =========================================================
 
-def create_boom_frame(filename):
+def create_boom_frame(
+    filename
+):
 
     width = 235
     height = 250
@@ -254,26 +301,33 @@ def create_boom_frame(filename):
     cx = width / 2
     cy = height / 2
 
-    YELLOW = (255, 215, 0)
+    YELLOW = (
+        255,
+        215,
+        0
+    )
 
-    # عدد الأشواك
     spikes = 16
 
-    # الغلاف الخارجي البيضاوي
     outer_x = 108
     outer_y = 92
 
-    # المركز الداخلي الواسع
     inner_x = 76
     inner_y = 63
 
     polygon = []
 
-    for i in range(spikes * 2):
+    for i in range(
+        spikes * 2
+    ):
 
         angle = (
             -math.pi / 2
-            + (i * math.pi / spikes)
+            + (
+                i
+                * math.pi
+                / spikes
+            )
         )
 
         if i % 2 == 0:
@@ -288,12 +342,14 @@ def create_boom_frame(filename):
 
         x = (
             cx
-            + math.cos(angle) * radius_x
+            + math.cos(angle)
+            * radius_x
         )
 
         y = (
             cy
-            + math.sin(angle) * radius_y
+            + math.sin(angle)
+            * radius_y
         )
 
         polygon.append(
@@ -309,17 +365,26 @@ def create_boom_frame(filename):
         inside = False
         j = len(points) - 1
 
-        for i in range(len(points)):
+        for i in range(
+            len(points)
+        ):
 
             xi, yi = points[i]
             xj, yj = points[j]
 
-            if ((yi > py) != (yj > py)):
+            if (
+                (yi > py)
+                !=
+                (yj > py)
+            ):
 
                 intersection = (
                     (xj - xi)
                     * (py - yi)
-                    / ((yj - yi) + 1e-12)
+                    / (
+                        (yj - yi)
+                        + 1e-12
+                    )
                     + xi
                 )
 
@@ -343,17 +408,24 @@ def create_boom_frame(filename):
                 polygon
             ):
 
-                pixels.append((
-                    YELLOW[0],
-                    YELLOW[1],
-                    YELLOW[2],
-                    255
-                ))
+                pixels.append(
+                    (
+                        YELLOW[0],
+                        YELLOW[1],
+                        YELLOW[2],
+                        255
+                    )
+                )
 
             else:
 
                 pixels.append(
-                    (0, 0, 0, 0)
+                    (
+                        0,
+                        0,
+                        0,
+                        0
+                    )
                 )
 
     save_png(
@@ -368,7 +440,9 @@ def create_boom_frame(filename):
 # GET VIDEO DURATION
 # =========================================================
 
-def get_video_duration(input_file):
+def get_video_duration(
+    input_file
+):
 
     command = [
         FFMPEG,
@@ -418,7 +492,7 @@ def get_video_duration(input_file):
 
 
 # =========================================================
-# WATERMARK / OVERLAY
+# PROCESS VIDEO
 # =========================================================
 
 def process_video(
@@ -427,7 +501,9 @@ def process_video(
     price
 ):
 
-    print("Processing video...")
+    print(
+        "Processing video..."
+    )
 
     burst_file = (
         f"temp_sale_burst_{os.getpid()}.png"
@@ -435,17 +511,9 @@ def process_video(
 
     try:
 
-        # -------------------------------------------------
-        # CREATE BURST
-        # -------------------------------------------------
-
         create_boom_frame(
             burst_file
         )
-
-        # -------------------------------------------------
-        # VIDEO DURATION
-        # -------------------------------------------------
 
         duration = get_video_duration(
             input_file
@@ -455,9 +523,10 @@ def process_video(
             f"Video duration: {duration:.2f} seconds"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # LOGO
-        # -------------------------------------------------
+        # =================================================
 
         logo_filter = (
             "[1:v]"
@@ -467,9 +536,10 @@ def process_video(
             "[logo]"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # WHATSAPP
-        # -------------------------------------------------
+        # =================================================
 
         whatsapp_filter = (
             "[2:v]"
@@ -479,9 +549,10 @@ def process_video(
             "[wa]"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # BURST
-        # -------------------------------------------------
+        # =================================================
 
         burst_filter = (
             "[3:v]"
@@ -489,9 +560,10 @@ def process_video(
             "[burst]"
         )
 
-        # -------------------------------------------------
-        # LOGO TOP RIGHT
-        # -------------------------------------------------
+
+        # =================================================
+        # LOGO
+        # =================================================
 
         logo_overlay = (
             "[0:v][logo]"
@@ -499,9 +571,10 @@ def process_video(
             "[v1]"
         )
 
-        # -------------------------------------------------
-        # BURST TOP LEFT
-        # -------------------------------------------------
+
+        # =================================================
+        # BURST
+        # =================================================
 
         burst_overlay = (
             "[v1][burst]"
@@ -509,14 +582,16 @@ def process_video(
             "[v2]"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # SALE TEXT
-        # -------------------------------------------------
+        # =================================================
 
         sale_text = (
             "drawtext="
             f"fontfile='{FONT}':"
             "text='عرض خاص':"
+            "text_shaping=1:"
             "fontcolor=red:"
             "bordercolor=red:"
             "borderw=1:"
@@ -525,14 +600,16 @@ def process_video(
             "y=52"
         )
 
-        # -------------------------------------------------
-        # SECOND LINE
-        # -------------------------------------------------
+
+        # =================================================
+        # SECOND TEXT
+        # =================================================
 
         second_text = (
             "drawtext="
             f"fontfile='{FONT}':"
             "text='فقط بـ':"
+            "text_shaping=1:"
             "fontcolor=red:"
             "bordercolor=red:"
             "borderw=1:"
@@ -541,9 +618,10 @@ def process_video(
             "y=80"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # PRICE
-        # -------------------------------------------------
+        # =================================================
 
         price_number = (
             "drawtext="
@@ -557,14 +635,16 @@ def process_video(
             "y=105"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # CURRENCY
-        # -------------------------------------------------
+        # =================================================
 
         currency_text = (
             "drawtext="
             f"fontfile='{FONT}':"
             "text='درهم':"
+            "text_shaping=1:"
             "fontcolor=red:"
             "bordercolor=red:"
             "borderw=1:"
@@ -573,9 +653,10 @@ def process_video(
             "y=110"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # INSTAGRAM
-        # -------------------------------------------------
+        # =================================================
 
         instagram_text = (
             "drawtext="
@@ -583,13 +664,14 @@ def process_video(
             f"text='{INSTAGRAM}':"
             "fontcolor=white:"
             "fontsize=28:"
-            "x=(w-text_w)/2:"
-            "y=(h-text_h)/2"
+            "x=(w-text_w)/2+20:"
+            "y=(h-text_h)/2-20"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # PHONE
-        # -------------------------------------------------
+        # =================================================
 
         phone_text = (
             "drawtext="
@@ -597,13 +679,14 @@ def process_video(
             f"text='{PHONE}':"
             "fontcolor=white:"
             "fontsize=28:"
-            "x=(w-text_w)/2+25:"
-            "y=(h-text_h)/2+60"
+            "x=(w-text_w)/2:"
+            "y=(h-text_h)/2+35"
         )
 
-        # -------------------------------------------------
+
+        # =================================================
         # FILTER GRAPH
-        # -------------------------------------------------
+        # =================================================
 
         filter_complex = ";".join([
 
@@ -634,13 +717,14 @@ def process_video(
             + "[v4]",
 
             "[v4][wa]"
-            "overlay=x=(W-w)/2-92:y=(H-h)/2"
+            "overlay=x=(W-w)/2-105:y=(H-h)/2-20"
             "[vout]"
         ])
 
-        # -------------------------------------------------
-        # FFMPEG COMMAND
-        # -------------------------------------------------
+
+        # =================================================
+        # FFMPEG
+        # =================================================
 
         command = [
 
@@ -710,7 +794,6 @@ def process_video(
 
     finally:
 
-        # حذف burst المؤقت
         delete_file(
             burst_file
         )
@@ -761,19 +844,26 @@ def upload_video(
 
 
 # =========================================================
-# DELETE TEMP FILE
+# DELETE
 # =========================================================
 
-def delete_file(filename):
+def delete_file(
+    filename
+):
 
-    if not os.path.exists(filename):
+    if not os.path.exists(
+        filename
+    ):
+
         return
 
     for attempt in range(5):
 
         try:
 
-            os.remove(filename)
+            os.remove(
+                filename
+            )
 
             return
 
@@ -799,9 +889,15 @@ folder_id = get_shadhw_folder(
 )
 
 print()
-print("========================================")
-print("SHADHW VIDEO PROCESSOR")
-print("========================================")
+print(
+    "========================================"
+)
+print(
+    "SHADHW VIDEO PROCESSOR"
+)
+print(
+    "========================================"
+)
 
 
 total_videos = 0
@@ -809,21 +905,49 @@ completed_now = 0
 skipped = 0
 failed = 0
 
+
+# =========================================================
+# TEST MODE
+# =========================================================
+
 TEST_MODE = True
 TEST_SOURCE_ID = "288"
 
+
 for product in products:
 
-    if TEST_MODE and str(product.get("source_id")) != TEST_SOURCE_ID:
+    if (
+        TEST_MODE
+        and
+        str(
+            product.get("source_id")
+        )
+        != TEST_SOURCE_ID
+    ):
+
         continue
-    
-    product_id = product.get("id")
-    source_id = product.get("source_id")
-    price = product.get("price")
-    videos = product.get("videos") or []
+
+    product_id = product.get(
+        "id"
+    )
+
+    source_id = product.get(
+        "source_id"
+    )
+
+    price = product.get(
+        "price"
+    )
+
+    videos = product.get(
+        "videos"
+    ) or []
+
 
     if not product_id:
+
         continue
+
 
     if not source_id:
 
@@ -833,16 +957,37 @@ for product in products:
 
         continue
 
+
     if not videos:
+
         continue
 
+
     print()
-    print("----------------------------------------")
-    print(f"Product: {product_id}")
-    print(f"Source ID: {source_id}")
-    print(f"Price: {price}")
-    print(f"Videos: {len(videos)}")
-    print("----------------------------------------")
+    print(
+        "----------------------------------------"
+    )
+
+    print(
+        f"Product: {product_id}"
+    )
+
+    print(
+        f"Source ID: {source_id}"
+    )
+
+    print(
+        f"Price: {price}"
+    )
+
+    print(
+        f"Videos: {len(videos)}"
+    )
+
+    print(
+        "----------------------------------------"
+    )
+
 
     for video_index, video_url in enumerate(
         videos,
@@ -851,17 +996,11 @@ for product in products:
 
         total_videos += 1
 
-        # ---------------------------------------------
-        # VIDEO KEY
-        # ---------------------------------------------
 
         video_key = (
             f"{source_id}_video_{video_index}"
         )
 
-        # ---------------------------------------------
-        # OUTPUT NAME
-        # ---------------------------------------------
 
         if len(videos) == 1:
 
@@ -875,21 +1014,22 @@ for product in products:
                 f"{source_id}-{price}-{video_index}.mp4"
             )
 
+
         input_file = (
             f"temp_{video_key}.mp4"
         )
 
-        output_file = output_name
+        output_file = (
+            output_name
+        )
 
-        # ---------------------------------------------
-        # SKIP COMPLETED
-        # ---------------------------------------------
 
         if (
             processed
             .get(video_key, {})
             .get("status")
-            == "completed"
+            ==
+            "completed"
         ):
 
             print()
@@ -905,6 +1045,7 @@ for product in products:
 
             continue
 
+
         print()
         print(
             f"Processing: {video_key}"
@@ -914,11 +1055,8 @@ for product in products:
             f"URL: {video_url}"
         )
 
-        try:
 
-            # -----------------------------------------
-            # DOWNLOAD
-            # -----------------------------------------
+        try:
 
             processed[video_key] = {
 
@@ -940,14 +1078,12 @@ for product in products:
 
             save_state()
 
+
             download_video(
                 video_url,
                 input_file
             )
 
-            # -----------------------------------------
-            # PROCESS
-            # -----------------------------------------
 
             process_video(
                 input_file,
@@ -955,9 +1091,6 @@ for product in products:
                 price
             )
 
-            # -----------------------------------------
-            # UPLOAD
-            # -----------------------------------------
 
             uploaded = upload_video(
                 service,
@@ -965,9 +1098,6 @@ for product in products:
                 output_file
             )
 
-            # -----------------------------------------
-            # MARK COMPLETED
-            # -----------------------------------------
 
             processed[video_key] = {
 
@@ -1000,6 +1130,7 @@ for product in products:
             print(
                 "SUCCESS"
             )
+
 
         except Exception as e:
 
@@ -1040,15 +1171,13 @@ for product in products:
                 str(e)
             )
 
+
         finally:
 
-            # حذف الأصل المؤقت
             delete_file(
                 input_file
             )
 
-            # حذف الفيديو النهائي المحلي
-            # بعد الرفع
             delete_file(
                 output_file
             )
@@ -1059,9 +1188,17 @@ for product in products:
 # =========================================================
 
 print()
-print("========================================")
-print("FINISHED")
-print("========================================")
+print(
+    "========================================"
+)
+
+print(
+    "FINISHED"
+)
+
+print(
+    "========================================"
+)
 
 print(
     f"إجمالي الفيديوهات: {total_videos}"
@@ -1080,6 +1217,7 @@ print(
 )
 
 print()
+
 print(
     "الملفات النهائية موجودة في Google Drive:"
 )
@@ -1089,6 +1227,7 @@ print(
 )
 
 print()
+
 print(
     "حالة المعالجة محفوظة في:"
 )
