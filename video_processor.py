@@ -294,7 +294,7 @@ def create_boom_frame(
     filename
 ):
 
-    width = 240
+    width = 250
     height = 250
 
     cx = width / 2
@@ -663,8 +663,8 @@ def process_video(
             f"text='{PHONE}':"
             "fontcolor=white:"
             "fontsize=28:"
-            "x=(w-text_w)/2:"
-            "y=(h-text_h)/2+35"
+            "x=(w-text_w)/2+25:"
+            "y=(h-text_h)/2"
         )
 
 
@@ -698,8 +698,11 @@ def process_video(
             + phone_text
             + "[v4]",
 
+            # WhatsApp + PHONE في نفس السطر
             "[v4][wa]"
-            "overlay=x=(W-w)/2-105:y=(H-h)/2-20"
+            "overlay="
+            "x=(W-w)/2-55:"
+            "y=(H-h)/2-1"
             "[vout]"
         ])
 
