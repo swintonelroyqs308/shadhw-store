@@ -806,9 +806,14 @@ completed_now = 0
 skipped = 0
 failed = 0
 
+TEST_MODE = True
+TEST_SOURCE_ID = "288"
 
 for product in products:
 
+    if TEST_MODE and str(product.get("source_id")) != TEST_SOURCE_ID:
+        continue
+    
     product_id = product.get("id")
     source_id = product.get("source_id")
     price = product.get("price")
