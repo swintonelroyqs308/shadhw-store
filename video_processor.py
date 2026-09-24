@@ -29,6 +29,9 @@ STATE_FILE = "processed_videos.json"
 
 DRIVE_FOLDER_NAME = "shadhw"
 
+LOGO = "logo.png"
+WHATSAPP = "whatsapp.png"
+
 # الخط المستعمل في النسخة التجريبية الناجحة
 FONT = "C\\:/Windows/Fonts/tradbdo.ttf"
 
