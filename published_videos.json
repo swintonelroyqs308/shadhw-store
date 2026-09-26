@@ -58,8 +58,11 @@
     "price": "160",
     "filename": "306-160.mp4",
     "drive_id": "1M5d5aWaR0k7Vly3MjpuTeMi-nKvA5uz4",
-    "status": "failed",
-    "error": "HTTPSConnectionPool(host='postfile.net', port=443): Read timed out. (read timeout=300)"
+    "postfile_id": "caa153fd4b4b4653a3daaf7f271b54bd",
+    "postfile_url": "https://cdn.postfile.download/file/postfile/uploads/ca/caa153fd4b4b4653a3daaf7f271b54bd.mp4",
+    "instagram_creation_id": "18118685101816562",
+    "instagram_media_id": "17896521042396692",
+    "status": "published"
   },
   "166_video_1": {
     "product_id": "shadhw_13",
