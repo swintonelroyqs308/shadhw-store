@@ -59,7 +59,7 @@
     "filename": "306-160.mp4",
     "drive_id": "1M5d5aWaR0k7Vly3MjpuTeMi-nKvA5uz4",
     "status": "failed",
-    "error": "Instagram container failed: {'id': '18118119463816562', 'status_code': 'ERROR', 'status': 'ERROR'}"
+    "error": "HTTPSConnectionPool(host='postfile.net', port=443): Read timed out. (read timeout=300)"
   },
   "166_video_1": {
     "product_id": "shadhw_13",
@@ -228,6 +228,19 @@
     "postfile_url": "https://cdn.postfile.download/file/postfile/uploads/e6/e62168046ef64ed5845e82efee91b939.mp4",
     "instagram_creation_id": "18118119556816562",
     "instagram_media_id": "18078192335715490",
+    "status": "published"
+  },
+  "320_video_1": {
+    "product_id": "shadhw_18",
+    "source_id": "320",
+    "video_index": 1,
+    "price": "185",
+    "filename": "320-185.mp4",
+    "drive_id": "1bA8vAGmJ9xeqTxe1sAhMJn2nD6UMTjtd",
+    "postfile_id": "77e75256a9904fe4b588df493aee3f63",
+    "postfile_url": "https://cdn.postfile.download/file/postfile/uploads/77/77e75256a9904fe4b588df493aee3f63.mp4",
+    "instagram_creation_id": "18118680940816562",
+    "instagram_media_id": "18177138628447241",
     "status": "published"
   }
 }
