@@ -211,8 +211,11 @@
     "price": "190",
     "filename": "225-190.mp4",
     "drive_id": "1pv_XeF4f7CqLk1WziutDI50fPfOfQ4s1",
-    "status": "failed",
-    "error": "PostFile upload failed: 504 <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>cloudflare</center>\r\n</body>\r\n</html>\r\n"
+    "postfile_id": "40418026936e41608adb0312398d91fd",
+    "postfile_url": "https://cdn.postfile.download/file/postfile/uploads/40/40418026936e41608adb0312398d91fd.mp4",
+    "instagram_creation_id": "18118526560816562",
+    "instagram_media_id": "18099810608381336",
+    "status": "published"
   },
   "280_video_1": {
     "product_id": "shadhw_15",
