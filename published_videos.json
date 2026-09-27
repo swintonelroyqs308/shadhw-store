@@ -370,8 +370,11 @@
     "price": "195",
     "filename": "318-195-1.mp4",
     "drive_id": "11hpUKvFtMvDoT04xokeMRX0kmfKUe5Jm",
-    "status": "failed",
-    "error": "Instagram container failed: {'id': '18119078917816562', 'status_code': 'ERROR', 'status': 'ERROR'}"
+    "postfile_id": "f977ff3c5768481f9c4697037a157300",
+    "postfile_url": "https://cdn.postfile.download/file/postfile/uploads/f9/f977ff3c5768481f9c4697037a157300.mp4",
+    "instagram_creation_id": "18119142847816562",
+    "instagram_media_id": "18073029857749378",
+    "status": "published"
   },
   "318_video_2": {
     "product_id": "shadhw_29",
