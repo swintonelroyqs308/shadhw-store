@@ -398,8 +398,8 @@ for video_key, data in processed.items():
     if video_key in published and published[video_key].get("status") == "published":
         continue
 
-    if data.get("source_id") != "194":
-        continue
+    #if data.get("source_id") != "194":
+        #continue
 
     drive_id = data.get("drive_id")
 
