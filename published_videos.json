@@ -1207,5 +1207,18 @@
     "instagram_creation_id": "18121427071816562",
     "instagram_media_id": "17910733566554171",
     "status": "published"
+  },
+  "330_video_1": {
+    "product_id": "shadhw_2",
+    "source_id": "330",
+    "video_index": 1,
+    "price": "145",
+    "filename": "330-145-1.mp4",
+    "drive_id": "1ZdTqqvbm4Jt5ObtQziigF78hTI6qHM-q",
+    "postfile_id": "aef57d96e24b4e62acfde993b553e0bd",
+    "postfile_url": "https://cdn.postfile.download/file/postfile/uploads/ae/aef57d96e24b4e62acfde993b553e0bd.mp4",
+    "instagram_creation_id": "18122152747816562",
+    "instagram_media_id": "17936446464393740",
+    "status": "published"
   }
 }
